@@ -493,7 +493,7 @@ const R={
 
 /* ═══ MOTOR ══════════════════════════════════════════════ */
 let atual=0;
-const total=SLIDES.length;
+let total=0;
 const wrap=document.getElementById('slides-wrap');
 
 // Inicialização assíncrona
@@ -505,6 +505,7 @@ const wrap=document.getElementById('slides-wrap');
     'Carregando slides…</div>';
 
   await carregarSlides();
+  total = SLIDES.length;
 
   document.getElementById('slides-wrap').innerHTML='';
 
