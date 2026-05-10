@@ -19,5 +19,12 @@
     "titulo": "O que o PSTU diz",
     "texto": "Não é falta de recursos — é uma escolha política consciente de para quem a riqueza vai. Pelo fim da agiotagem da dívida pública!"
   },
-  "diferencial": "O PT manteve o capitalismo. O PSTU é oposição de esquerda independente."
+  "diferencial": "O PT manteve o capitalismo. O PSTU é oposição de esquerda independente.",
+  "imagem_rodape": {
+    "url": "dados/02-b1-pais-rico.png",
+    "alt": "Um país rico governado contra seu povo",
+    "largura": "100%",
+    "altura": 200,
+    "posicao": "center 40%"
+  }
 }

@@ -19,5 +19,12 @@
     "titulo": "Proposta do PSTU",
     "texto": "Pelo fim dos feminicídios e pela legalização do aborto!"
   },
-  "diferencial": "PT e centrão trocam vidas de mulheres por votos no Congresso. O PSTU não faz isso."
+  "diferencial": "PT e centrão trocam vidas de mulheres por votos no Congresso. O PSTU não faz isso.",
+  "imagem_rodape": {
+    "url": "https://www.brasildefato.com.br/wp-content/uploads/2024/09/image_processing20200201-29235-2gmfu9.jpg",
+    "alt": "Chega de feminicídios e de violência contra as mulheres",
+    "largura": "100%",
+    "altura": 200,
+    "posicao": "center 40%"
+  }
 }

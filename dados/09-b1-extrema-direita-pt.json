@@ -46,5 +46,12 @@
       }
     ]
   },
-  "diferencial": "O PSTU é oposição de esquerda independente — não apoia o PT nem a direita. Nossa estratégia é a revolução socialista."
+  "diferencial": "O PSTU é oposição de esquerda independente — não apoia o PT nem a direita. Nossa estratégia é a revolução socialista.",
+  "imagem_rodape": {
+    "url": "dados/09-b1-extrema-direita-pt.png",
+    "alt": "Distintos regimes, mas o mesmo sistema",
+    "largura": "100%",
+    "altura": 200,
+    "posicao": "center 40%"
+  }    
 }

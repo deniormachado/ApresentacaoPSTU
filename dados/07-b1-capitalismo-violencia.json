@@ -16,5 +16,12 @@
     "No Brasil: desindustrialização e retorno ao papel colonial de exportador de matérias-primas."
   ],
   "proposta": null,
-  "diferencial": "Não é falta de vontade política — é o funcionamento estrutural do capitalismo que se aprofunda."
+  "diferencial": "Não é falta de vontade política — é o funcionamento estrutural do capitalismo que se aprofunda.",
+  "imagem_rodape": {
+    "url": "dados/07-b1-capitalismo-violencia.png",
+    "alt": "O capitalismo não existe sem violência, opressão e destruição",
+    "largura": "100%",
+    "altura": 200,
+    "posicao": "center 40%"
+  }    
 }

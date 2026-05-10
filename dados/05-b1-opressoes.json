@@ -19,5 +19,12 @@
     "titulo": "Princípio do PSTU",
     "texto": "A unidade e a emancipação da classe trabalhadora não é possível sem o combate a toda opressão e ao capitalismo."
   },
-  "diferencial": ""
+  "diferencial": "",
+  "imagem_rodape": {
+    "url": "dados/05-b1-opressoes.png",
+    "alt": "A luta contra as opressões",
+    "largura": "100%",
+    "altura": 200,
+    "posicao": "center 40%"
+  }  
 }
