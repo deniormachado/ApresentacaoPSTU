@@ -1,0 +1,30 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 1 · Romper as Engrenagens",
+  "tema": "escuro",
+  "pre_titulo": "Juventude",
+  "titulo": "Sem futuro sob o capitalismo",
+  "subtitulo": "",
+  "texto": "<em>33% dos jovens</em> entre 18 e 29 anos não têm emprego formal nem estão estudando. A juventude negra é a mais atingida.",
+  "imagem_url": "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200",
+  "imagem_escurecimento": 0.68,
+  "imagem_posicao": "centro",
+  "texto_borda": true,
+  "itens": [
+    "<strong>A falácia da meritocracia:</strong> o sistema diz que o sucesso depende apenas do esforço individual.",
+    "<strong>Redes sociais e isolamento:</strong> algoritmos viciantes privilegiam ideologias preconceituosas. Cresce a cultura Redpill.",
+    "<strong>Pandemia de depressão:</strong> 1 em cada 8 adolescentes entre 13–17 anos declara não ver sentido na vida."
+  ],
+  "proposta": {
+    "titulo": "Proposta do PSTU",
+    "texto": "Emprego, educação de qualidade, cultura, lazer e futuro para a juventude!"
+  },
+  "diferencial": "",
+  "links": [
+    {
+      "icone": "video",
+      "texto": "Hertz Dias fala à juventude",
+      "url": "https://www.instagram.com/reel/DW6W1l9BLUl/"
+    }
+  ]
+}

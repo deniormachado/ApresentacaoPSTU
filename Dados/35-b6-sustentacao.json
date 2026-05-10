@@ -1,0 +1,23 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 6 · Ser Militante",
+  "tema": "escuro",
+  "pre_titulo": "Independência financeira",
+  "titulo": "\"Quem paga a banda escolhe a música\"",
+  "subtitulo": "",
+  "texto": "Partidos financiados por grandes empresas ou pelo fundo estatal tornam-se, inevitavelmente, reféns desses interesses.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "Lenin sempre enfatizou que o partido deveria ter uma estrutura financeira sólida alimentada pela base.",
+    "Os operários russos destinavam partes significativas de seus salários para manter a imprensa partidária.",
+    "O ato de contribuir financeiramente era visto como um ato de militância."
+  ],
+  "proposta": {
+    "titulo": "O modelo do PSTU",
+    "texto": "O PSTU só tem direito ao fundo eleitoral. O dia a dia do Partido é sustentado <strong>exclusivamente</strong> por contribuições e campanhas junto à classe trabalhadora e seus militantes."
+  },
+  "diferencial": ""
+}

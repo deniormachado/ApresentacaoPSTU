@@ -1,0 +1,50 @@
+{
+  "tipo": "comparativo",
+  "modulo": "Bloco 1 · Romper as Engrenagens",
+  "tema": "escuro",
+  "pre_titulo": "Análise de conjuntura",
+  "titulo": "Distintos regimes, mas o mesmo sistema",
+  "subtitulo": "",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "coluna_esquerda": {
+    "titulo": "Extrema direita",
+    "cor": "cinza",
+    "itens": [
+      {
+        "texto": "Se apresenta como \"antissistema\" — mas é a parte mais podre do capitalismo.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Tentou um golpe para acabar com as liberdades da classe trabalhadora.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Modelo Milei: destruição de direitos, entrega ao FMI.",
+        "estilo": "destaque"
+      }
+    ]
+  },
+  "coluna_direita": {
+    "titulo": "Governo Lula (PT)",
+    "cor": "cinza",
+    "itens": [
+      {
+        "texto": "Mantém o arcabouço fiscal e a agiotagem da dívida.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Rifa pautas de mulheres, negros e LGBTI por governabilidade com o centrão.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Preserva os lucros dos bilionários e concede subsídios às multinacionais.",
+        "estilo": "destaque"
+      }
+    ]
+  },
+  "diferencial": "O PSTU é oposição de esquerda independente — não apoia o PT nem a direita. Nossa estratégia é a revolução socialista."
+}

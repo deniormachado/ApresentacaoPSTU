@@ -1,0 +1,39 @@
+{
+  "tipo": "cards",
+  "modulo": "Bloco 2 · Quem Somos",
+  "tema": "claro",
+  "pre_titulo": "Frentes de massa",
+  "titulo": "A revolução será negra, mulher, LGBTI e indígena",
+  "subtitulo": "Dentro da CSP-Conlutas, impulsionamos frentes que ligam a luta contra as opressões à luta de classes.",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "cards": [
+    {
+      "nome": "QRC",
+      "cargo": "Quilombo Raça e Classe",
+      "texto": "Luta contra o genocídio da juventude negra e o racismo estrutural.",
+      "foto_url": ""
+    },
+    {
+      "nome": "MML",
+      "cargo": "Mulheres em Luta",
+      "texto": "Contra o feminicídio, pelo aborto legal. Pelo fim das opressões na luta de classes.",
+      "foto_url": ""
+    },
+    {
+      "nome": "Revida",
+      "cargo": "Coletivo LGBTI+",
+      "texto": "Combate às opressões que luta pela diversidade e pelo socialismo.",
+      "foto_url": ""
+    },
+    {
+      "nome": "Rebeldia",
+      "cargo": "Corrente da Juventude",
+      "texto": "Greves estudantis, ocupações e grupos de estudo marxista.",
+      "foto_url": ""
+    }
+  ]
+}

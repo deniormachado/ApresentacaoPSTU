@@ -1,0 +1,21 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 4 · O Estado e a Revolução",
+  "tema": "escuro",
+  "pre_titulo": "O que significa revolução",
+  "titulo": "Na prática",
+  "subtitulo": "\"O proletariado usará a sua supremacia política para arrancar pouco a pouco todo o capital à burguesia.\" — Marx e Engels, Manifesto Comunista, 1848",
+  "texto": "Revolução é um processo em que a classe trabalhadora muda a correlação de forças a seu favor. Não é um golpe ou ação militar de minorias.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "Greves gerais que paralisam a economia.",
+    "Ocupações de fábricas e terras.",
+    "Conselhos de trabalhadores que começam a gerir a produção.",
+    "Mobilização de massa que torna impossível a continuidade do governo burguês."
+  ],
+  "proposta": null,
+  "diferencial": ""
+}

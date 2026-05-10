@@ -1,0 +1,50 @@
+{
+  "tipo": "comparativo",
+  "modulo": "Bloco 4 · O Estado e a Revolução",
+  "tema": "claro",
+  "pre_titulo": "Democracia não é neutra",
+  "titulo": "Democracia burguesa × Democracia operária",
+  "subtitulo": "",
+  "texto": "<strong>Não somos contra a democracia — somos contra essa democracia</strong>, que é democracia para os ricos.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "coluna_esquerda": {
+    "titulo": "Democracia burguesa",
+    "cor": "cinza",
+    "itens": [
+      {
+        "texto": "Voto a cada 2–4 anos — mas maioria dos eleitos é pró-burguesia.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Financiamento milionário de campanhas eleitorais.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Afastamento das decisões do dia a dia dos trabalhadores.",
+        "estilo": "normal"
+      }
+    ]
+  },
+  "coluna_direita": {
+    "titulo": "Democracia operária",
+    "cor": "vermelho",
+    "itens": [
+      {
+        "texto": "Mandatos revogáveis a qualquer momento.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Dirigentes com o mesmo salário de um trabalhador.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Conselhos de fábrica, de bairro, de escola decidindo de verdade.",
+        "estilo": "destaque"
+      }
+    ]
+  },
+  "diferencial": "Defender a democracia contra golpistas não deve ser confundido com defender as formas da democracia burguesa."
+}

@@ -1,0 +1,50 @@
+{
+  "tipo": "comparativo",
+  "modulo": "Bloco 4 · O Estado e a Revolução",
+  "tema": "claro",
+  "pre_titulo": "Os dois braços do mesmo Estado",
+  "titulo": "Repressão e legitimação",
+  "subtitulo": "",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "coluna_esquerda": {
+    "titulo": "Braço repressivo",
+    "cor": "vermelho",
+    "itens": [
+      {
+        "texto": "Polícia, exército, prisões, juízes.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Entram em cena em greves, ocupações, manifestações.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Intimidação permanente das comunidades pobres — especialmente negros.",
+        "estilo": "destaque"
+      }
+    ]
+  },
+  "coluna_direita": {
+    "titulo": "Braço da legitimação",
+    "cor": "escuro",
+    "itens": [
+      {
+        "texto": "Eleições, parlamento, escola, imprensa, igrejas.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Convencem os de baixo de que o sistema é justo.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Que as coisas podem mudar pelo voto.",
+        "estilo": "destaque"
+      }
+    ]
+  },
+  "diferencial": "No Brasil: a polícia que mata jovens negros na periferia é o mesmo Estado que realiza eleições de quatro em quatro anos."
+}

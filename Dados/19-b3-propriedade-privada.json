@@ -1,0 +1,23 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 3 · Engrenagens do Capitalismo",
+  "tema": "claro",
+  "pre_titulo": "A engrenagem principal",
+  "titulo": "A propriedade privada dos meios de produção",
+  "subtitulo": "",
+  "texto": "Tudo que existe — fábricas, terras, bancos, aplicativos — pertence a uma pequena minoria. <em>Não por mérito</em>, mas pelo capital que possuem: herança, acúmulo sobre o trabalho alheio.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "A classe trabalhadora só tem uma coisa para oferecer: sua <strong>FORÇA DE TRABALHO</strong>. Para sobreviver, é obrigada a vendê-la.",
+    "O trabalhador produz a riqueza, mas não é dono dela. O salário é sempre menor do que o valor gerado — Marx chamou isso de <strong>MAIS-VALIA</strong>.",
+    "Quanto mais o capitalismo avança, mais riqueza se concentra num polo — e mais miséria se acumula no outro."
+  ],
+  "proposta": {
+    "titulo": "Resultado inevitável",
+    "texto": "A desigualdade, as crises e a destruição não são acidentes. São o resultado inevitável do funcionamento do sistema."
+  },
+  "diferencial": ""
+}

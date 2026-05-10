@@ -1,0 +1,33 @@
+{
+  "tipo": "cards",
+  "modulo": "Bloco 5 · PSTU nas Eleições 2026",
+  "tema": "claro",
+  "pre_titulo": "Candidaturas operárias e independentes",
+  "titulo": "Os candidatos do PSTU para 2026",
+  "subtitulo": "A classe trabalhadora representando a si mesma",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "cards": [
+    {
+      "nome": "Zé Maria",
+      "cargo": "Presidente Nacional · ex-candidato à presidência",
+      "texto": "Ex-metalúrgico do ABC. Presidente do PSTU desde 1998. Preso junto a Lula na greve histórica de 1980. Símbolo de 31 anos de independência de classe.",
+      "foto_url": ""
+    },
+    {
+      "nome": "Vera Lúcia",
+      "cargo": "Candidata ao governo de SP em 2026",
+      "texto": "Operária, negra, nordestina. Primeira mulher negra a disputar a presidência por um partido de esquerda (2018 e 2022).",
+      "foto_url": ""
+    },
+    {
+      "nome": "Hertz Dias",
+      "cargo": "Pré-candidato à presidência em 2026",
+      "texto": "Rapper do Gíria Vermelha. Fundador do Quilombo Urbano no Maranhão. Professor de História da rede pública. Ativista do movimento negro.",
+      "foto_url": ""
+    }
+  ]
+}

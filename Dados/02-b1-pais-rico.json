@@ -1,0 +1,23 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 1 · Romper as Engrenagens",
+  "tema": "claro",
+  "pre_titulo": "",
+  "titulo": "Um país <em>rico</em> governado contra seu povo",
+  "subtitulo": "",
+  "texto": "O Brasil é um país rico, mas extremamente desigual. A riqueza produzida pela classe trabalhadora não chega no andar de baixo.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "<strong>PARASITAS.</strong> Uma pequena minoria de bilionários se apropria da riqueza. <em>250 grandes empresas</em> controlam a maior parte da economia brasileira.",
+    "<strong>ESQUERDA. DIREITA.</strong> Mudam os governos, prometem melhorar — o resultado é um país cada vez mais dependente, desindustrializado.",
+    "<strong>UM PAÍS DOMINADO.</strong> O Brasil está preso a um ciclo de dominação imperialista: importa tecnologia, exporta minérios — e a riqueza escoa para fora."
+  ],
+  "proposta": {
+    "titulo": "O que o PSTU diz",
+    "texto": "Não é falta de recursos — é uma escolha política consciente de para quem a riqueza vai. Pelo fim da agiotagem da dívida pública!"
+  },
+  "diferencial": "O PT manteve o capitalismo. O PSTU é oposição de esquerda independente."
+}

@@ -1,0 +1,20 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 5 · PSTU nas Eleições 2026",
+  "tema": "claro",
+  "pre_titulo": "O PSTU na eleição de 2026",
+  "titulo": "Três tarefas centrais",
+  "subtitulo": "",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "<strong>Agitação e propaganda qualificada:</strong> elaboração programática combinada com inserção real nas lutas. Construir influencers, potencializar redes e debates.",
+    "<strong>Construir nossas figuras públicas:</strong> candidatos ligados às lutas reais, que traduzam nossa política de forma acessível. Construir tribunos populares.",
+    "<strong>Organizar mais gente:</strong> comunidade de ativistas, apoiadores, leitores do jornal, filiados, grupos nas redes sociais."
+  ],
+  "proposta": null,
+  "diferencial": "Por muito tempo, ser \"o partido das lutas\" foi insuficiente — faltava o aspecto programático e ideológico."
+}

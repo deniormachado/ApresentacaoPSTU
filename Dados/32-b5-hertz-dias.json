@@ -1,0 +1,36 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 5 · PSTU nas Eleições 2026",
+  "tema": "escuro",
+  "pre_titulo": "Hertz Dias 2026",
+  "titulo": "Uma candidatura a serviço da construção socialista",
+  "subtitulo": "",
+  "texto": "Não se trata de um projeto eleitoreiro — é uma ferramenta para fortalecer a construção de uma alternativa socialista e revolucionária, <em>independente dos patrões, dos bilionários e do imperialismo</em>.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "direita",
+  "texto_borda": false,
+  "itens": [
+    "Luta unificada com negros, mulheres, LGBTI+, povos originários e juventude.",
+    "Contra todos os imperialismos — pela Segunda Independência da América Latina.",
+    "Por um governo dos trabalhadores sem capitalistas.",
+    "Por uma revolução socialista protagonizada pela própria classe trabalhadora."
+  ],
+  "proposta": {
+    "titulo": "Programa da candidatura",
+    "texto": "Só uma candidatura independente dos patrões pode defender com legitimidade um programa de ruptura com o sistema capitalista. PT e PSOL fazem alianças de classe — o PSTU não."
+  },
+  "diferencial": "",
+  "links": [
+    {
+      "icone": "video",
+      "texto": "Programa da candidatura",
+      "url": "https://pstu.org.br"
+    },
+    {
+      "icone": "artigo",
+      "texto": "Manifesto Eleitoral 2026",
+      "url": "https://pstu.org.br"
+    }
+  ]
+}

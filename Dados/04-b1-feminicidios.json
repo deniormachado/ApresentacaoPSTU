@@ -1,0 +1,23 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 1 · Romper as Engrenagens",
+  "tema": "vermelho",
+  "pre_titulo": "",
+  "titulo": "Chega de feminicídios e de violência contra as mulheres",
+  "subtitulo": "",
+  "texto": "As mulheres ganham <em>78% do salário dos homens</em> e ainda sustentam sozinhas o cuidado com filhos, idosos e a casa.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "O capitalismo utiliza o machismo para impor superexploração — paga menos, extrai mais.",
+    "O governo Lula rifou as pautas das mulheres para costurar acordos com a direita.",
+    "O Estado deve fornecer creches, lavanderias e restaurantes públicos."
+  ],
+  "proposta": {
+    "titulo": "Proposta do PSTU",
+    "texto": "Pelo fim dos feminicídios e pela legalização do aborto!"
+  },
+  "diferencial": "PT e centrão trocam vidas de mulheres por votos no Congresso. O PSTU não faz isso."
+}

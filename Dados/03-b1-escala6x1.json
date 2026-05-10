@@ -1,0 +1,24 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 1 · Romper as Engrenagens",
+  "tema": "escuro",
+  "pre_titulo": "Escala 6×1",
+  "titulo": "Vivemos para trabalhar<br/>e não temos tempo de viver",
+  "subtitulo": "",
+  "texto": "A escala 6×1 é a expressão cotidiana da exploração capitalista: não vemos a família, não temos lazer. O adoecimento físico e mental se alastra.",
+  "imagem_url": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200",
+  "imagem_escurecimento": 0.72,
+  "imagem_posicao": "centro",
+  "texto_borda": true,
+  "itens": [
+    "Redução para <strong>30 horas</strong> sem redução de salário e sem demissões",
+    "Aumento geral dos salários rumo ao mínimo do DIEESE (R$ 7.200)",
+    "Revogação das reformas Trabalhista e Previdenciária de Temer",
+    "Direitos trabalhistas para entregadores de apps (Uber, iFood)"
+  ],
+  "proposta": {
+    "titulo": "Proposta do PSTU",
+    "texto": "É possível e necessário acabar com a escala 6×1. Basta tirar uma ínfima parte do lucro das grandes empresas."
+  },
+  "diferencial": "O PT prometeu acabar com a escala e não cumpriu. O PSTU não negocia vidas por votos."
+}

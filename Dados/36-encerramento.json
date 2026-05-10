@@ -1,0 +1,34 @@
+{
+  "tipo": "capa",
+  "modulo": "",
+  "tema": "vermelho",
+  "eh_secao": true,
+  "rotulo_secao": "Fim",
+  "pre_titulo": "Venha fazer parte da luta!",
+  "titulo": "Pela revolução<br/>e o socialismo",
+  "subtitulo": "facaparte.pstu.org.br",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "logos": [],
+  "tem_linha_acento": true,
+  "links": [
+    {
+      "icone": "link",
+      "texto": "pstu.org.br",
+      "url": "https://pstu.org.br"
+    },
+    {
+      "icone": "link",
+      "texto": "opiniaosocialista.com.br",
+      "url": "https://opiniaosocialista.com.br"
+    },
+    {
+      "icone": "link",
+      "texto": "litci.org/pt/",
+      "url": "https://litci.org/pt/"
+    }
+  ]
+}

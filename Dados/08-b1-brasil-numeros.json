@@ -1,0 +1,40 @@
+{
+  "tipo": "estatisticas",
+  "modulo": "Bloco 1 · Romper as Engrenagens",
+  "tema": "claro",
+  "pre_titulo": "Brasil em números",
+  "titulo": "A riqueza que não chega",
+  "subtitulo": "Fontes: PENSSAN · BCB · TSE · PSTU",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "estatisticas": [
+    {
+      "numero": "54 mi",
+      "descricao": "em insegurança alimentar",
+      "fonte": "Rede PENSSAN, 2023",
+      "cor": "vermelho"
+    },
+    {
+      "numero": "80 mi",
+      "descricao": "sem emprego ou na informalidade",
+      "fonte": "IBGE, 2024",
+      "cor": "escuro"
+    },
+    {
+      "numero": "13,5%",
+      "descricao": "do PIB para juros da dívida pública",
+      "fonte": "BCB, 2024",
+      "cor": "vermelho"
+    },
+    {
+      "numero": "R$427bi",
+      "descricao": "em dividendos da Petrobras em 5 anos",
+      "fonte": "Manifesto PSTU, 2026",
+      "cor": "escuro"
+    }
+  ],
+  "diferencial": "Esses números mostram que não há falta de riqueza — há uma escolha política consciente de para quem essa riqueza vai."
+}

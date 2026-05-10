@@ -1,0 +1,36 @@
+{
+  "tipo": "timeline",
+  "modulo": "Bloco 2 · Quem Somos",
+  "tema": "claro",
+  "pre_titulo": "Origens e luta contra a ditadura",
+  "titulo": "A construção da independência de classe",
+  "subtitulo": "",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens_timeline": [
+    {
+      "ano": "1973",
+      "texto": "Jovens trotskistas brasileiros exilados organizam-se após o golpe no Chile em torno da futura LIT, liderada por Nahuel Moreno."
+    },
+    {
+      "ano": "1978",
+      "texto": "Lançamento da Convergência Socialista (CS) — uma das primeiras org. trotskistas a atuar abertamente no Brasil."
+    },
+    {
+      "ano": "1980",
+      "texto": "CS cofunda o PT, respondendo por ~20% das primeiras 100 mil filiações. 1ª Conferência de Mulheres da CS."
+    },
+    {
+      "ano": "1992",
+      "texto": "CS defende o \"Fora Collor!\". A direção do PT se opõe. Resultado: expulsão da CS."
+    },
+    {
+      "ano": "1994",
+      "texto": "Fundação do PSTU em 5 de junho, em São Paulo, como alternativa revolucionária e independente."
+    }
+  ],
+  "diferencial": "A expulsão do PT não foi derrota — foi coerência. O PT foi crescendo para dentro do sistema; o PSTU manteve a perspectiva revolucionária."
+}
