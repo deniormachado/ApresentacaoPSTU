@@ -2,7 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.json">
 <title>PSTU — Apresentação 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -319,6 +324,33 @@ body.paisagem .sc{padding:16px 20px 16px}
   display:none;z-index:9999;font-family:'Barlow',sans-serif
 }
 
+/* ══════════ FULLSCREEN ══════════════════════════════════ */
+#btn-fullscreen{
+  position:fixed;bottom:14px;right:14px;z-index:10000;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:6px;padding:7px 11px;
+  font-size:13px;color:rgba(255,255,255,.8);
+  cursor:pointer;transition:all .2s;
+  font-family:'Barlow',sans-serif;
+  line-height:1
+}
+#btn-fullscreen:hover{background:rgba(204,17,17,.7);border-color:transparent;color:#fff}
+:fullscreen #btn-fullscreen,:-webkit-full-screen #btn-fullscreen{bottom:env(safe-area-inset-bottom,14px)}
+
+@media (display-mode:fullscreen){
+  body{background:#000}
+  #btn-fullscreen{display:none}
+}
+
+/* Safe area — notch / barra do sistema */
+html{
+  padding-top:env(safe-area-inset-top);
+  padding-bottom:env(safe-area-inset-bottom);
+  padding-left:env(safe-area-inset-left);
+  padding-right:env(safe-area-inset-right);
+}
+
 @media (max-width:540px){
   body.retrato #shell{padding:0}
   body.retrato #viewport{max-height:100%;border-radius:0}
@@ -330,7 +362,8 @@ body.paisagem .sc{padding:16px 20px 16px}
 </style>
 </head>
 <body class="retrato">
-
+<script>window.addEventListener('load',()=>window.scrollTo(0,1));</script>
+<button id="btn-fullscreen" title="Tela cheia">⛶</button>
 <div id="shell">
   <div id="viewport">
 
@@ -526,6 +559,22 @@ window.addEventListener('resize',()=>{
 });
 
 aplicarOrientacao();
+
+/* ═══ FULLSCREEN API ════════════════════════════════════ */
+document.getElementById('btn-fullscreen').addEventListener('click',()=>{
+  const el=document.documentElement;
+  if(!document.fullscreenElement&&!document.webkitFullscreenElement){
+    (el.requestFullscreen||el.webkitRequestFullscreen||el.mozRequestFullScreen).call(el)
+      .catch(()=>{});
+  } else {
+    (document.exitFullscreen||document.webkitExitFullscreen||document.mozCancelFullScreen)
+      .call(document);
+  }
+});
+document.addEventListener('fullscreenchange',()=>{
+  document.getElementById('btn-fullscreen').textContent=
+    document.fullscreenElement ? '✕' : '⛶';
+});
 </script>
 </body>
 </html>
