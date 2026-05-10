@@ -1,0 +1,17 @@
+{
+  "tipo": "capa",
+  "modulo": "",
+  "tema": "escuro",
+  "eh_secao": true,
+  "rotulo_secao": "Início",
+  "pre_titulo": "Apresentação · PSTU · LIT-QI",
+  "titulo": "PSTU",
+  "subtitulo": "Partido Socialista dos Trabalhadores Unificado<br/>Venha conhecer o PSTU. Faça parte!",
+  "texto": "",
+  "imagem_url": "",
+  "logos": [
+    "https://www.opiniaosocialista.com.br/wp-content/uploads/2024/07/WhatsApp-Image-2024-03-09-at-13.31.25-e1720734646795.jpeg",
+    "https://litci.org/pt/wp-content/uploads/2022/07/LIT.jpg"
+  ],
+  "tem_linha_acento": true
+}

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>PSTU — Apresentação 2026 · Paisagem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════
+   TOKENS — idênticos ao retrato
+═══════════════════════════════════════════ */
+:root {
+  --red:       #CC1111;
+  --red-dk:    #aa0d0d;
+  --red-lt:    #fff3f3;
+  --red-bd:    #f5cccc;
+  --dark:      #111111;
+  --deep:      #1c1c2e;
+  --gray:      #555;
+  --gray-lt:   #888;
+  --border:    #ddd;
+  --bg-light:  #f5f5f5;
+  --white:     #ffffff;
+  --r:         4px;
+  --r-md:      8px;
+  --claro-bg:    #ffffff;   --claro-fg:    #111111;
+  --escuro-bg:   #1a1a1a;   --escuro-fg:   #f0f0f0;
+  --profundo-bg: #1c1c2e;   --profundo-fg: #e8e8f0;
+  --vermelho-bg: #CC1111;   --vermelho-fg: #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: #1a1a1a;
+  font-family: 'Barlow', sans-serif;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   SHELL — LANDSCAPE
+   Layout: barra lateral esquerda (nav) + conteúdo
+═══════════════════════════════════════════ */
+#shell {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 10px;
+}
+
+#viewport {
+  width: 100%; max-width: 960px;
+  height: 100%; max-height: 560px;
+  display: flex; flex-direction: row;
+  background: #111;
+  box-shadow: 0 8px 56px rgba(0,0,0,.55);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+/* ── PAINEL LATERAL (navegação) ── */
+#sidebar {
+  width: 56px; flex-shrink: 0;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(255,255,255,.07);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: space-between;
+  padding: 14px 0;
+}
+#progresso-wrap {
+  width: 3px; flex: 1;
+  background: rgba(255,255,255,.1);
+  border-radius: 2px;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+#barra-progresso {
+  width: 100%; background: var(--red);
+  transition: height .3s ease;
+  height: 0%; position: absolute; bottom: 0;
+  border-radius: 2px;
+}
+#sidebar button {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.6); cursor: pointer;
+  transition: all .15s; flex-shrink: 0;
+}
+#sidebar button:hover:not(:disabled) {
+  background: var(--red); color: white; border-color: var(--red);
+}
+#sidebar button:disabled { opacity: .2; cursor: default; }
+#contador {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; color: rgba(255,255,255,.3);
+  letter-spacing: .05em; writing-mode: vertical-rl;
+  text-orientation: mixed; user-select: none;
+  margin: 8px 0;
+}
+
+/* ── SLIDES ÁREA ── */
+#slides-wrap {
+  flex: 1; overflow: hidden; position: relative;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDES — ESTRUTURA BASE
+═══════════════════════════════════════════ */
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: row;  /* LANDSCAPE: linha */
+  overflow: hidden;
+  opacity: 0; pointer-events: none;
+  transform: translateY(32px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.slide.ativo   { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.slide.sair-esq { opacity: 0; transform: translateY(-32px); pointer-events: none; }
+.slide.sair-dir { opacity: 0; transform: translateY(32px);  pointer-events: none; }
+
+/* Temas */
+.tema-claro    { --bg: var(--claro-bg);    --fg: var(--claro-fg);    --fg2: var(--gray); }
+.tema-escuro   { --bg: var(--escuro-bg);   --fg: var(--escuro-fg);   --fg2: rgba(255,255,255,.55); }
+.tema-profundo { --bg: var(--profundo-bg); --fg: var(--profundo-fg); --fg2: rgba(232,232,240,.55); }
+.tema-vermelho { --bg: var(--vermelho-bg); --fg: var(--vermelho-fg); --fg2: rgba(255,255,255,.75); }
+.slide { background: var(--bg, #fff); color: var(--fg, #111); }
+
+/* Imagem de fundo */
+.slide-bg-img {
+  position: absolute; inset: 0;
+  background-size: cover; background-repeat: no-repeat;
+  z-index: 0;
+}
+.slide-bg-dim {
+  position: absolute; inset: 0;
+  background: #000; z-index: 1;
+}
+
+/* ═══════════════════════════════════════════
+   LAYOUT LANDSCAPE — COLUNA ESQUERDA + DIREITA
+═══════════════════════════════════════════ */
+.slide-content {
+  position: relative; z-index: 2;
+  flex: 1; overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0 24px;
+  padding: 22px 26px;
+  align-content: start;
+}
+
+/* slides sem coluna dupla ficam em 1 coluna */
+.slide-content.layout-unico {
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* slides tipo capa/seção/citação centrados */
+.slide-content.layout-centro {
+  grid-template-columns: 1fr;
+  align-content: center;
+  justify-items: start;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ── DISTRIBUIÇÃO DOS ELEMENTOS NO GRID ── */
+.slide-modulo,
+.slide-pretitulo,
+.slide-titulo,
+.slide-subtitulo,
+.slide-texto {
+  grid-column: 1 / -1; /* ocupa tudo por padrão */
+}
+
+/* em slides "texto" com itens: título à esquerda, itens à direita */
+.slide-content.layout-dividido .slide-titulo,
+.slide-content.layout-dividido .slide-pretitulo,
+.slide-content.layout-dividido .slide-modulo,
+.slide-content.layout-dividido .slide-texto {
+  grid-column: 1;
+}
+.slide-content.layout-dividido .bloco-lista,
+.slide-content.layout-dividido .bloco-proposta,
+.slide-content.layout-dividido .bloco-diff,
+.slide-content.layout-dividido .bloco-links {
+  grid-column: 2;
+  align-self: start;
+}
+
+/* texto com borda */
+.texto-borda .slide-titulo,
+.texto-borda .slide-pretitulo,
+.texto-borda .slide-texto,
+.texto-borda .bloco-lista li,
+.texto-borda .secao-titulo,
+.texto-borda .capa-titulo,
+.texto-borda .capa-subtitulo,
+.texto-borda .cit-texto {
+  text-shadow:
+    0 0 8px rgba(0,0,0,.9),
+    0 1px 3px rgba(0,0,0,.8),
+    -1px -1px 0 rgba(0,0,0,.6),
+     1px -1px 0 rgba(0,0,0,.6),
+    -1px  1px 0 rgba(0,0,0,.6),
+     1px  1px 0 rgba(0,0,0,.6);
+}
+
+/* ═══════════════════════════════════════════
+   TIPOGRAFIA
+═══════════════════════════════════════════ */
+.slide-modulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 4px;
+}
+.slide-pretitulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--fg2); margin-bottom: 6px;
+}
+.slide-titulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px; font-weight: 800;
+  line-height: 1.08; text-transform: uppercase;
+  color: var(--fg); margin-bottom: 8px;
+}
+.tema-claro .slide-titulo { color: var(--red); }
+.slide-subtitulo {
+  font-size: 12.5px; color: var(--fg2);
+  line-height: 1.55; margin-bottom: 8px; font-style: italic;
+}
+.slide-texto {
+  font-size: 13px; line-height: 1.6; color: var(--fg); margin: 4px 0 8px;
+}
+
+/* ═══════════════════════════════════════════
+   BLOCOS
+═══════════════════════════════════════════ */
+.bloco-lista { list-style: none; padding: 0; margin: 6px 0; }
+.bloco-lista li {
+  font-size: 12.5px; line-height: 1.55; color: var(--fg);
+  padding: 3px 0 3px 14px; position: relative;
+}
+.bloco-lista li::before { content:'—'; position:absolute; left:0; color:var(--red); font-weight:700; }
+
+.bloco-proposta {
+  background: rgba(204,17,17,.12);
+  border-left: 3px solid var(--red);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 10px 12px; margin: 8px 0;
+}
+.tema-claro .bloco-proposta { background: var(--red-lt); }
+.proposta-titulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 4px;
+}
+.proposta-texto { font-size: 12.5px; line-height: 1.5; color: var(--red); }
+.tema-escuro .proposta-texto,
+.tema-profundo .proposta-texto { color: #ff8888; }
+
+.bloco-diff {
+  background: rgba(255,255,255,.07);
+  border-radius: var(--r); padding: 8px 11px;
+  margin: 8px 0; font-size: 12px; line-height: 1.5; color: var(--fg2);
+}
+.tema-claro .bloco-diff { background: #f0f0f0; color: var(--gray); }
+.diff-simbolo { font-weight: 800; color: var(--red); margin-right: 5px; }
+
+.bloco-links { padding-top: 10px; border-top: 1px solid rgba(255,255,255,.1); margin-top: 8px; }
+.tema-claro .bloco-links { border-color: var(--border); }
+.links-label { font-size: 11px; font-weight: 700; color: var(--fg); margin-bottom: 6px; }
+.links-wrap { display: flex; gap: 7px; flex-wrap: wrap; }
+.link-btn {
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--r); padding: 5px 10px;
+  font-size: 11px; color: var(--fg); text-decoration: none;
+  font-family: 'Barlow', sans-serif; transition: background .15s;
+}
+.tema-claro .link-btn { background: var(--bg-light); border-color: var(--border); color: var(--dark); }
+.link-btn:hover { background: var(--red); color: white; border-color: var(--red); }
+.link-icon { width: 13px; height: 13px; display: flex; flex-shrink: 0; }
+.link-icon svg { width: 100%; height: 100%; }
+
+.linha-acento { width: 36px; height: 3px; background: var(--red); margin: 6px 0 10px; border-radius: 2px; }
+
+/* ═══════════════════════════════════════════
+   CAPA — LANDSCAPE
+═══════════════════════════════════════════ */
+.capa-pretitulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--fg2); margin-bottom: 12px;
+  grid-column: 1 / -1;
+}
+.capa-titulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 80px; font-weight: 800; line-height: .92;
+  text-transform: uppercase; color: var(--fg);
+  grid-column: 1; align-self: center;
+}
+.capa-subtitulo {
+  font-size: 15px; line-height: 1.65; color: var(--fg2);
+  grid-column: 2; align-self: center;
+  padding-left: 8px;
+  border-left: 2px solid var(--red);
+}
+.capa-logos {
+  display: flex; gap: 10px; align-items: center;
+  grid-column: 1 / -1; margin-top: 8px;
+}
+.capa-logo-img {
+  height: 36px; width: auto; border-radius: var(--r);
+  border: 1px solid rgba(255,255,255,.15);
+  object-fit: contain; background: rgba(255,255,255,.05);
+}
+.capa-nav-hint {
+  font-size: 10px; color: var(--fg2); grid-column: 1 / -1; margin-top: 16px;
+}
+
+/* ═══════════════════════════════════════════
+   SEÇÃO — LANDSCAPE
+═══════════════════════════════════════════ */
+.secao-content {
+  grid-template-columns: auto 1fr;
+  align-content: center;
+  gap: 0 28px;
+}
+.secao-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 140px; font-weight: 800; line-height: 1;
+  color: rgba(255,255,255,.06); letter-spacing: -.04em;
+  grid-column: 1; grid-row: 1 / 4; align-self: center;
+  user-select: none; pointer-events: none;
+}
+.secao-pretitulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--red); grid-column: 2; margin-bottom: 4px;
+}
+.secao-titulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px; font-weight: 800;
+  text-transform: uppercase; line-height: 1.1;
+  color: var(--fg); grid-column: 2; margin-bottom: 10px;
+}
+.secao-subtitulo { font-size: 13px; color: var(--fg2); line-height: 1.6; grid-column: 2; }
+.secao-texto { font-size: 12.5px; color: var(--fg2); line-height: 1.6; grid-column: 2; margin-top: 8px; }
+.secao-content .linha-acento { grid-column: 2; }
+
+/* ═══════════════════════════════════════════
+   CITAÇÃO — LANDSCAPE
+═══════════════════════════════════════════ */
+.citacao-content {
+  grid-template-columns: 1fr;
+  align-content: center;
+  max-width: 680px; margin: 0 auto;
+}
+.cit-texto {
+  font-size: 16px; line-height: 1.7; font-style: italic; color: var(--fg);
+  border-left: 3px solid var(--red); padding-left: 16px; margin: 10px 0;
+}
+.cit-fonte { font-size: 12px; font-weight: 600; color: var(--fg2); text-align: right; margin-bottom: 12px; }
+.cit-nota  { font-size: 12px; color: var(--fg2); line-height: 1.6; border-top: 1px solid rgba(255,255,255,.1); padding-top: 10px; }
+.tema-claro .cit-nota { border-color: var(--border); }
+
+/* ═══════════════════════════════════════════
+   COMPARATIVO — LANDSCAPE
+═══════════════════════════════════════════ */
+.comp-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin: 8px 0; grid-column: 1 / -1;
+}
+.comp-col { border-radius: var(--r-md); padding: 12px; }
+.comp-col.cor-vermelho { background: rgba(204,17,17,.15); border: 1px solid rgba(204,17,17,.3); }
+.comp-col.cor-escuro   { background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.1); }
+.comp-col.cor-cinza    { background: rgba(128,128,128,.12); border: 1px solid rgba(128,128,128,.2); }
+.tema-claro .comp-col.cor-cinza { background: #f5f5f5; border-color: var(--border); }
+.tema-claro .comp-col.cor-vermelho { background: var(--red-lt); border-color: var(--red-bd); }
+.comp-col-titulo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 7px;
+  padding-bottom: 5px; border-bottom: 1px solid rgba(204,17,17,.25);
+}
+.col-item { font-size: 12px; line-height: 1.5; color: var(--fg); padding: 3px 0; }
+.col-item-destaque { font-weight: 700; }
+
+/* ═══════════════════════════════════════════
+   ESTATÍSTICAS — LANDSCAPE
+═══════════════════════════════════════════ */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 10px; margin: 8px 0; grid-column: 1 / -1;
+}
+.stat-card { border-radius: var(--r-md); padding: 14px 12px; display: flex; flex-direction: column; gap: 3px; }
+.stat-card.cor-vermelho { background: var(--red); color: white; }
+.stat-card.cor-escuro   { background: rgba(255,255,255,.08); color: var(--fg); }
+.tema-claro .stat-card.cor-escuro { background: #1a1a1a; color: white; }
+.stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; line-height: 1; }
+.stat-desc { font-size: 11px; line-height: 1.35; font-weight: 600; }
+.stat-fonte { font-size: 9.5px; opacity: .6; margin-top: 2px; }
+
+/* ═══════════════════════════════════════════
+   TIMELINE — LANDSCAPE
+═══════════════════════════════════════════ */
+.tl-wrap {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6px 14px; margin: 8px 0; grid-column: 1 / -1;
+}
+.tl-item { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+.tema-claro .tl-item { border-color: var(--border); }
+.tl-ano { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; color: var(--red); min-width: 36px; flex-shrink: 0; }
+.tl-texto { font-size: 12px; line-height: 1.5; color: var(--fg); }
+
+/* ═══════════════════════════════════════════
+   DIVIDIDO — LANDSCAPE
+═══════════════════════════════════════════ */
+.div-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; grid-column: 1 / -1; }
+.div-item { background: rgba(255,255,255,.05); border-radius: var(--r-md); padding: 12px; border-left: 3px solid var(--red); }
+.tema-claro .div-item { background: var(--bg-light); }
+.div-item strong { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--red); display: block; margin-bottom: 4px; }
+.div-item p { font-size: 12.5px; line-height: 1.5; color: var(--fg); }
+
+/* ═══════════════════════════════════════════
+   CARDS — LANDSCAPE
+═══════════════════════════════════════════ */
+.cards-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin: 8px 0; grid-column: 1 / -1;
+}
+.card-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: rgba(255,255,255,.05); border-radius: var(--r-md); padding: 10px;
+}
+.tema-claro .card-item { background: var(--bg-light); border: 1px solid var(--border); }
+.card-foto { width: 40px; height: 40px; border-radius: 50%; background-size: cover; background-position: center; flex-shrink: 0; }
+.card-foto-vazia { background: var(--red); display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: white; }
+.card-nome { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; color: var(--fg); }
+.card-cargo { font-size: 10px; color: var(--red); font-weight: 600; margin: 2px 0 3px; }
+.card-texto { font-size: 11.5px; line-height: 1.45; color: var(--fg2); }
+
+/* ═══════════════════════════════════════════
+   DISCUSSÃO
+═══════════════════════════════════════════ */
+.discussao-content { grid-template-columns: 1fr; align-content: center; justify-items: center; text-align: center; max-width: 520px; margin: 0 auto; }
+.disc-icone { font-family: 'Barlow Condensed', sans-serif; font-size: 64px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 12px; opacity: .7; }
+.disc-pergunta { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; text-transform: uppercase; color: var(--fg); line-height: 1.2; margin-bottom: 12px; }
+.disc-dica { font-size: 13px; color: var(--fg2); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════
+   VÍDEO
+═══════════════════════════════════════════ */
+.video-play { width: 48px; height: 48px; background: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.video-play svg { width: 20px; height: 20px; color: white; fill: white; }
+.video-link { font-size: 12px; color: var(--red); word-break: break-all; text-decoration: underline; margin-top: 6px; }
+
+/* ═══════════════════════════════════════════
+   MOBILE EM PAISAGEM (< 640px)
+═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  #shell { padding: 0; }
+  #viewport { max-height: 100%; border-radius: 0; }
+  #sidebar { width: 44px; }
+}
+</style>
+</head>
+<body>
+<div id="shell">
+  <div id="viewport">
+    <!-- Sidebar com navegação vertical -->
+    <div id="sidebar">
+      <button id="btn-prev" disabled title="Anterior">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+      </button>
+      <div id="progresso-wrap"><div id="barra-progresso"></div></div>
+      <span id="contador"></span>
+      <button id="btn-next" title="Próximo">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <!-- Área de slides -->
+    <div id="slides-wrap"></div>
+  </div>
+</div>
+<script src="motor.js"></script>
+<script>
+/* Paisagem: layout dividido nos slides do tipo "texto" com itens */
+const _origRender = Motor._renderTodos;
+Motor._renderTodos = function() {
+  _origRender.call(this);
+  this.el.querySelectorAll('.slide').forEach(sl => {
+    const content = sl.querySelector('.slide-content');
+    if (!content) return;
+    const tipo = this.slides[+sl.dataset.index]?.tipo;
+
+    if (tipo === 'capa') {
+      content.style.cssText = '';
+      return;
+    }
+    if (tipo === 'secao') {
+      content.classList.add('secao-content');
+      return;
+    }
+    if (tipo === 'citacao') {
+      content.classList.add('citacao-content');
+      return;
+    }
+    if (tipo === 'discussao') {
+      content.classList.add('discussao-content');
+      return;
+    }
+    if (tipo === 'texto') {
+      const lista = content.querySelector('.bloco-lista');
+      if (lista) content.classList.add('layout-dividido');
+      else        content.classList.add('layout-unico');
+      return;
+    }
+    /* estatísticas, comparativo, timeline, cards, dividido */
+    content.classList.add('layout-unico');
+    // forçar grid full-width nesses
+    content.style.gridTemplateColumns = '1fr';
+  });
+};
+
+/* Barra de progresso vertical */
+const _origUI = Motor._atualizarUI;
+Motor._atualizarUI = function() {
+  _origUI.call(this);
+  const pct = this.total > 1 ? (this.atual / (this.total - 1)) * 100 : 100;
+  const pbar = document.getElementById('barra-progresso');
+  if (pbar) pbar.style.height = pct + '%';
+};
+
+Motor.init('slides-wrap');
+</script>
+</body>
+</html>

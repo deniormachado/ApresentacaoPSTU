@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>PSTU — Apresentação 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══ TOKENS ═══════════════════════════════════════════ */
+:root{
+  --red:#CC1111;--red-lt:#fff3f3;--red-bd:#f5cccc;
+  --dark:#111;--deep:#1c1c2e;--gray:#555;--gray-lt:#888;
+  --border:#ddd;--bg-lt:#f5f5f5;--r:4px;--r-md:8px;
+  --dur:.28s;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Barlow',sans-serif;overflow:hidden;background:#1a1a1a}
+
+/* ═══ SHELL ══════════════════════════════════════════════ */
+#shell{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:10px;transition:padding var(--dur)}
+
+/* ═══ VIEWPORT ═══════════════════════════════════════════ */
+#viewport{
+  display:flex;overflow:hidden;
+  box-shadow:0 8px 56px rgba(0,0,0,.55);
+  border-radius:var(--r-md);
+  background:#111;
+  /* tamanho e direção controlados por classe no body */
+  transition:max-width var(--dur) ease, max-height var(--dur) ease, flex-direction var(--dur);
+}
+
+/* ════════ RETRATO ═══════════════════════════════════════ */
+body.retrato #shell{padding:10px}
+body.retrato #viewport{flex-direction:column;width:100%;max-width:520px;height:100%;max-height:860px}
+body.retrato #sidebar{display:none}
+body.retrato #nav-bar{display:flex;flex-direction:column}
+
+/* ════════ PAISAGEM ══════════════════════════════════════ */
+body.paisagem #shell{padding:8px}
+body.paisagem #viewport{flex-direction:row;width:100%;max-width:960px;height:100%;max-height:560px}
+body.paisagem #nav-bar{display:none}
+body.paisagem #sidebar{display:flex}
+
+/* ═══ BARRA DE PROGRESSO HORIZONTAL (retrato) ════════════ */
+#prog-h-wrap{height:3px;background:rgba(255,255,255,.1);flex-shrink:0}
+#prog-h{height:100%;background:var(--red);transition:width .3s ease;width:0%}
+body.paisagem #prog-h-wrap{display:none}
+
+/* ═══ NAV BAR HORIZONTAL (retrato) ═══════════════════════ */
+#nav-bar{
+  flex-shrink:0;background:rgba(0,0,0,.65);
+  backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,.07);
+  padding:9px 16px;
+  align-items:center;justify-content:space-between;gap:8px
+}
+#nav-bar button{
+  display:flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r);padding:6px 14px;
+  font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;
+  color:rgba(255,255,255,.7);cursor:pointer;transition:all .15s
+}
+#nav-bar button:hover:not(:disabled){background:var(--red);color:#fff;border-color:var(--red)}
+#nav-bar button:disabled{opacity:.22;cursor:default}
+#counter-h{font-family:'Barlow Condensed',sans-serif;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.08em;user-select:none}
+
+/* ═══ SIDEBAR VERTICAL (paisagem) ════════════════════════ */
+#sidebar{
+  width:52px;flex-shrink:0;flex-direction:column;
+  align-items:center;justify-content:space-between;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(12px);
+  border-right:1px solid rgba(255,255,255,.07);
+  padding:12px 0
+}
+#sidebar button{
+  width:36px;height:36px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r);display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;flex-shrink:0
+}
+#sidebar button:hover:not(:disabled){background:var(--red);color:#fff;border-color:var(--red)}
+#sidebar button:disabled{opacity:.2;cursor:default}
+#prog-v-wrap{flex:1;width:3px;background:rgba(255,255,255,.1);border-radius:2px;margin:10px 0;position:relative;overflow:hidden}
+#prog-v{width:100%;background:var(--red);transition:height .3s ease;height:0%;position:absolute;bottom:0;border-radius:2px}
+#counter-v{font-family:'Barlow Condensed',sans-serif;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.05em;writing-mode:vertical-rl;user-select:none;margin:8px 0}
+
+/* ═══ SLIDES WRAP ════════════════════════════════════════ */
+#slides-wrap{flex:1;overflow:hidden;position:relative}
+
+/* ═══ SLIDE BASE ══════════════════════════════════════════ */
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  opacity:0;pointer-events:none;
+  transform:translateX(48px);
+  transition:opacity var(--dur) ease, transform var(--dur) ease
+}
+.slide.ativo{opacity:1;pointer-events:auto;transform:translateX(0)}
+.slide.sair-esq{opacity:0;transform:translateX(-48px);pointer-events:none}
+.slide.sair-dir{opacity:0;transform:translateX(48px);pointer-events:none}
+
+/* temas */
+.tema-claro   {--bg:#fff;    --fg:#111;    --fg2:#555}
+.tema-escuro  {--bg:#1a1a1a; --fg:#f0f0f0; --fg2:rgba(255,255,255,.55)}
+.tema-profundo{--bg:#1c1c2e; --fg:#e8e8f0; --fg2:rgba(232,232,240,.55)}
+.tema-vermelho{--bg:#CC1111; --fg:#fff;    --fg2:rgba(255,255,255,.75)}
+.slide{background:var(--bg,#fff);color:var(--fg,#111)}
+
+/* imagem de fundo */
+.bg-img{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;z-index:0}
+.bg-dim{position:absolute;inset:0;background:#000;z-index:1}
+
+/* ═══ CONTEÚDO ════════════════════════════════════════════ */
+.sc{
+  position:relative;z-index:2;
+  flex:1;overflow-y:auto;
+  padding:18px 20px 20px;
+  display:flex;flex-direction:column
+}
+
+/* texto com borda branca */
+.tb .slide-titulo,.tb .slide-pretitulo,.tb .slide-texto,
+.tb .bloco-lista li,.tb .secao-titulo,.tb .capa-titulo,.tb .cit-texto{
+  text-shadow:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.8),
+    -1px -1px 0 rgba(0,0,0,.6),1px -1px 0 rgba(0,0,0,.6),
+    -1px 1px 0 rgba(0,0,0,.6),1px 1px 0 rgba(0,0,0,.6)
+}
+
+/* ══════════ TIPOGRAFIA COMUM ════════════════════════════ */
+.slide-modulo{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:5px}
+.slide-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2);margin-bottom:7px}
+.slide-titulo{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;line-height:1.1;text-transform:uppercase;color:var(--fg);margin-bottom:9px}
+.tema-claro .slide-titulo{color:var(--red)}
+.slide-subtitulo{font-size:12.5px;color:var(--fg2);line-height:1.55;margin-bottom:7px;font-style:italic}
+.slide-texto{font-size:13px;line-height:1.62;color:var(--fg);margin:5px 0 8px}
+
+/* ══════════ BLOCOS ══════════════════════════════════════ */
+.bloco-lista{list-style:none;padding:0;margin:7px 0}
+.bloco-lista li{font-size:13px;line-height:1.55;color:var(--fg);padding:3px 0 3px 15px;position:relative}
+.bloco-lista li::before{content:'—';position:absolute;left:0;color:var(--red);font-weight:700}
+
+.bloco-proposta{background:rgba(204,17,17,.12);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;padding:10px 13px;margin:10px 0}
+.tema-claro .bloco-proposta{background:var(--red-lt)}
+.proposta-titulo{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.proposta-texto{font-size:12.5px;line-height:1.52;color:var(--red)}
+.tema-escuro .proposta-texto,.tema-profundo .proposta-texto{color:#ff9999}
+
+.bloco-diff{background:rgba(255,255,255,.07);border-radius:var(--r);padding:8px 11px;margin:9px 0;font-size:12px;line-height:1.52;color:var(--fg2)}
+.tema-claro .bloco-diff{background:#f0f0f0;color:var(--gray)}
+.diff-s{font-weight:800;color:var(--red);margin-right:5px}
+
+.bloco-links{padding-top:11px;border-top:1px solid rgba(255,255,255,.1);margin-top:8px}
+.tema-claro .bloco-links{border-color:var(--border)}
+.links-label{font-size:11px;font-weight:700;color:var(--fg);margin-bottom:7px}
+.links-wrap{display:flex;gap:7px;flex-wrap:wrap}
+.link-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:6px 11px;font-size:12px;color:var(--fg);text-decoration:none;font-family:'Barlow',sans-serif;transition:background .15s}
+.tema-claro .link-btn{background:var(--bg-lt);border-color:var(--border);color:var(--dark)}
+.link-btn:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.link-icon{width:13px;height:13px;display:flex;flex-shrink:0}
+.link-icon svg{width:100%;height:100%}
+
+.linha-acento{width:38px;height:3px;background:var(--red);margin:7px 0 11px;border-radius:2px}
+
+/* ══════════ CAPA ════════════════════════════════════════ */
+.capa-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--fg2);margin-bottom:16px}
+.capa-titulo{font-family:'Barlow Condensed',sans-serif;font-size:60px;font-weight:800;line-height:.92;text-transform:uppercase;color:var(--fg);margin-bottom:8px}
+.capa-subtitulo{font-size:14px;line-height:1.62;color:var(--fg2);margin-bottom:20px}
+.capa-logos{display:flex;gap:10px;align-items:center;margin-bottom:16px}
+.capa-logo-img{height:38px;width:auto;border-radius:var(--r);border:1px solid rgba(255,255,255,.15);object-fit:contain;background:rgba(255,255,255,.05)}
+.capa-hint{font-size:11px;color:var(--fg2);margin-top:auto;padding-top:16px}
+
+/* ══════════ SEÇÃO ═══════════════════════════════════════ */
+.sc-secao{justify-content:flex-end;padding-bottom:30px;position:relative}
+.secao-num{position:absolute;top:8px;right:10px;font-family:'Barlow Condensed',sans-serif;font-size:120px;font-weight:800;line-height:1;color:rgba(255,255,255,.05);pointer-events:none;user-select:none;letter-spacing:-.03em}
+.secao-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:7px}
+.secao-titulo{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:800;text-transform:uppercase;line-height:1.1;color:var(--fg);margin-bottom:12px}
+.secao-subtitulo{font-size:13px;color:var(--fg2);line-height:1.62}
+.secao-texto{font-size:12.5px;color:var(--fg2);line-height:1.62;margin-top:7px}
+
+/* ══════════ CITAÇÃO ═════════════════════════════════════ */
+.sc-citacao{justify-content:center}
+.cit-texto{font-size:14.5px;line-height:1.72;font-style:italic;color:var(--fg);border-left:3px solid var(--red);padding-left:15px;margin:10px 0}
+.cit-fonte{font-size:11.5px;font-weight:600;color:var(--fg2);text-align:right;margin-bottom:12px}
+.cit-nota{font-size:12px;color:var(--fg2);line-height:1.58;border-top:1px solid rgba(255,255,255,.1);padding-top:11px}
+.tema-claro .cit-nota{border-color:var(--border)}
+
+/* ══════════ COMPARATIVO ═════════════════════════════════ */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.comp-col{border-radius:var(--r-md);padding:11px}
+.comp-col.cor-vermelho{background:rgba(204,17,17,.15);border:1px solid rgba(204,17,17,.3)}
+.comp-col.cor-escuro{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1)}
+.comp-col.cor-cinza{background:rgba(128,128,128,.12);border:1px solid rgba(128,128,128,.2)}
+.tema-claro .comp-col.cor-cinza{background:#f5f5f5;border-color:var(--border)}
+.tema-claro .comp-col.cor-vermelho{background:var(--red-lt);border-color:var(--red-bd)}
+.comp-col-titulo{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid rgba(204,17,17,.25)}
+.col-item{font-size:12px;line-height:1.52;color:var(--fg);padding:3px 0}
+.col-item-destaque{font-weight:700}
+
+/* ══════════ ESTATÍSTICAS ════════════════════════════════ */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:10px 0}
+.stat-card{border-radius:var(--r-md);padding:13px 11px;display:flex;flex-direction:column;gap:3px}
+.stat-card.cor-vermelho{background:var(--red);color:#fff}
+.stat-card.cor-escuro{background:rgba(255,255,255,.08);color:var(--fg)}
+.tema-claro .stat-card.cor-escuro{background:#1a1a1a;color:#fff}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;line-height:1}
+.stat-desc{font-size:11px;line-height:1.35;font-weight:600}
+.stat-fonte{font-size:9.5px;opacity:.6;margin-top:2px}
+
+/* ══════════ TIMELINE ════════════════════════════════════ */
+.tl-wrap{margin:9px 0;display:flex;flex-direction:column}
+.tl-item{display:flex;gap:11px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.tema-claro .tl-item{border-color:var(--border)}
+.tl-ano{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;color:var(--red);min-width:36px;flex-shrink:0;padding-top:1px}
+.tl-texto{font-size:12.5px;line-height:1.52;color:var(--fg)}
+
+/* ══════════ DIVIDIDO ════════════════════════════════════ */
+.div-grid{display:flex;flex-direction:column;gap:9px;margin:9px 0}
+.div-item{background:rgba(255,255,255,.05);border-radius:var(--r-md);padding:11px;border-left:3px solid var(--red)}
+.tema-claro .div-item{background:var(--bg-lt)}
+.div-item strong{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--red);display:block;margin-bottom:3px}
+.div-item p{font-size:12.5px;line-height:1.52;color:var(--fg)}
+
+/* ══════════ CARDS ═══════════════════════════════════════ */
+.cards-grid{display:flex;flex-direction:column;gap:9px;margin:9px 0}
+.card-item{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.05);border-radius:var(--r-md);padding:11px}
+.tema-claro .card-item{background:var(--bg-lt);border:1px solid var(--border)}
+.card-foto{width:42px;height:42px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0}
+.card-foto-vazia{background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;color:#fff}
+.card-nome{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;color:var(--fg)}
+.card-cargo{font-size:10px;color:var(--red);font-weight:600;margin:2px 0 3px}
+.card-texto{font-size:12px;line-height:1.45;color:var(--fg2)}
+
+/* ══════════ PAISAGEM — LAYOUTS ESPECIAIS ══════════════════
+   Aplica grid de 2 colunas apenas em slides tipo texto
+   quando o body tem classe .paisagem
+══════════════════════════════════════════════════════════ */
+
+/* texto com itens: título esq, conteúdo dir */
+body.paisagem .sc.tipo-texto{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto;
+  gap:0 22px;
+  align-content:start
+}
+body.paisagem .sc.tipo-texto .slide-modulo,
+body.paisagem .sc.tipo-texto .slide-pretitulo,
+body.paisagem .sc.tipo-texto .slide-titulo,
+body.paisagem .sc.tipo-texto .slide-texto{grid-column:1;align-self:start}
+body.paisagem .sc.tipo-texto .bloco-lista,
+body.paisagem .sc.tipo-texto .bloco-proposta,
+body.paisagem .sc.tipo-texto .bloco-diff,
+body.paisagem .sc.tipo-texto .bloco-links{grid-column:2;align-self:start}
+
+/* seção: número + texto lado a lado */
+body.paisagem .sc-secao{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:0 24px;
+  align-content:center;
+  padding-bottom:0
+}
+body.paisagem .secao-num{
+  position:static;
+  font-size:140px;grid-column:1;grid-row:1/5;
+  align-self:center;opacity:.07;
+  line-height:1
+}
+body.paisagem .secao-pretitulo,
+body.paisagem .secao-titulo,
+body.paisagem .secao-subtitulo,
+body.paisagem .secao-texto,
+body.paisagem .sc-secao .linha-acento{grid-column:2}
+
+/* capa: título esq, subtítulo dir */
+body.paisagem .sc-capa{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 20px;
+  align-content:center
+}
+body.paisagem .capa-pretitulo,
+body.paisagem .sc-capa .linha-acento,
+body.paisagem .capa-logos,
+body.paisagem .capa-hint{grid-column:1/-1}
+body.paisagem .capa-titulo{grid-column:1;font-size:80px;align-self:center}
+body.paisagem .capa-subtitulo{
+  grid-column:2;align-self:center;
+  font-size:15px;
+  border-left:2px solid var(--red);padding-left:14px;
+  margin-bottom:0
+}
+
+/* stats: 4 colunas em paisagem */
+body.paisagem .stats-grid{grid-template-columns:repeat(4,1fr)}
+
+/* timeline: 2 colunas em paisagem */
+body.paisagem .tl-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+
+/* cards: 2 colunas em paisagem */
+body.paisagem .cards-grid{display:grid;grid-template-columns:1fr 1fr}
+
+/* comparativo: span full em paisagem */
+body.paisagem .comp-grid{grid-column:1/-1}
+
+/* tamanhos menores em paisagem para caber na altura */
+body.paisagem .slide-titulo{font-size:23px}
+body.paisagem .bloco-lista li,.body.paisagem .slide-texto{font-size:12.5px}
+body.paisagem .sc{padding:16px 20px 16px}
+
+/* ══════════ INDICADOR DE ORIENTAÇÃO ════════════════════ */
+#orient-hint{
+  position:fixed;bottom:0;left:0;right:0;
+  background:rgba(0,0,0,.8);color:#fff;
+  font-size:12px;text-align:center;padding:8px;
+  display:none;z-index:9999;font-family:'Barlow',sans-serif
+}
+
+@media (max-width:540px){
+  body.retrato #shell{padding:0}
+  body.retrato #viewport{max-height:100%;border-radius:0}
+}
+@media (max-height:420px){
+  body.paisagem #shell{padding:0}
+  body.paisagem #viewport{max-height:100%;border-radius:0}
+}
+</style>
+</head>
+<body class="retrato">
+
+<div id="shell">
+  <div id="viewport">
+
+    <!-- Sidebar vertical (paisagem) -->
+    <div id="sidebar">
+      <button id="btn-prev-v" disabled title="Anterior">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+      </button>
+      <div id="prog-v-wrap"><div id="prog-v"></div></div>
+      <span id="counter-v"></span>
+      <button id="btn-next-v" title="Próximo">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+
+    <!-- Área de slides -->
+    <div id="slides-wrap"></div>
+
+    <!-- Nav bar horizontal (retrato) -->
+    <div id="nav-bar">
+      <div id="prog-h-wrap"><div id="prog-h"></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 16px">
+        <button id="btn-prev-h" disabled>
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+          Anterior
+        </button>
+        <span id="counter-h"></span>
+        <button id="btn-next-h">
+          Próximo
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="orient-hint">↻ Girando tela…</div>
+
+<script>
+/* ═══ DADOS EMBUTIDOS ════════════════════════════════════ */
+const SLIDES = [{"tipo":"capa","modulo":"","tema":"escuro","eh_secao":true,"rotulo_secao":"Início","pre_titulo":"Apresentação · PSTU · LIT-QI","titulo":"PSTU","subtitulo":"Partido Socialista dos Trabalhadores Unificado<br/>Venha conhecer o PSTU. Faça parte!","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"logos":["https://www.opiniaosocialista.com.br/wp-content/uploads/2024/07/WhatsApp-Image-2024-03-09-at-13.31.25-e1720734646795.jpeg","https://litci.org/pt/wp-content/uploads/2022/07/LIT.jpg"],"tem_linha_acento":true},{"tipo":"secao","modulo":"","tema":"profundo","pre_titulo":"Bloco 1","titulo":"Romper as Engrenagens do Capitalismo","subtitulo":"Como vivem os trabalhadores, a juventude, mulheres, negros, LGBTIs, indígenas, PCDs, imigrantes?","texto":"Partimos da vida real dos trabalhadores e de todos os oprimidos que o capitalismo quer dividir — pela cor da pele, do gênero e sexualidade, capacidades e origens.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"numero_gigante":"1","tem_linha_acento":true},{"tipo":"texto","modulo":"Bloco 1 · Romper as Engrenagens","tema":"claro","pre_titulo":"","titulo":"Um país <em>rico</em> governado contra seu povo","subtitulo":"","texto":"O Brasil é um país rico, mas extremamente desigual. A riqueza produzida pela classe trabalhadora não chega no andar de baixo.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["<strong>PARASITAS.</strong> Uma pequena minoria de bilionários se apropria da riqueza. <em>250 grandes empresas</em> controlam a maior parte da economia brasileira.","<strong>ESQUERDA. DIREITA.</strong> Mudam os governos, prometem melhorar — o resultado é um país cada vez mais dependente, desindustrializado.","<strong>UM PAÍS DOMINADO.</strong> O Brasil está preso a um ciclo de dominação imperialista: importa tecnologia, exporta minérios — e a riqueza escoa para fora."],"proposta":{"titulo":"O que o PSTU diz","texto":"Não é falta de recursos — é uma escolha política consciente de para quem a riqueza vai. Pelo fim da agiotagem da dívida pública!"},"diferencial":"O PT manteve o capitalismo. O PSTU é oposição de esquerda independente."},{"tipo":"texto","modulo":"Bloco 1 · Romper as Engrenagens","tema":"escuro","pre_titulo":"Escala 6×1","titulo":"Vivemos para trabalhar<br/>e não temos tempo de viver","subtitulo":"","texto":"A escala 6×1 é a expressão cotidiana da exploração capitalista: não vemos a família, não temos lazer. O adoecimento físico e mental se alastra.","imagem_url":"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200","imagem_escurecimento":0.72,"imagem_posicao":"centro","texto_borda":true,"itens":["Redução para <strong>30 horas</strong> sem redução de salário e sem demissões","Aumento geral dos salários rumo ao mínimo do DIEESE (R$ 7.200)","Revogação das reformas Trabalhista e Previdenciária de Temer","Direitos trabalhistas para entregadores de apps (Uber, iFood)"],"proposta":{"titulo":"Proposta do PSTU","texto":"É possível e necessário acabar com a escala 6×1. Basta tirar uma ínfima parte do lucro das grandes empresas."},"diferencial":"O PT prometeu acabar com a escala e não cumpriu. O PSTU não negocia vidas por votos."},{"tipo":"texto","modulo":"Bloco 1 · Romper as Engrenagens","tema":"vermelho","pre_titulo":"","titulo":"Chega de feminicídios e de violência contra as mulheres","subtitulo":"","texto":"As mulheres ganham <em>78% do salário dos homens</em> e ainda sustentam sozinhas o cuidado com filhos, idosos e a casa.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["O capitalismo utiliza o machismo para impor superexploração — paga menos, extrai mais.","O governo Lula rifou as pautas das mulheres para costurar acordos com a direita.","O Estado deve fornecer creches, lavanderias e restaurantes públicos."],"proposta":{"titulo":"Proposta do PSTU","texto":"Pelo fim dos feminicídios e pela legalização do aborto!"},"diferencial":"PT e centrão trocam vidas de mulheres por votos no Congresso. O PSTU não faz isso."},{"tipo":"texto","modulo":"Bloco 1 · Romper as Engrenagens","tema":"claro","pre_titulo":"Combate às Opressões","titulo":"Não pode ser livre quem oprime ou não luta contra a opressão","subtitulo":"","texto":"Queremos unir a classe trabalhadora contra o capitalismo — que não existe sem as opressões. As opressões são instrumentais para o capital: ele as utiliza para nos dividir e justificar a superexploração.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["O Brasil é o país que <em>mais mata transexuais</em> no mundo.","A juventude negra é empurrada para o trabalho precário, o tráfico ou a morte precoce.","A extrema direita propõe matar e prender mais — mas o Brasil já tem a polícia que mais mata."],"proposta":{"titulo":"Princípio do PSTU","texto":"A unidade e a emancipação da classe trabalhadora não é possível sem o combate a toda opressão e ao capitalismo."},"diferencial":""},{"tipo":"texto","modulo":"Bloco 1 · Romper as Engrenagens","tema":"escuro","pre_titulo":"Juventude","titulo":"Sem futuro sob o capitalismo","subtitulo":"","texto":"<em>33% dos jovens</em> entre 18 e 29 anos não têm emprego formal nem estão estudando. A juventude negra é a mais atingida.","imagem_url":"https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200","imagem_escurecimento":0.68,"imagem_posicao":"centro","texto_borda":true,"itens":["<strong>A falácia da meritocracia:</strong> o sistema diz que o sucesso depende apenas do esforço individual.","<strong>Redes sociais e isolamento:</strong> algoritmos viciantes privilegiam ideologias preconceituosas. Cresce a cultura Redpill.","<strong>Pandemia de depressão:</strong> 1 em cada 8 adolescentes entre 13–17 anos declara não ver sentido na vida."],"proposta":{"titulo":"Proposta do PSTU","texto":"Emprego, educação de qualidade, cultura, lazer e futuro para a juventude!"},"diferencial":"","links":[{"icone":"video","texto":"Hertz Dias fala à juventude","url":"https://www.instagram.com/reel/DW6W1l9BLUl/"}]},{"tipo":"texto","modulo":"Bloco 1 · Romper as Engrenagens","tema":"profundo","pre_titulo":"","titulo":"O capitalismo não existe sem violência, opressão e destruição","subtitulo":"","texto":"A jornada interminável, o feminicídio, o genocídio da juventude negra, a devastação ambiental — não são falhas do sistema. <em>São o sistema.</em>","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["<strong>TRUMP</strong> é a cara do sistema ameaçado: reage com guerras comerciais e militares.","O capitalismo-imperialismo em decadência pode ir até o fascismo.","No Brasil: desindustrialização e retorno ao papel colonial de exportador de matérias-primas."],"proposta":null,"diferencial":"Não é falta de vontade política — é o funcionamento estrutural do capitalismo que se aprofunda."},{"tipo":"estatisticas","modulo":"Bloco 1 · Romper as Engrenagens","tema":"claro","pre_titulo":"Brasil em números","titulo":"A riqueza que não chega","subtitulo":"Fontes: PENSSAN · BCB · TSE · PSTU","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"estatisticas":[{"numero":"54 mi","descricao":"em insegurança alimentar","fonte":"Rede PENSSAN, 2023","cor":"vermelho"},{"numero":"80 mi","descricao":"sem emprego ou na informalidade","fonte":"IBGE, 2024","cor":"escuro"},{"numero":"13,5%","descricao":"do PIB para juros da dívida pública","fonte":"BCB, 2024","cor":"vermelho"},{"numero":"R$427bi","descricao":"em dividendos da Petrobras em 5 anos","fonte":"Manifesto PSTU, 2026","cor":"escuro"}],"diferencial":"Esses números mostram que não há falta de riqueza — há uma escolha política consciente de para quem essa riqueza vai."},{"tipo":"comparativo","modulo":"Bloco 1 · Romper as Engrenagens","tema":"escuro","pre_titulo":"Análise de conjuntura","titulo":"Distintos regimes, mas o mesmo sistema","subtitulo":"","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"coluna_esquerda":{"titulo":"Extrema direita","cor":"cinza","itens":[{"texto":"Se apresenta como \"antissistema\" — mas é a parte mais podre do capitalismo.","estilo":"normal"},{"texto":"Tentou um golpe para acabar com as liberdades da classe trabalhadora.","estilo":"normal"},{"texto":"Modelo Milei: destruição de direitos, entrega ao FMI.","estilo":"destaque"}]},"coluna_direita":{"titulo":"Governo Lula (PT)","cor":"cinza","itens":[{"texto":"Mantém o arcabouço fiscal e a agiotagem da dívida.","estilo":"normal"},{"texto":"Rifa pautas de mulheres, negros e LGBTI por governabilidade com o centrão.","estilo":"normal"},{"texto":"Preserva os lucros dos bilionários e concede subsídios às multinacionais.","estilo":"destaque"}]},"diferencial":"O PSTU é oposição de esquerda independente — não apoia o PT nem a direita. Nossa estratégia é a revolução socialista."},{"tipo":"texto","modulo":"Bloco 1 · Romper as Engrenagens","tema":"profundo","pre_titulo":"Conjuntura internacional","titulo":"Brasil: a sanha imperialista de Trump na nossa porta","subtitulo":"","texto":"A nova doutrina de Trump para a América Latina tem impacto direto no Brasil. É o imperialismo dos EUA, decadente, mostrando as garras.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["<strong>AS TERRAS RARAS:</strong> Lula as trata como moeda de troca. O Brasil fica com o mero extrativismo.","<strong>NARCOTRÁFICO COMO PRETEXTO:</strong> pretexto para ingerência policial e militar dos EUA.","<strong>LULA NÃO ENFRENTA:</strong> disse ter \"química com Trump\". Pode entregar as terras raras."],"proposta":{"titulo":"Proposta do PSTU","texto":"\"As terras raras são nossas! Por uma estatal para exploração e refino das terras raras sob controle dos trabalhadores!\""},"diferencial":""},{"tipo":"texto","modulo":"Bloco 1 · Romper as Engrenagens","tema":"claro","pre_titulo":"Posições Internacionais do PSTU","titulo":"Nossa posição no mundo","subtitulo":"","texto":"A exploração dos trabalhadores é internacional. A libertação pressupõe a derrota do sistema mundial imperialista.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["<strong>PALESTINA:</strong> Por uma Palestina laica e democrática, do rio ao mar. Contra o Estado de Israel e o imperialismo dos EUA.","<strong>UCRÂNIA:</strong> Pela derrota da invasão imperialista russa. Apoio ao povo ucraniano. Contra a subordinação à OTAN.","<strong>VENEZUELA:</strong> Contra a invasão dos EUA. Somos oposição ao chavismo. Venezuela não é nem foi socialista.","<strong>IRÃ:</strong> Fora Trump e Israel. Pelo direito à autodefesa — sem apoio ao regime teocrático.","<strong>ARGENTINA / MILEI:</strong> Viva a resistência dos trabalhadores argentinos!"],"proposta":null,"diferencial":""},{"tipo":"secao","modulo":"","tema":"profundo","pre_titulo":"Bloco 2","titulo":"Quem Somos: 31 Anos na Luta","subtitulo":"Histórico do Partido, identidade da LIT-QI e fundamentação do internacionalismo revolucionário.","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"numero_gigante":"2","tem_linha_acento":true},{"tipo":"timeline","modulo":"Bloco 2 · Quem Somos","tema":"claro","pre_titulo":"Origens e luta contra a ditadura","titulo":"A construção da independência de classe","subtitulo":"","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens_timeline":[{"ano":"1973","texto":"Jovens trotskistas brasileiros exilados organizam-se após o golpe no Chile em torno da futura LIT, liderada por Nahuel Moreno."},{"ano":"1978","texto":"Lançamento da Convergência Socialista (CS) — uma das primeiras org. trotskistas a atuar abertamente no Brasil."},{"ano":"1980","texto":"CS cofunda o PT, respondendo por ~20% das primeiras 100 mil filiações. 1ª Conferência de Mulheres da CS."},{"ano":"1992","texto":"CS defende o \"Fora Collor!\". A direção do PT se opõe. Resultado: expulsão da CS."},{"ano":"1994","texto":"Fundação do PSTU em 5 de junho, em São Paulo, como alternativa revolucionária e independente."}],"diferencial":"A expulsão do PT não foi derrota — foi coerência. O PT foi crescendo para dentro do sistema; o PSTU manteve a perspectiva revolucionária."},{"tipo":"texto","modulo":"Bloco 2 · Quem Somos","tema":"escuro","pre_titulo":"LIT-QI · A Quarta Internacional","titulo":"O capitalismo não tem fronteiras — a revolução também não pode ter","subtitulo":"","texto":"Quando um governo tenta mudar de verdade, o imperialismo responde: embargos, sanções, golpes, invasões. Nenhum país consegue se libertar do capitalismo sozinho.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["Trotsky demonstrou na <em>Teoria da Revolução Permanente</em> (1929): a revolução começa num país, mas não pode ficar nele.","Stalin decidiu o contrário — \"socialismo num só país\" — e traiu revoluções inteiras (Espanha 1936, França, etc.).","Diante do pacto Hitler-Stalin, Trotsky fundou a IV Internacional em 1938.","Nahuel Moreno fundou a LIT-QI em 1982. O <strong>PSTU é a seção brasileira</strong>."],"proposta":null,"diferencial":""},{"tipo":"texto","modulo":"Bloco 2 · Quem Somos","tema":"claro","pre_titulo":"CSP-Conlutas","titulo":"Central Sindical e Popular classista e independente","subtitulo":"","texto":"A CUT tornou-se \"correia de transmissão\" governamental. O PSTU liderou a saída de sindicatos combativos em 2004, culminando na fundação da Conlutas.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["Fundada não apenas como central sindical, mas também <strong>popular</strong> — unificando movimentos de moradia, sem-terra, indígenas.","Democracia operária ampla: todas entidades-membro têm representação na Coordenação Nacional.","Mantém viva a perspectiva da revolução socialista."],"proposta":null,"diferencial":"CUT e outras centrais: subordinadas ao PT. CSP-Conlutas: autonomia e ação direta."},{"tipo":"cards","modulo":"Bloco 2 · Quem Somos","tema":"claro","pre_titulo":"Frentes de massa","titulo":"A revolução será negra, mulher, LGBTI e indígena","subtitulo":"Dentro da CSP-Conlutas, impulsionamos frentes que ligam a luta contra as opressões à luta de classes.","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"cards":[{"nome":"QRC","cargo":"Quilombo Raça e Classe","texto":"Luta contra o genocídio da juventude negra e o racismo estrutural.","foto_url":""},{"nome":"MML","cargo":"Mulheres em Luta","texto":"Contra o feminicídio, pelo aborto legal. Pelo fim das opressões na luta de classes.","foto_url":""},{"nome":"Revida","cargo":"Coletivo LGBTI+","texto":"Combate às opressões que luta pela diversidade e pelo socialismo.","foto_url":""},{"nome":"Rebeldia","cargo":"Corrente da Juventude","texto":"Greves estudantis, ocupações e grupos de estudo marxista.","foto_url":""}]},{"tipo":"citacao","modulo":"Bloco 2 · Quem Somos","tema":"profundo","pre_titulo":"— Vera Lúcia · 30 anos do PSTU · São Paulo, junho de 2024","titulo":"\"Nesses 30 anos, muitas coisas aconteceram. Nas batalhas que travamos, perdemos companheiros. Outros abandonaram a perspectiva da revolução socialista. Por isso, temos orgulho e festejamos nossos 30 anos. O PSTU não se afastou do propósito para o qual foi criado — permaneceu, de forma incondicional, ao lado da classe trabalhadora na luta pela revolução socialista.\"","subtitulo":"Esta citação resume o que distingue o PSTU de toda a esquerda que apoiou total ou parcialmente o governo — limitando sua política à democracia burguesa.","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"tem_linha_acento":true},{"tipo":"secao","modulo":"","tema":"profundo","pre_titulo":"Bloco 3 · Teoria","titulo":"As Engrenagens do Sistema Capitalista","subtitulo":"O marxismo continua sendo a principal base teórica para analisar a realidade e construir o socialismo.","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"numero_gigante":"3","tem_linha_acento":true},{"tipo":"texto","modulo":"Bloco 3 · Engrenagens do Capitalismo","tema":"claro","pre_titulo":"A engrenagem principal","titulo":"A propriedade privada dos meios de produção","subtitulo":"","texto":"Tudo que existe — fábricas, terras, bancos, aplicativos — pertence a uma pequena minoria. <em>Não por mérito</em>, mas pelo capital que possuem: herança, acúmulo sobre o trabalho alheio.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["A classe trabalhadora só tem uma coisa para oferecer: sua <strong>FORÇA DE TRABALHO</strong>. Para sobreviver, é obrigada a vendê-la.","O trabalhador produz a riqueza, mas não é dono dela. O salário é sempre menor do que o valor gerado — Marx chamou isso de <strong>MAIS-VALIA</strong>.","Quanto mais o capitalismo avança, mais riqueza se concentra num polo — e mais miséria se acumula no outro."],"proposta":{"titulo":"Resultado inevitável","texto":"A desigualdade, as crises e a destruição não são acidentes. São o resultado inevitável do funcionamento do sistema."},"diferencial":""},{"tipo":"dividido","modulo":"Bloco 3 · Engrenagens do Capitalismo","tema":"escuro","pre_titulo":"As grandes contradições","titulo":"Por que o capitalismo não tem saída","subtitulo":"","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens_esquerda":[{"titulo":"Contradição 1","texto":"Há tecnologia e riqueza para cuidar de toda a humanidade — mas a lógica do capitalismo não é atender necessidades: é gerar lucro."},{"titulo":"Contradição 2","texto":"A produção é globalizada, mas o capitalismo reforça fronteiras e guerras para dividir trabalhadores. Gaza, Ucrânia, tensão EUA-China."}],"proposta":{"titulo":"Conclusão","texto":"O capitalismo perdeu qualquer legitimidade. A única saída é a superação do próprio sistema."},"diferencial":""},{"tipo":"secao","modulo":"","tema":"profundo","pre_titulo":"Bloco 4 · Teoria","titulo":"O Estado, a Democracia e a Revolução","subtitulo":"O Estado não sempre existiu — ele nasceu com a desigualdade. Para transformar a sociedade, é preciso entendê-lo.","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"numero_gigante":"4","tem_linha_acento":true},{"tipo":"citacao","modulo":"Bloco 4 · O Estado e a Revolução","tema":"escuro","pre_titulo":"— Friedrich Engels · A Origem da Família, 1884","titulo":"\"O Estado não é de modo algum um poder imposto de fora à sociedade. É um produto da sociedade chegada a um certo grau de desenvolvimento.\"","subtitulo":"O Estado surgiu quando a sociedade se dividiu em classes. Surge para manter determinado funcionamento social — mas o faz defendendo privilégios e a propriedade. A ideologia dominante diz que o Estado é neutro. Infelizmente, a maioria da esquerda repete este erro.","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"tem_linha_acento":true},{"tipo":"comparativo","modulo":"Bloco 4 · O Estado e a Revolução","tema":"claro","pre_titulo":"Os dois braços do mesmo Estado","titulo":"Repressão e legitimação","subtitulo":"","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"coluna_esquerda":{"titulo":"Braço repressivo","cor":"vermelho","itens":[{"texto":"Polícia, exército, prisões, juízes.","estilo":"normal"},{"texto":"Entram em cena em greves, ocupações, manifestações.","estilo":"normal"},{"texto":"Intimidação permanente das comunidades pobres — especialmente negros.","estilo":"destaque"}]},"coluna_direita":{"titulo":"Braço da legitimação","cor":"escuro","itens":[{"texto":"Eleições, parlamento, escola, imprensa, igrejas.","estilo":"normal"},{"texto":"Convencem os de baixo de que o sistema é justo.","estilo":"normal"},{"texto":"Que as coisas podem mudar pelo voto.","estilo":"destaque"}]},"diferencial":"No Brasil: a polícia que mata jovens negros na periferia é o mesmo Estado que realiza eleições de quatro em quatro anos."},{"tipo":"comparativo","modulo":"Bloco 4 · O Estado e a Revolução","tema":"claro","pre_titulo":"Democracia não é neutra","titulo":"Democracia burguesa × Democracia operária","subtitulo":"","texto":"<strong>Não somos contra a democracia — somos contra essa democracia</strong>, que é democracia para os ricos.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"coluna_esquerda":{"titulo":"Democracia burguesa","cor":"cinza","itens":[{"texto":"Voto a cada 2–4 anos — mas maioria dos eleitos é pró-burguesia.","estilo":"normal"},{"texto":"Financiamento milionário de campanhas eleitorais.","estilo":"normal"},{"texto":"Afastamento das decisões do dia a dia dos trabalhadores.","estilo":"normal"}]},"coluna_direita":{"titulo":"Democracia operária","cor":"vermelho","itens":[{"texto":"Mandatos revogáveis a qualquer momento.","estilo":"normal"},{"texto":"Dirigentes com o mesmo salário de um trabalhador.","estilo":"normal"},{"texto":"Conselhos de fábrica, de bairro, de escola decidindo de verdade.","estilo":"destaque"}]},"diferencial":"Defender a democracia contra golpistas não deve ser confundido com defender as formas da democracia burguesa."},{"tipo":"texto","modulo":"Bloco 4 · O Estado e a Revolução","tema":"escuro","pre_titulo":"O que significa revolução","titulo":"Na prática","subtitulo":"\"O proletariado usará a sua supremacia política para arrancar pouco a pouco todo o capital à burguesia.\" — Marx e Engels, Manifesto Comunista, 1848","texto":"Revolução é um processo em que a classe trabalhadora muda a correlação de forças a seu favor. Não é um golpe ou ação militar de minorias.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["Greves gerais que paralisam a economia.","Ocupações de fábricas e terras.","Conselhos de trabalhadores que começam a gerir a produção.","Mobilização de massa que torna impossível a continuidade do governo burguês."],"proposta":null,"diferencial":""},{"tipo":"texto","modulo":"Bloco 4 · O Estado e a Revolução","tema":"vermelho","pre_titulo":"O que é o Socialismo?","titulo":"Romper com as engrenagens que impedem a humanidade de decidir seus próprios rumos","subtitulo":"","texto":"O marxismo não tem um modelo pronto de sociedade futura. O que propõe é superar as estruturas da exploração.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["<strong>Propriedade coletiva</strong> dos meios de produção — fábricas, bancos, terras deixam de ser de poucos.","<strong>Planificação democrática</strong> da economia — produzir para as necessidades, não para o lucro.","<strong>Governo dos trabalhadores</strong> — o poder gerido pelos de baixo.","<strong>Fim das opressões</strong> — igualdade real entre mulheres e homens, negros e brancos, LGBTQIA+.","<strong>Internacionalismo</strong> — a revolução não tem fronteiras."],"proposta":null,"diferencial":"A URSS não foi socialismo — foi deformada pela burocracia stalinista, que traiu as origens da Revolução de 1917."},{"tipo":"texto","modulo":"Bloco 4 · O Partido Revolucionário","tema":"claro","pre_titulo":"O partido leninista","titulo":"O papel do partido revolucionário","subtitulo":"","texto":"O partido deve buscar estar no centro das lutas. Mas espontaneamente a classe trabalhadora não tem como objetivo tomar o poder. Por isso, o partido revolucionário é decisivo.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["<strong>Centralismo democrático:</strong> maioria operária na base e na direção. Debate livre e decisão coletiva; disciplina na execução.","<strong>Programa revolucionário:</strong> independência de classe total, baseado na realidade concreta — não na conciliação de classes.","<strong>Formação política permanente:</strong> unir estudo do marxismo e da realidade com a prática militante.","<strong>Internacionalismo:</strong> parte de um Partido Mundial. A vitória da revolução só se consolida com a derrota do imperialismo."],"proposta":null,"diferencial":"Um partido que pretende apenas reformas organiza-se como partido eleitoral: subordina seu programa às alianças com a burguesia."},{"tipo":"comparativo","modulo":"Bloco 4 · O Partido Revolucionário","tema":"escuro","pre_titulo":"Opostos ao PSTU","titulo":"Stalinismo e Reformismo","subtitulo":"","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"coluna_esquerda":{"titulo":"Reformismo (PT, socialdemocracia)","cor":"cinza","itens":[{"texto":"Nasceu como instrumento de luta operária — mas foi digerido pela democracia burguesa.","estilo":"normal"},{"texto":"Priorizou vitórias eleitorais e abandonou a independência de classe.","estilo":"normal"},{"texto":"O socialismo virou discurso de festa — prometido para um futuro indefinido.","estilo":"destaque"}]},"coluna_direita":{"titulo":"Stalinismo (PCB e similares)","cor":"cinza","itens":[{"texto":"Teoria das \"etapas\": primeiro revolução democrática, só depois a socialista.","estilo":"normal"},{"texto":"Aliança com setores burgueses \"progressistas\" — frente popular que traiu revoluções.","estilo":"normal"},{"texto":"A independência de classe virou ficção, meramente ritual.","estilo":"destaque"}]},"diferencial":"O PSTU: independência de classe total, revolução socialista como estratégia presente — não futura —, e centralismo democrático real."},{"tipo":"secao","modulo":"","tema":"vermelho","pre_titulo":"Bloco 5","titulo":"PSTU nas Eleições 2026","subtitulo":"Por que os revolucionários participam das eleições burguesas? Usar as eleições para fortalecer o partido e a consciência revolucionária da classe!","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"numero_gigante":"5","tem_linha_acento":true},{"tipo":"texto","modulo":"Bloco 5 · PSTU nas Eleições 2026","tema":"claro","pre_titulo":"O PSTU na eleição de 2026","titulo":"Três tarefas centrais","subtitulo":"","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["<strong>Agitação e propaganda qualificada:</strong> elaboração programática combinada com inserção real nas lutas. Construir influencers, potencializar redes e debates.","<strong>Construir nossas figuras públicas:</strong> candidatos ligados às lutas reais, que traduzam nossa política de forma acessível. Construir tribunos populares.","<strong>Organizar mais gente:</strong> comunidade de ativistas, apoiadores, leitores do jornal, filiados, grupos nas redes sociais."],"proposta":null,"diferencial":"Por muito tempo, ser \"o partido das lutas\" foi insuficiente — faltava o aspecto programático e ideológico."},{"tipo":"cards","modulo":"Bloco 5 · PSTU nas Eleições 2026","tema":"claro","pre_titulo":"Candidaturas operárias e independentes","titulo":"Os candidatos do PSTU para 2026","subtitulo":"A classe trabalhadora representando a si mesma","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"cards":[{"nome":"Zé Maria","cargo":"Presidente Nacional · ex-candidato à presidência","texto":"Ex-metalúrgico do ABC. Presidente do PSTU desde 1998. Preso junto a Lula na greve histórica de 1980. Símbolo de 31 anos de independência de classe.","foto_url":""},{"nome":"Vera Lúcia","cargo":"Candidata ao governo de SP em 2026","texto":"Operária, negra, nordestina. Primeira mulher negra a disputar a presidência por um partido de esquerda (2018 e 2022).","foto_url":""},{"nome":"Hertz Dias","cargo":"Pré-candidato à presidência em 2026","texto":"Rapper do Gíria Vermelha. Fundador do Quilombo Urbano no Maranhão. Professor de História da rede pública. Ativista do movimento negro.","foto_url":""}]},{"tipo":"texto","modulo":"Bloco 5 · PSTU nas Eleições 2026","tema":"escuro","pre_titulo":"Hertz Dias 2026","titulo":"Uma candidatura a serviço da construção socialista","subtitulo":"","texto":"Não se trata de um projeto eleitoreiro — é uma ferramenta para fortalecer a construção de uma alternativa socialista e revolucionária, <em>independente dos patrões, dos bilionários e do imperialismo</em>.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"direita","texto_borda":false,"itens":["Luta unificada com negros, mulheres, LGBTI+, povos originários e juventude.","Contra todos os imperialismos — pela Segunda Independência da América Latina.","Por um governo dos trabalhadores sem capitalistas.","Por uma revolução socialista protagonizada pela própria classe trabalhadora."],"proposta":{"titulo":"Programa da candidatura","texto":"Só uma candidatura independente dos patrões pode defender com legitimidade um programa de ruptura com o sistema capitalista. PT e PSOL fazem alianças de classe — o PSTU não."},"diferencial":"","links":[{"icone":"video","texto":"Programa da candidatura","url":"https://pstu.org.br"},{"icone":"artigo","texto":"Manifesto Eleitoral 2026","url":"https://pstu.org.br"}]},{"tipo":"secao","modulo":"","tema":"profundo","pre_titulo":"Bloco 6","titulo":"Ser Militante","subtitulo":"Ser membro do PSTU é um projeto de vida, não uma adesão sazonal. Venha fazer parte da luta pela revolução e o socialismo!","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"numero_gigante":"6","tem_linha_acento":true},{"tipo":"texto","modulo":"Bloco 6 · Ser Militante","tema":"claro","pre_titulo":"","titulo":"Ser militante","subtitulo":"","texto":"<strong>SER MEMBRO do PSTU é um projeto de vida</strong>, não uma adesão sazonal. De acordo com as possibilidades de cada um:","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["Atua nos movimentos de massa","Defende a política partidária em todos os espaços — no trabalho, no bairro, nas redes sociais","Participa dos debates em algum organismo do partido","Contribui financeiramente","Divulga a imprensa do partido","Participa das formações políticas baseadas no marxismo","Exerce o direito de voz e voto, de divergir, e de eleger e ser eleito dirigente","Passa um período como aspirante (3 meses se operário; 6 meses nos demais casos)"],"proposta":{"titulo":"Apoiadores e simpatizantes","texto":"O partido considera aderentes — mesmo não fazendo parte da estrutura orgânica — a todos que o apoiam política ou financeiramente ou atuam em conjunto conosco."},"diferencial":""},{"tipo":"texto","modulo":"Bloco 6 · Ser Militante","tema":"escuro","pre_titulo":"Independência financeira","titulo":"\"Quem paga a banda escolhe a música\"","subtitulo":"","texto":"Partidos financiados por grandes empresas ou pelo fundo estatal tornam-se, inevitavelmente, reféns desses interesses.","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"itens":["Lenin sempre enfatizou que o partido deveria ter uma estrutura financeira sólida alimentada pela base.","Os operários russos destinavam partes significativas de seus salários para manter a imprensa partidária.","O ato de contribuir financeiramente era visto como um ato de militância."],"proposta":{"titulo":"O modelo do PSTU","texto":"O PSTU só tem direito ao fundo eleitoral. O dia a dia do Partido é sustentado <strong>exclusivamente</strong> por contribuições e campanhas junto à classe trabalhadora e seus militantes."},"diferencial":""},{"tipo":"capa","modulo":"","tema":"vermelho","eh_secao":true,"rotulo_secao":"Fim","pre_titulo":"Venha fazer parte da luta!","titulo":"Pela revolução<br/>e o socialismo","subtitulo":"facaparte.pstu.org.br","texto":"","imagem_url":"","imagem_escurecimento":0,"imagem_posicao":"centro","texto_borda":false,"logos":[],"tem_linha_acento":true,"links":[{"icone":"link","texto":"pstu.org.br","url":"https://pstu.org.br"},{"icone":"link","texto":"opiniaosocialista.com.br","url":"https://opiniaosocialista.com.br"},{"icone":"link","texto":"litci.org/pt/","url":"https://litci.org/pt/"}]}];
+
+/* ═══ ÍCONES ═════════════════════════════════════════════ */
+const IC={
+  video:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>',
+  artigo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>',
+  audio:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>'
+};
+
+/* ═══ HELPERS ════════════════════════════════════════════ */
+const E=s=>s||'';
+function imgBg(d){
+  if(!d.imagem_url)return'';
+  const pos={centro:'center center',topo:'center top',baixo:'center bottom',esquerda:'left center',direita:'right center'}[d.imagem_posicao]||'center center';
+  return'<div class="bg-img" style="background-image:url(\''+d.imagem_url+'\');background-position:'+pos+'"></div>'+(d.imagem_escurecimento>0?'<div class="bg-dim" style="opacity:'+d.imagem_escurecimento+'"></div>':'');
+}
+function proposta(p){return p?'<div class="bloco-proposta"><div class="proposta-titulo">'+E(p.titulo)+'</div><div class="proposta-texto">'+E(p.texto)+'</div></div>':''}
+function diferencial(t){return t?'<div class="bloco-diff"><span class="diff-s">≠</span>'+E(t)+'</div>':''}
+function lista(its){return its&&its.length?'<ul class="bloco-lista">'+its.map(i=>'<li>'+i+'</li>').join('')+'</ul>':''}
+function links(ls){
+  if(!ls||!ls.length)return'';
+  return'<div class="bloco-links"><div class="links-label">Aprofunde:</div><div class="links-wrap">'+ls.map(l=>'<a class="link-btn" href="'+l.url+'" target="_blank" rel="noopener"><span class="link-icon">'+(IC[l.icone]||IC.link)+'</span>'+l.texto+'</a>').join('')+'</div></div>';
+}
+function colItens(its){return(its||[]).map(it=>'<div class="col-item'+(it.estilo==='destaque'?' col-item-destaque':'')+'">'+it.texto+'</div>').join('')}
+
+/* ═══ RENDERIZADORES ══════════════════════════════════════ */
+const R={
+  capa(d){
+    const logos=(d.logos||[]).map(u=>'<img class="capa-logo-img" src="'+u+'" alt="" loading="lazy">').join('');
+    return imgBg(d)+'<div class="sc sc-capa'+(d.texto_borda?' tb':'')+'"><div class="capa-pretitulo">'+E(d.pre_titulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<div class="capa-titulo">'+E(d.titulo)+'</div><p class="capa-subtitulo">'+E(d.subtitulo)+'</p>'+(logos?'<div class="capa-logos">'+logos+'</div>':'')+links(d.links)+'<div class="capa-hint">← deslize para navegar →</div></div>';
+  },
+  secao(d){
+    return imgBg(d)+'<div class="sc sc-secao'+(d.texto_borda?' tb':'')+'"><div class="secao-num">'+E(d.numero_gigante)+'</div><div class="secao-pretitulo">'+E(d.pre_titulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<div class="secao-titulo">'+E(d.titulo)+'</div><p class="secao-subtitulo">'+E(d.subtitulo)+'</p>'+(d.texto?'<p class="secao-texto">'+d.texto+'</p>':'')+'</div>';
+  },
+  texto(d){
+    return imgBg(d)+'<div class="sc tipo-texto'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')+lista(d.itens)+proposta(d.proposta)+diferencial(d.diferencial)+links(d.links)+'</div>';
+  },
+  dividido(d){
+    const esq=(d.itens_esquerda||[]).map(it=>'<div class="div-item"><strong>'+it.titulo+'</strong><p>'+it.texto+'</p></div>').join('');
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="div-grid">'+esq+'</div>'+proposta(d.proposta)+diferencial(d.diferencial)+'</div>';
+  },
+  comparativo(d){
+    const esq=d.coluna_esquerda||{},dir=d.coluna_direita||{};
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')+'<div class="comp-grid"><div class="comp-col cor-'+(esq.cor||'escuro')+'"><div class="comp-col-titulo">'+E(esq.titulo)+'</div>'+colItens(esq.itens)+'</div><div class="comp-col cor-'+(dir.cor||'escuro')+'"><div class="comp-col-titulo">'+E(dir.titulo)+'</div>'+colItens(dir.itens)+'</div></div>'+diferencial(d.diferencial)+'</div>';
+  },
+  estatisticas(d){
+    const stats=(d.estatisticas||[]).map(s=>'<div class="stat-card cor-'+(s.cor||'escuro')+'"><div class="stat-num">'+s.numero+'</div><div class="stat-desc">'+s.descricao+'</div><div class="stat-fonte">'+s.fonte+'</div></div>').join('');
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+'<div class="stats-grid">'+stats+'</div>'+diferencial(d.diferencial)+'</div>';
+  },
+  citacao(d){
+    return imgBg(d)+'<div class="sc sc-citacao'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<blockquote class="cit-texto">'+E(d.titulo)+'</blockquote><div class="cit-fonte">'+E(d.pre_titulo)+'</div>'+(d.subtitulo?'<p class="cit-nota">'+d.subtitulo+'</p>':'')+'</div>';
+  },
+  timeline(d){
+    const its=(d.itens_timeline||[]).map(it=>'<div class="tl-item"><div class="tl-ano">'+it.ano+'</div><div class="tl-texto">'+it.texto+'</div></div>').join('');
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="tl-wrap">'+its+'</div>'+diferencial(d.diferencial)+'</div>';
+  },
+  cards(d){
+    const cs=(d.cards||[]).map(c=>{
+      const foto=c.foto_url?'<div class="card-foto" style="background-image:url(\''+c.foto_url+'\')"></div>':'<div class="card-foto card-foto-vazia"><span>'+c.nome.charAt(0)+'</span></div>';
+      return'<div class="card-item">'+foto+'<div><div class="card-nome">'+c.nome+'</div><div class="card-cargo">'+c.cargo+'</div><div class="card-texto">'+c.texto+'</div></div></div>';
+    }).join('');
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+'<div class="cards-grid">'+cs+'</div></div>';
+  }
+};
+
+/* ═══ MOTOR ══════════════════════════════════════════════ */
+let atual=0;
+const total=SLIDES.length;
+const wrap=document.getElementById('slides-wrap');
+
+// Renderizar todos os slides
+SLIDES.forEach((d,i)=>{
+  const div=document.createElement('div');
+  div.className='slide tema-'+(d.tema||'claro');
+  div.dataset.i=i;
+  const fn=R[d.tipo]||R.texto;
+  div.innerHTML=fn(d);
+  wrap.appendChild(div);
+});
+
+const slideEls=wrap.querySelectorAll('.slide');
+slideEls[0].classList.add('ativo');
+
+function ir(n){
+  if(n<0||n>=total)return;
+  const ant=atual;
+  slideEls[ant].classList.remove('ativo');
+  slideEls[ant].classList.add(n>ant?'sair-esq':'sair-dir');
+  atual=n;
+  slideEls[atual].classList.add('ativo');
+  slideEls[atual].classList.remove('sair-esq','sair-dir');
+  slideEls[atual].scrollTop=0;
+  setTimeout(()=>slideEls[ant].classList.remove('sair-esq','sair-dir'),300);
+  atualizarUI();
+}
+
+function atualizarUI(){
+  const pct=total>1?(atual/(total-1))*100:100;
+  document.getElementById('prog-h').style.width=pct+'%';
+  document.getElementById('prog-v').style.height=pct+'%';
+  document.getElementById('counter-h').textContent=(atual+1)+' / '+total;
+  document.getElementById('counter-v').textContent=(atual+1)+' / '+total;
+  ['btn-prev-h','btn-prev-v'].forEach(id=>document.getElementById(id).disabled=atual===0);
+  ['btn-next-h','btn-next-v'].forEach(id=>document.getElementById(id).disabled=atual===total-1);
+}
+atualizarUI();
+
+// Botões
+document.getElementById('btn-prev-h').onclick=()=>ir(atual-1);
+document.getElementById('btn-next-h').onclick=()=>ir(atual+1);
+document.getElementById('btn-prev-v').onclick=()=>ir(atual-1);
+document.getElementById('btn-next-v').onclick=()=>ir(atual+1);
+
+// Teclado
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')ir(atual+1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')ir(atual-1);
+});
+
+// Touch / swipe
+let tx=0,ty=0;
+wrap.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+wrap.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  const dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>36)dx<0?ir(atual+1):ir(atual-1);
+},{passive:true});
+
+/* ═══ DETECÇÃO DE ORIENTAÇÃO ══════════════════════════════ */
+function aplicarOrientacao(){
+  const paisagem=window.innerWidth>window.innerHeight;
+  document.body.classList.toggle('paisagem',paisagem);
+  document.body.classList.toggle('retrato',!paisagem);
+}
+
+// Ao girar o celular
+let orientTimer;
+function aoGirar(){
+  const hint=document.getElementById('orient-hint');
+  hint.style.display='block';
+  clearTimeout(orientTimer);
+  orientTimer=setTimeout(()=>{
+    aplicarOrientacao();
+    hint.style.display='none';
+  },180);
+}
+
+window.addEventListener('orientationchange',aoGirar);
+window.addEventListener('resize',()=>{
+  clearTimeout(orientTimer);
+  orientTimer=setTimeout(aplicarOrientacao,80);
+});
+
+aplicarOrientacao();
+</script>
+</body>
+</html>
