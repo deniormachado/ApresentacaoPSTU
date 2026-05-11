@@ -512,6 +512,14 @@ function colBg(d){
 }
 // mantém imgRodape como alias vazio para compatibilidade com comparativo
 function imgRodape(d){ return''; }
+function imgRodapeFooter(d){
+  if(!d.imagem_rodape||!d.imagem_rodape.url)return'';
+  const r=d.imagem_rodape;
+  const pos=r.posicao||'center center';
+  const h=(r.altura||200)+'px';
+  const w=r.largura||'100%';
+  return'<div style="width:'+w+';height:'+h+';background-image:url(\''+r.url+'\');background-size:cover;background-position:'+pos+';background-repeat:no-repeat;border-radius:var(--r);margin-top:8px;flex-shrink:0"></div>';
+}
 function colItens(its){return(its||[]).map(it=>'<div class="col-item'+(it.estilo==='destaque'?' col-item-destaque':'')+'">'+it.texto+'</div>').join('')}
 
 /* ═══ RENDERIZADORES ══════════════════════════════════════ */
@@ -571,7 +579,7 @@ const R={
     +'<div class="comp-grid">'
     +'<div class="comp-col cor-'+(esq.cor||'escuro')+'"><div class="comp-col-titulo">'+E(esq.titulo)+'</div>'+colItens(esq.itens)+(imgEmEsq?imgW:'')+'</div>'
     +'<div class="comp-col cor-'+(dir.cor||'escuro')+'"><div class="comp-col-titulo">'+E(dir.titulo)+'</div>'+colItens(dir.itens)+(!imgEmEsq?imgW:'')+'</div>'
-    +'</div>'+diferencial(d.diferencial)+links(d.links)+'</div>';
+    +'</div>'+diferencial(d.diferencial)+imgRodapeFooter(d)+links(d.links)+'</div>';
   },
   estatisticas(d){
     const stats=(d.estatisticas||[]).map(s=>'<div class="stat-card cor-'+(s.cor||'escuro')+'"><div class="stat-num">'+s.numero+'</div><div class="stat-desc">'+s.descricao+'</div><div class="stat-fonte">'+s.fonte+'</div></div>').join('');
