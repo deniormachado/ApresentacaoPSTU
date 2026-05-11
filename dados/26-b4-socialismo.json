@@ -18,5 +18,9 @@
     "<strong>Internacionalismo</strong> — a revolução não tem fronteiras."
   ],
   "proposta": null,
-  "diferencial": "A URSS não foi socialismo — foi deformada pela burocracia stalinista, que traiu as origens da Revolução de 1917."
+  "diferencial": "A URSS não foi socialismo — foi deformada pela burocracia stalinista, que traiu as origens da Revolução de 1917.",
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }

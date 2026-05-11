@@ -24,5 +24,9 @@
     "titulo": "Apoiadores e simpatizantes",
     "texto": "O partido considera aderentes — mesmo não fazendo parte da estrutura orgânica — a todos que o apoiam política ou financeiramente ou atuam em conjunto conosco."
   },
-  "diferencial": ""
+  "diferencial": "",
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }

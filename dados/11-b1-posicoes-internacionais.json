@@ -18,5 +18,9 @@
     "<strong>ARGENTINA / MILEI:</strong> Viva a resistência dos trabalhadores argentinos!"
   ],
   "proposta": null,
-  "diferencial": ""
+  "diferencial": "",
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }

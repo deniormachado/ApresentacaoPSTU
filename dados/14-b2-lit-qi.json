@@ -17,5 +17,9 @@
     "Nahuel Moreno fundou a LIT-QI em 1982. O <strong>PSTU é a seção brasileira</strong>."
   ],
   "proposta": null,
-  "diferencial": ""
+  "diferencial": "",
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }

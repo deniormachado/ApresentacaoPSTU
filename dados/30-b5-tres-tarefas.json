@@ -16,5 +16,9 @@
     "<strong>Organizar mais gente:</strong> comunidade de ativistas, apoiadores, leitores do jornal, filiados, grupos nas redes sociais."
   ],
   "proposta": null,
-  "diferencial": "Por muito tempo, ser \"o partido das lutas\" foi insuficiente — faltava o aspecto programático e ideológico."
+  "diferencial": "Por muito tempo, ser \"o partido das lutas\" foi insuficiente — faltava o aspecto programático e ideológico.",
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }

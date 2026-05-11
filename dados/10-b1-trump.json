@@ -19,5 +19,9 @@
     "titulo": "Proposta do PSTU",
     "texto": "\"As terras raras são nossas! Por uma estatal para exploração e refino das terras raras sob controle dos trabalhadores!\""
   },
-  "diferencial": ""
+  "diferencial": "",
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }

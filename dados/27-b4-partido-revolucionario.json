@@ -17,5 +17,9 @@
     "<strong>Internacionalismo:</strong> parte de um Partido Mundial. A vitória da revolução só se consolida com a derrota do imperialismo."
   ],
   "proposta": null,
-  "diferencial": "Um partido que pretende apenas reformas organiza-se como partido eleitoral: subordina seu programa às alianças com a burguesia."
+  "diferencial": "Um partido que pretende apenas reformas organiza-se como partido eleitoral: subordina seu programa às alianças com a burguesia.",
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }

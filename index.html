@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.json">
 <title>PSTU — Apresentação 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
 /* ═══ TOKENS ═══════════════════════════════════════════ */
 :root{
@@ -108,7 +108,7 @@ body.paisagem #prog-h-wrap{display:none}
 .slide.sair-dir{opacity:0;transform:translateX(48px);pointer-events:none}
 
 /* temas */
-.tema-claro   {--bg:#fff;    --fg:#111;    --fg2:#555}
+.tema-claro   {--bg:#e8ddd2; --fg:#111;    --fg2:#555}
 .tema-escuro  {--bg:#1a1a1a; --fg:#f0f0f0; --fg2:rgba(255,255,255,.55)}
 .tema-profundo{--bg:#1c1c2e; --fg:#e8e8f0; --fg2:rgba(232,232,240,.55)}
 .tema-vermelho{--bg:#CC1111; --fg:#fff;    --fg2:rgba(255,255,255,.75)}
@@ -171,8 +171,14 @@ body.paisagem #prog-h-wrap{display:none}
 
 /* ══════════ CAPA ════════════════════════════════════════ */
 .capa-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--fg2);margin-bottom:16px}
-.capa-titulo{font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:800;line-height:.92;text-transform:uppercase;color:var(--fg);margin-bottom:8px}
+.capa-titulo{font-family:'Renfrew','Playfair Display',Georgia,serif;font-size:72px;font-weight:900;line-height:.9;text-transform:uppercase;color:var(--fg);margin-bottom:8px}
 .capa-subtitulo{font-size:17px;line-height:1.62;color:var(--fg2);margin-bottom:20px}
+.enc-titulo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:72px;font-weight:800;line-height:.9;
+  text-transform:uppercase;color:var(--fg);margin-bottom:8px;
+  letter-spacing:-.01em;
+}
 .capa-logos{display:flex;gap:10px;align-items:center;margin-bottom:16px}
 .capa-logo-img{height:38px;width:auto;border-radius:var(--r);border:1px solid rgba(255,255,255,.15);object-fit:contain;background:rgba(255,255,255,.05)}
 .capa-hint{font-size:14px;color:var(--fg2);margin-top:auto;padding-top:16px}
@@ -194,7 +200,7 @@ body.paisagem #prog-h-wrap{display:none}
 
 /* ══════════ COMPARATIVO ═════════════════════════════════ */
 .comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
-.comp-col{border-radius:var(--r-md);padding:11px}
+.comp-col{border-radius:var(--r-md);padding:11px;display:flex;flex-direction:column}
 .comp-col.cor-vermelho{background:rgba(204,17,17,.15);border:1px solid rgba(204,17,17,.3)}
 .comp-col.cor-escuro{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1)}
 .comp-col.cor-cinza{background:rgba(128,128,128,.12);border:1px solid rgba(128,128,128,.2)}
@@ -244,21 +250,19 @@ body.paisagem #prog-h-wrap{display:none}
 ══════════════════════════════════════════════════════════ */
 
 /* texto com itens: título esq, conteúdo dir */
+/* retrato: sc-col1 e sc-col2 empilhados, col2 cresce */
+body.retrato .sc-col1{ flex-shrink:0; }
+body.retrato .sc-col2{ flex:1; min-height:0; }
+
+/* paisagem: sc-col1 | sc-col2 lado a lado */
 body.paisagem .sc.tipo-texto{
   display:grid;
   grid-template-columns:1fr 1fr;
-  grid-template-rows:auto;
   gap:0 22px;
-  align-content:start
+  align-items:stretch;
 }
-body.paisagem .sc.tipo-texto .slide-modulo,
-body.paisagem .sc.tipo-texto .slide-pretitulo,
-body.paisagem .sc.tipo-texto .slide-titulo,
-body.paisagem .sc.tipo-texto .slide-texto{grid-column:1;align-self:start}
-body.paisagem .sc.tipo-texto .bloco-lista,
-body.paisagem .sc.tipo-texto .bloco-proposta,
-body.paisagem .sc.tipo-texto .bloco-diff,
-body.paisagem .sc.tipo-texto .bloco-links{grid-column:2;align-self:start}
+body.paisagem .sc.tipo-texto .sc-col1{ grid-column:1; }
+body.paisagem .sc.tipo-texto .sc-col2{ grid-column:2; }
 
 /* seção: número + texto lado a lado */
 body.paisagem .sc-secao{
@@ -316,6 +320,8 @@ body.paisagem .slide-titulo{font-size:27px}
 body.paisagem .bloco-lista li,.body.paisagem .slide-texto{font-size:16px}
 body.paisagem .sc{padding:18px 22px 18px}
 
+/* sem override extra para paisagem — col-bg é absoluto */
+
 /* ══════════ INDICADOR DE ORIENTAÇÃO ════════════════════ */
 #orient-hint{
   position:fixed;bottom:0;left:0;right:0;
@@ -361,24 +367,36 @@ html{
 }
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ══════════ IMAGEM RODAPÉ ═══════════════════════════════
-   Dentro do .sc (fluxo normal de rolagem).
-   Largura e altura controladas pelo JSON:
-     largura: "100%" | "80%" | "300px"  (padrão "100%")
-     altura:  220  (número em px, padrão 220)
-   Centralizada horizontalmente.
-══════════════════════════════════════════════════════════ */
-.img-rodape{
-  margin:12px auto 0;
+/* ══════════ IMAGEM RODAPÉ — fundo parcial na coluna ══════════
+   .sc-col1 / .sc-col2: colunas explícitas com position:relative
+   .col-bg: div absoluto no fundo da coluna com a imagem
+             + gradiente transparente → imagem (de cima p/ baixo)
+   O texto fica sobreposto com z-index superior.
+   Parâmetro JSON:  imagem_rodape.coluna = 1 | 2
+═══════════════════════════════════════════════════════════════ */
+.sc-col1, .sc-col2{
+  position:relative;
   display:flex;
-  justify-content:center;
-  width:100%;
+  flex-direction:column;
+  overflow:hidden;
 }
-.img-rodape img{
-  display:block;
-  object-fit:cover;
-  border-radius:var(--r);
-  max-width:100%;
+.col-bg{
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:55%;          /* ocupa metade inferior da coluna */
+  background-size:cover;
+  background-position:center bottom;
+  background-repeat:no-repeat;
+  z-index:0;
+  /* gradiente: transparente em cima → imagem em baixo */
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 55%);
+  mask-image:linear-gradient(to bottom, transparent 0%, black 55%);
+}
+/* garante texto acima do fundo */
+.sc-col1 > :not(.col-bg),
+.sc-col2 > :not(.col-bg){
+  position:relative;
+  z-index:1;
 }
 </style>
 </head>
@@ -458,29 +476,42 @@ const IC={
 /* ═══ HELPERS ════════════════════════════════════════════ */
 const E=s=>s||'';
 function imgBg(d){
-  if(!d.imagem_url)return'';
+  let url=d.imagem_url||'';
+  let dim=d.imagem_escurecimento||0;
+  if(!url)return'';
   const pos={centro:'center center',topo:'center top',baixo:'center bottom',esquerda:'left center',direita:'right center'}[d.imagem_posicao]||'center center';
-  return'<div class="bg-img" style="background-image:url(\''+d.imagem_url+'\');background-position:'+pos+'"></div>'+(d.imagem_escurecimento>0?'<div class="bg-dim" style="opacity:'+d.imagem_escurecimento+'"></div>':'');
+  const dimHtml=dim>0?'<div class="bg-dim" style="opacity:'+dim+'"></div>':'';
+  const guard='<img src="'+url+'" style="display:none" alt="" '
+    +'onerror="var p=this.parentNode;p.style.backgroundImage=\'none\';'
+    +'var s=p.nextElementSibling;if(s&&s.classList.contains(\'bg-dim\'))s.style.display=\'none\'">';
+  return'<div class="bg-img" style="background-image:url(\''+url+'\');background-position:'+pos+';background-size:cover">'+guard+'</div>'+dimHtml;
 }
 function proposta(p){return p?'<div class="bloco-proposta"><div class="proposta-titulo">'+E(p.titulo)+'</div><div class="proposta-texto">'+E(p.texto)+'</div></div>':''}
 function diferencial(t){return t?'<div class="bloco-diff"><span class="diff-s">≠</span>'+E(t)+'</div>':''}
 function lista(its){return its&&its.length?'<ul class="bloco-lista">'+its.map(i=>'<li>'+i+'</li>').join('')+'</ul>':''}
 function links(ls){
   if(!ls||!ls.length)return'';
-  return'<div class="bloco-links"><div class="links-label">Aprofunde:</div><div class="links-wrap">'+ls.map(l=>'<a class="link-btn" href="'+l.url+'" target="_blank" rel="noopener"><span class="link-icon">'+(IC[l.icone]||IC.link)+'</span>'+l.texto+'</a>').join('')+'</div></div>';
+  // URL inválida: vazia, placeholder 'https://...' ou só 'https://'
+  function urlValida(u){ return u&&u.trim()!==''&&u.trim()!=='https://...'&&u.trim()!=='https://'; }
+  const itens=ls.map(l=>{
+    if(urlValida(l.url)){
+      return'<a class="link-btn" href="'+l.url+'" target="_blank" rel="noopener"><span class="link-icon">'+(IC[l.icone]||IC.link)+'</span>'+l.texto+'</a>';
+    } else {
+      return'<span class="link-btn link-falta"><span class="link-icon">'+(IC[l.icone]||IC.link)+'</span>'+l.texto+' <em>— falta link</em></span>';
+    }
+  });
+  return'<div class="bloco-links"><div class="links-label">Aprofunde:</div><div class="links-wrap">'+itens.join('')+'</div></div>';
 }
 
-function imgRodape(d){
+function colBg(d){
   if(!d.imagem_rodape||!d.imagem_rodape.url)return'';
   const r=d.imagem_rodape;
-  // largura: "100%" | "80%" | "320px"  (padrão "100%")
-  const w=r.largura||(typeof r.largura==='number'?r.largura+'px':'100%');
-  // altura: número em px  (padrão 220)
-  const h=(typeof r.altura==='number'?r.altura:220)+'px';
-  const pos=r.posicao||'center center';
-  const alt=r.alt||'';
-  return'<div class="img-rodape"><img src="'+r.url+'" alt="'+alt+'" loading="lazy" style="width:'+w+';height:'+h+';object-position:'+pos+'" onerror="this.parentElement.style.display=\'none\'"></div>';
+  const pos=r.posicao||'center bottom';
+  const h=r.altura_bg||'55%'; // altura do fundo na coluna (padrão 55%)
+  return'<div class="col-bg" style="background-image:url(\''+r.url+'\');background-position:'+pos+';height:'+h+'" onerror="this.style.display=\'none\'"></div>';
 }
+// mantém imgRodape como alias vazio para compatibilidade com comparativo
+function imgRodape(d){ return''; }
 function colItens(its){return(its||[]).map(it=>'<div class="col-item'+(it.estilo==='destaque'?' col-item-destaque':'')+'">'+it.texto+'</div>').join('')}
 
 /* ═══ RENDERIZADORES ══════════════════════════════════════ */
@@ -489,26 +520,65 @@ const R={
     const logos=(d.logos||[]).map(u=>'<img class="capa-logo-img" src="'+u+'" alt="" loading="lazy">').join('');
     return imgBg(d)+'<div class="sc sc-capa'+(d.texto_borda?' tb':'')+'"><div class="capa-pretitulo">'+E(d.pre_titulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<div class="capa-titulo">'+E(d.titulo)+'</div><p class="capa-subtitulo">'+E(d.subtitulo)+'</p>'+(logos?'<div class="capa-logos">'+logos+'</div>':'')+links(d.links)+imgRodape(d)+'<div class="capa-hint">← deslize para navegar →</div></div>';
   },
+  encerramento(d){
+    const logos=(d.logos||[]).map(u=>'<img class="capa-logo-img" src="'+u+'" alt="" loading="lazy">').join('');
+    const linksHtml=links(d.links||[]);
+    return imgBg(d)+'<div class="sc sc-capa'+(d.texto_borda?' tb':'')+'"><div class="capa-pretitulo">'+E(d.pre_titulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')
+    +'<div class="enc-titulo">'+E(d.titulo)+'</div>'
+    +'<p class="capa-subtitulo">'+E(d.subtitulo)+'</p>'
+    +(logos?'<div class="capa-logos">'+logos+'</div>':'')
+    +linksHtml
+    +'<div class="capa-hint">← deslize para navegar →</div></div>';
+  },
   secao(d){
-    return imgBg(d)+'<div class="sc sc-secao'+(d.texto_borda?' tb':'')+'"><div class="secao-num">'+E(d.numero_gigante)+'</div><div class="secao-pretitulo">'+E(d.pre_titulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<div class="secao-titulo">'+E(d.titulo)+'</div><p class="secao-subtitulo">'+E(d.subtitulo)+'</p>'+(d.texto?'<p class="secao-texto">'+d.texto+'</p>':'')+imgRodape(d)+'</div>';
+    return imgBg(d)+'<div class="sc sc-secao'+(d.texto_borda?' tb':'')+'"><div class="secao-num">'+E(d.numero_gigante)+'</div><div class="secao-pretitulo">'+E(d.pre_titulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<div class="secao-titulo">'+E(d.titulo)+'</div><p class="secao-subtitulo">'+E(d.subtitulo)+'</p>'+(d.texto?'<p class="secao-texto">'+d.texto+'</p>':'')+'</div>';
   },
   texto(d){
-    return imgBg(d)+'<div class="sc tipo-texto'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')+lista(d.itens)+proposta(d.proposta)+diferencial(d.diferencial)+links(d.links)+imgRodape(d)+'</div>';
-  },
+    const r=d.imagem_rodape||{};
+    const col=r.coluna||1; // 1=coluna esquerda, 2=coluna direita
+    const bg=colBg(d);
+    return imgBg(d)
+      +'<div class="sc tipo-texto'+(d.texto_borda?' tb':'')
+      +'"><div class="sc-col1">'
+      +(d.modulo?'<div class="slide-modulo">'+E(d.modulo)+'</div>':'')
+      +(d.pre_titulo?'<div class="slide-pretitulo">'+E(d.pre_titulo)+'</div>':'')
+      +'<h2 class="slide-titulo">'+E(d.titulo)+'</h2>'
+      +(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')
+      +(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')
+      +(col===1?bg:'')
+      +'</div>'
+      +'<div class="sc-col2">'
+      +lista(d.itens)
+      +proposta(d.proposta)
+      +diferencial(d.diferencial)
+      +links(d.links)
+      +(col===2?bg:'')
+      +'</div>'
+      +'</div>';  },
   dividido(d){
     const esq=(d.itens_esquerda||[]).map(it=>'<div class="div-item"><strong>'+it.titulo+'</strong><p>'+it.texto+'</p></div>').join('');
     return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="div-grid">'+esq+'</div>'+proposta(d.proposta)+diferencial(d.diferencial)+'</div>';
   },
   comparativo(d){
     const esq=d.coluna_esquerda||{},dir=d.coluna_direita||{};
-    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')+'<div class="comp-grid"><div class="comp-col cor-'+(esq.cor||'escuro')+'"><div class="comp-col-titulo">'+E(esq.titulo)+'</div>'+colItens(esq.itens)+'</div><div class="comp-col cor-'+(dir.cor||'escuro')+'"><div class="comp-col-titulo">'+E(dir.titulo)+'</div>'+colItens(dir.itens)+'</div></div>'+diferencial(d.diferencial)+'</div>';
+    const imgHtml=imgRodape(d);
+    // coloca imagem na coluna com menos itens (mais espaço sobrando)
+    const nEsq=(esq.itens||[]).length;
+    const nDir=(dir.itens||[]).length;
+    const imgEmEsq=imgHtml&&nEsq<=nDir;
+    const imgW=imgHtml?'<div class="img-rodape-col">'+imgHtml+'</div>':'';
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')
+    +'<div class="comp-grid">'
+    +'<div class="comp-col cor-'+(esq.cor||'escuro')+'"><div class="comp-col-titulo">'+E(esq.titulo)+'</div>'+colItens(esq.itens)+(imgEmEsq?imgW:'')+'</div>'
+    +'<div class="comp-col cor-'+(dir.cor||'escuro')+'"><div class="comp-col-titulo">'+E(dir.titulo)+'</div>'+colItens(dir.itens)+(!imgEmEsq?imgW:'')+'</div>'
+    +'</div>'+diferencial(d.diferencial)+links(d.links)+'</div>';
   },
   estatisticas(d){
     const stats=(d.estatisticas||[]).map(s=>'<div class="stat-card cor-'+(s.cor||'escuro')+'"><div class="stat-num">'+s.numero+'</div><div class="stat-desc">'+s.descricao+'</div><div class="stat-fonte">'+s.fonte+'</div></div>').join('');
     return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+'<div class="stats-grid">'+stats+'</div>'+diferencial(d.diferencial)+'</div>';
   },
   citacao(d){
-    return imgBg(d)+'<div class="sc sc-citacao'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<blockquote class="cit-texto">'+E(d.titulo)+'</blockquote><div class="cit-fonte">'+E(d.pre_titulo)+'</div>'+(d.subtitulo?'<p class="cit-nota">'+d.subtitulo+'</p>':'')+imgRodape(d)+'</div>';
+    return imgBg(d)+'<div class="sc sc-citacao'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<blockquote class="cit-texto">'+E(d.titulo)+'</blockquote><div class="cit-fonte">'+E(d.pre_titulo)+'</div>'+(d.subtitulo?'<p class="cit-nota">'+d.subtitulo+'</p>':'')+'</div>';
   },
   timeline(d){
     const its=(d.itens_timeline||[]).map(it=>'<div class="tl-item"><div class="tl-ano">'+it.ano+'</div><div class="tl-texto">'+it.texto+'</div></div>').join('');

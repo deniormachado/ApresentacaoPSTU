@@ -26,5 +26,17 @@
     "largura": "100%",
     "altura": 200,
     "posicao": "center 40%"
-  }
+  },
+  "links": [
+    {
+      "icone": "video",
+      "texto": "Assista",
+      "url": ""
+    },
+    {
+      "icone": "artigo",
+      "texto": "Leia mais",
+      "url": ""
+    }
+  ]
 }

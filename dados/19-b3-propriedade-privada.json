@@ -19,5 +19,9 @@
     "titulo": "Resultado inevitável",
     "texto": "A desigualdade, as crises e a destruição não são acidentes. São o resultado inevitável do funcionamento do sistema."
   },
-  "diferencial": ""
+  "diferencial": "",
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }
