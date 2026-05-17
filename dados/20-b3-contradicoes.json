@@ -2,7 +2,6 @@
   "tipo": "dividido",
   "modulo": "Bloco 3 · Engrenagens do Capitalismo",
   "tema": "escuro",
-  "pre_titulo": "As grandes contradições",
   "titulo": "Por que o capitalismo não tem saída",
   "subtitulo": "",
   "texto": "",
@@ -13,16 +12,27 @@
   "itens_esquerda": [
     {
       "titulo": "Contradição 1",
-      "texto": "Há tecnologia e riqueza para cuidar de toda a humanidade — mas a lógica do capitalismo não é atender necessidades: é gerar lucro."
+      "texto": "O trabalho é coletivo, mas a apropriação é privada. Meios de produção não são sociais. Há tecnologia e riqueza para toda a humanidade — mas o objetivo é outro: e ampliação do lucro."
     },
     {
       "titulo": "Contradição 2",
-      "texto": "A produção é globalizada, mas o capitalismo reforça fronteiras e guerras para dividir trabalhadores. Gaza, Ucrânia, tensão EUA-China."
+      "texto": "Precisa crescer de forma limitada. Mas os recursos naturais e a capacidade de consumo são limitados."
+    },
+     {
+      "titulo": "Contradição 3",
+      "texto": "Ninguém controlam a anarquia do sistema. O crescimento com inovação tecnológica barateia produtos e diminui taxa geral de lucros. Fecha o ciclo de investimentos e vem crise e desemprego."
+    },
+    {
+      "titulo": "Contradição 4",
+      "texto": "A produção é globalizada, mas a concorrência produz guerras, e também para esmagar revoluções."
     }
   ],
   "proposta": {
     "titulo": "Conclusão",
-    "texto": "O capitalismo perdeu qualquer legitimidade. A única saída é a superação do próprio sistema."
+    "texto": "O capitalismo perdeu qualquer legitimidade. A única saída é a superação do próprio sistema..."
   },
-  "diferencial": ""
+  "links": [
+  { "icone": "video",  "texto": "Assista", "url": "https://..." },
+  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+]
 }

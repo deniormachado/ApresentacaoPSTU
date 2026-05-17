@@ -15,7 +15,10 @@
     "<strong>Construir nossas figuras públicas:</strong> candidatos ligados às lutas reais, que traduzam nossa política de forma acessível. Construir tribunos populares.",
     "<strong>Organizar mais gente:</strong> comunidade de ativistas, apoiadores, leitores do jornal, filiados, grupos nas redes sociais."
   ],
-  "proposta": null,
+	"proposta": {
+	"titulo": "Lênin defende a explicação paciente:",
+	"texto": "Enquanto se tratava (e na medida em que ainda se trata) de ganhar para o comunismo a vanguarda do proletariado, a PROPAGANDA avança para o primeiro lugar."
+  },
   "diferencial": "Por muito tempo, ser \"o partido das lutas\" foi insuficiente — faltava o aspecto programático e ideológico.",
   "links": [
   { "icone": "video",  "texto": "Assista", "url": "https://..." },

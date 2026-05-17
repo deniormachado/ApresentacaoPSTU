@@ -2,7 +2,6 @@
   "tipo": "comparativo",
   "modulo": "Bloco 1 · Romper as Engrenagens",
   "tema": "escuro",
-  "pre_titulo": "Análise de conjuntura",
   "titulo": "Distintos regimes, mas o mesmo sistema",
   "subtitulo": "",
   "texto": "",
@@ -11,42 +10,42 @@
   "imagem_posicao": "centro",
   "texto_borda": false,
   "coluna_esquerda": {
-    "titulo": "Extrema direita",
+    "titulo": "Governos ditatoriais",
     "cor": "cinza",
     "itens": [
       {
-        "texto": "Se apresenta como \"antissistema\" — mas é a parte mais podre do capitalismo.",
+        "texto": " Atacam liberdades democráticas, proíbem as lutas e a organização dos trabalhadores.",
         "estilo": "normal"
       },
       {
-        "texto": "Tentou um golpe para acabar com as liberdades da classe trabalhadora.",
+        "texto": "A ultradireita se diz antissistema, mas é ANTI-TRABALHADOR. Quer salvar o \"SISTEMA EM CRISE.\" ",
         "estilo": "normal"
       },
       {
-        "texto": "Modelo Milei: destruição de direitos, entrega ao FMI.",
+        "texto": "Bolsonaro tentou um golpe, e se alinha com Trump para entregar o país.",
         "estilo": "destaque"
       }
     ]
   },
   "coluna_direita": {
-    "titulo": "Governo Lula (PT)",
+    "titulo": "Democracia burguesa: também uma ditadura de classe",
     "cor": "cinza",
     "itens": [
       {
-        "texto": "Mantém o arcabouço fiscal e a agiotagem da dívida.",
+        "texto": "São ilusionistas, falam em poder do povo, mas eleições são controladas pela grana.",
         "estilo": "normal"
       },
       {
-        "texto": "Rifa pautas de mulheres, negros e LGBTI por governabilidade com o centrão.",
+        "texto": "Lula governa abraçado aos capitalistas e banqueiros. Mantem a submissão do país.",
         "estilo": "normal"
       },
       {
-        "texto": "Preserva os lucros dos bilionários e concede subsídios às multinacionais.",
+        "texto": "Rifa as pautas de mulheres, negros e LGBTI por governabilidade com o centrão.",
         "estilo": "destaque"
       }
     ]
   },
-  "diferencial": "O PSTU é oposição de esquerda independente — não apoia o PT nem a direita. Nossa estratégia é a revolução socialista.",
+  "diferencial": "O PSTU defende as liberdades democráticas sem apoiar a democracia dos ricos.",
   "imagem_rodape": {
     "url": "dados/09-b1-extrema-direita-pt.png",
     "alt": "Distintos regimes, mas o mesmo sistema",

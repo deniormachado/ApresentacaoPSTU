@@ -157,9 +157,9 @@ body.paisagem #prog-h-wrap{display:none}
 .tema-claro .bloco-diff{background:#f0f0f0;color:var(--gray)}
 .diff-s{font-weight:800;color:var(--red);margin-right:5px}
 
-.bloco-links{padding-top:11px;border-top:1px solid rgba(255,255,255,.1);margin-top:8px}
+.bloco-links{padding-top:11px;border-top:1px solid rgba(255,255,255,.1);margin-top:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .tema-claro .bloco-links{border-color:var(--border)}
-.links-label{font-size:14px;font-weight:700;color:var(--fg);margin-bottom:7px}
+.links-label{font-size:14px;font-weight:700;color:var(--fg);flex-shrink:0}
 .links-wrap{display:flex;gap:7px;flex-wrap:wrap}
 .link-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:6px 11px;font-size:15px;color:var(--fg);text-decoration:none;font-family:'Barlow',sans-serif;transition:background .15s}
 .tema-claro .link-btn{background:var(--bg-lt);border-color:var(--border);color:var(--dark)}
@@ -565,7 +565,7 @@ const R={
       +'</div>';  },
   dividido(d){
     const esq=(d.itens_esquerda||[]).map(it=>'<div class="div-item"><strong>'+it.titulo+'</strong><p>'+it.texto+'</p></div>').join('');
-    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="div-grid">'+esq+'</div>'+proposta(d.proposta)+diferencial(d.diferencial)+'</div>';
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="div-grid">'+esq+'</div>'+proposta(d.proposta)+diferencial(d.diferencial)+links(d.links)+'</div>';
   },
   comparativo(d){
     const esq=d.coluna_esquerda||{},dir=d.coluna_direita||{};
