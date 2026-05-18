@@ -392,11 +392,25 @@ html{
   -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 55%);
   mask-image:linear-gradient(to bottom, transparent 0%, black 55%);
 }
-/* garante texto acima do fundo */
+/* garante texto acima do fundo (paisagem) */
 .sc-col1 > :not(.col-bg),
 .sc-col2 > :not(.col-bg){
   position:relative;
   z-index:1;
+}
+
+/* ══ RETRATO: imagem vira bloco separado abaixo do texto ══ */
+body.retrato .sc-col1,
+body.retrato .sc-col2{ overflow:visible; }
+body.retrato .col-bg{
+  position:relative !important;
+  height:200px !important;
+  bottom:auto !important; left:auto !important; right:auto !important;
+  border-radius:var(--r);
+  margin-top:8px;
+  flex-shrink:0;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
 }
 </style>
 </head>
