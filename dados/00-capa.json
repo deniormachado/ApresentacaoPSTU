@@ -8,10 +8,10 @@
   "titulo": "PSTU",
   "subtitulo": "Partido Socialista dos Trabalhadores Unificado<br/>Venha conhecer o PSTU. Faça parte!",
   "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
+  "imagem_url": "/dados/00-capa-bandeira-pstu.png",
+  "imagem_escurecimento": 0.72,
   "imagem_posicao": "centro",
-  "texto_borda": false,
+  "texto_borda": true,
   "logos": [
     "https://www.opiniaosocialista.com.br/wp-content/uploads/2024/07/WhatsApp-Image-2024-03-09-at-13.31.25-e1720734646795.jpeg",
     "https://litci.org/pt/wp-content/uploads/2022/07/LIT.jpg"
