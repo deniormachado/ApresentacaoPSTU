@@ -17,9 +17,9 @@
   ],
   "proposta": {
     "titulo": "O que o PSTU diz",
-    "texto": "Não é falta de recursos — é uma escolha política consciente de para quem a riqueza vai!"
+    "texto": "Não é falta de recursos — são os governos a serviço dos capitalistas!"
   },
-  "diferencial": "O PT manteve o capitalismo e a submissão nacional. A ultradireita é o entreguismo descarado ao imperialismo. O PSTU é oposição revolucionária, com  independência de classe.",
+  "diferencial": "O PT manteve o capitalismo e a submissão nacional. A ultradireita é o entreguismo descarado ao imperialismo. O PSTU é oposição revolucionária, pelo fim do capitalismo.",
   "imagem_rodape": {
     "url": "dados/02-b1-pais-rico.png",
     "alt": "Um país rico governado contra seu povo",
@@ -30,13 +30,13 @@
   "links": [
     {
       "icone": "video",
-      "texto": "Assista",
-      "url": ""
+      "texto": "Os bilionários capitalistas controlam a política",
+      "url": "https://www.youtube.com/watch?v=Q64x4y1RuAQ"
     },
     {
       "icone": "artigo",
-      "texto": "Leia mais",
-      "url": ""
+      "texto": "Explosão da Desigualdade",
+      "url": "https://www.pstu.org.br/explosao-da-desigualdade-1-tem-riqueza-superior-a-de-7-bilhoes-de-pessoas/"
     }
   ]
 }

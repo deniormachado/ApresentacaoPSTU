@@ -30,13 +30,13 @@
   "links": [
     {
       "icone": "video",
-      "texto": "Assista",
-      "url": ""
+      "texto": "Curso: Feminismo e Marxismo",
+      "url": "https://www.youtube.com/watch?v=FmkPo8XUlJo"
     },
     {
       "icone": "artigo",
-      "texto": "Leia mais",
-      "url": ""
+      "texto": "Não é uma tarefa só das mulheres",
+      "url": "https://www.pstu.org.br/a-luta-contra-o-machismo-e-a-violencia-sexual-nao-e-uma-tarefa-so-das-mulheres-mas-do-conjunto-dos-trabalhadores/"
     }
   ]
 }

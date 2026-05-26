@@ -5,21 +5,21 @@
   "pre_titulo": "",
   "titulo": "Chega de feminicídios e de violência contra as mulheres",
   "subtitulo": "",
-  "texto": "As mulheres ganham <em>78% do salário dos homens</em> e ainda sustentam sozinhas o cuidado com filhos, idosos e a casa.",
+  "texto": "As mulheres ganham <em>78% do salário dos homens</em> e ainda sustentam sozinhas o cuidado com filhos, idosos e a casa. Por isso, é interessante para o sistema incentivar o preconceito e a opressão. O resultado é a violência para manter as mulheres submissas.",
   "imagem_url": "",
   "imagem_escurecimento": 0,
   "imagem_posicao": "centro",
   "texto_borda": false,
   "itens": [
     "O capitalismo utiliza o machismo para impor superexploração — paga menos, extrai mais.",
-    "O governo Lula rifou as pautas das mulheres para costurar acordos com a direita.",
+    "O governo Lula rifou as pautas das mulheres para costurar acordos com a direita no Congresso e nas alianças eleitorais.",
     "O Estado deve fornecer creches, lavanderias e restaurantes públicos."
   ],
   "proposta": {
     "titulo": "Proposta do PSTU",
     "texto": "Pelo fim dos feminicídios e pela legalização do aborto!"
   },
-  "diferencial": "PT e centrão trocam vidas de mulheres por votos no Congresso. O PSTU não faz isso.",
+  "diferencial": "PT e centrão trocam vidas de mulheres por votos no Congresso. O PSTU defende as mulhres e busca educar a classe trabalhadora contra a opressão, unindo-a contra a burguesia.",
   "imagem_rodape": {
     "url": "https://www.brasildefato.com.br/wp-content/uploads/2024/09/image_processing20200201-29235-2gmfu9.jpg",
     "alt": "Chega de feminicídios e de violência contra as mulheres",
@@ -28,7 +28,7 @@
     "posicao": "center 40%"
   },
   "links": [
-  { "icone": "video",  "texto": "Assista", "url": "https://..." },
-  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+  { "icone": "video",  "texto": "Naturalizaram a Violência", "url": "https://www.youtube.com/watch?v=sTwvoZsMu78&t=1557s" },
+  { "icone": "artigo", "texto": "Marxismo e a luta contra as opressões", "url": "https://teoriaerevolucao.pstu.org.br/a-questao-das-mulheres-o-marxismo-e-a-luta-contra-as-opressoes/" }
 ]
 }

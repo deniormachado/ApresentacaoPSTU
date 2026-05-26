@@ -15,7 +15,7 @@
     "itens": [
       {
         "texto": " Atacam liberdades democráticas, proíbem as lutas e a organização dos trabalhadores.",
-        "estilo": "normal"
+        "estilo": "destaque"
       },
       {
         "texto": "A ultradireita se diz antissistema, mas é ANTI-TRABALHADOR. Quer salvar o \"SISTEMA EM CRISE.\" ",
@@ -23,7 +23,7 @@
       },
       {
         "texto": "Bolsonaro tentou um golpe, e se alinha com Trump para entregar o país.",
-        "estilo": "destaque"
+        "estilo": "normal"
       }
     ]
   },
@@ -33,20 +33,19 @@
     "itens": [
       {
         "texto": "São ilusionistas, falam em poder do povo, mas eleições são controladas pela grana.",
-        "estilo": "normal"
+        "estilo": "destaque"
       },
       {
         "texto": "Lula governa abraçado aos capitalistas e banqueiros. Mantem a submissão do país.",
         "estilo": "normal"
       },
       {
-        "texto": "Rifa as pautas de mulheres, negros e LGBTI por governabilidade com o centrão.",
-        "estilo": "destaque"
+        "texto": "Rifa as pautas dos trabalhadores, das mulheres, negros, LGBTI e indígenas por governabilidade com o centrão.",
+        "estilo": "normal"
       }
     ]
   },
-  "diferencial": "O PSTU defende as liberdades democráticas sem apoiar a democracia dos ricos.",
-  "imagem_rodape": {
+   "imagem_rodape": {
     "url": "dados/09-b1-extrema-direita-pt.png",
     "alt": "Distintos regimes, mas o mesmo sistema",
     "largura": "100%",
@@ -56,13 +55,13 @@
   "links": [
     {
       "icone": "video",
-      "texto": "Assista",
-      "url": ""
+      "texto": "Fascismo e Bolsonarismo",
+      "url": "https://www.youtube.com/watch?v=L7vOaxwl6sI"
     },
     {
       "icone": "artigo",
-      "texto": "Leia mais",
-      "url": ""
+      "texto": "O Estado burguês e o fascismo",
+      "url": "https://www.pstu.org.br/o-estado-burgues-e-o-fascismo/"
     }
   ]
 }

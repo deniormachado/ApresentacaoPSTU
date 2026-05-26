@@ -4,7 +4,7 @@
   "tema": "claro",
   "pre_titulo": "Brasil em números",
   "titulo": "A riqueza que não chega",
-  "subtitulo": "Obs: estes dados tem que ser REVISTOS - ver ILAESE",
+  "subtitulo": "",
   "texto": "",
   "imagem_url": "",
   "imagem_escurecimento": 0,
@@ -12,29 +12,47 @@
   "texto_borda": false,
   "estatisticas": [
     {
-      "numero": "54 mi",
-      "descricao": "em insegurança alimentar",
-      "fonte": "Rede PENSSAN, 2023",
-      "cor": "vermelho"
+      "numero": "25,8%",
+      "descricao": "Em insegurança alimentar",
+      "fonte": "Escala Brasileira de Insegurança Alimentar (EBIA)",
+      "cor": "vermelho",
+      "imagem_url": "https://cdn.myportfolio.com/7110bd9a9c83d97ed90b4758be565c85/642440d9-2458-406e-b8a8-17705333e792_rw_1920.jpg?h=3159bbfdf892d79f134027f94f99f3f5",
+      "imagem_modo": "foto"
     },
     {
-      "numero": "80 mi",
-      "descricao": "sem emprego ou na informalidade",
-      "fonte": "IBGE, 2024",
-      "cor": "escuro"
+      "numero": "59%",
+      "descricao": "Desempregados ou na informalidade",
+      "fonte": "ILAESE / 2026",
+      "cor": "escuro",
+      "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Entregadores_essenciais_-_Lucas_Cheiddi_-_Entregador_entrando_na_portaria_de_condom%C3%ADnio_-.jpg",
+      "imagem_modo": "foto"
     },
     {
-      "numero": "13,5%",
-      "descricao": "do PIB para juros da dívida pública",
+      "numero": "13%",
+      "descricao": "Do PIB vai para juros da dívida pública",
       "fonte": "BCB, 2024",
-      "cor": "vermelho"
+      "cor": "escuro",
+      "imagem_url": "/dados/08-b1-pizza_pib.png"
     },
     {
-      "numero": "R$427bi",
-      "descricao": "em dividendos da Petrobras em 5 anos",
-      "fonte": "Manifesto PSTU, 2026",
-      "cor": "escuro"
+      "numero": "R$263 bi",
+      "descricao": "Dividendos distribuídos (parte do lucro das empresas)",
+      "fonte": "ILAESE / 2026",
+      "cor": "vermelho",
+      "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Petrobras_horizontal_logo.svg/250px-Petrobras_horizontal_logo.svg.png",
+      "imagem_modo": "logo"
     }
   ],
-  "diferencial": "Esses números mostram que não há falta de riqueza — há uma escolha política consciente de para quem essa riqueza vai."
+  "links": [
+    {
+      "icone": "video",
+      "texto": "Anuário Estatístico — ILAESE",
+      "url": "https://www.youtube.com/watch?v=oUvexHiFazM"
+    },
+    {
+      "icone": "artigo",
+      "texto": "Anuário do Trabalho 2025/26",
+      "url": "https://ilaese.org.br/anuario/"
+    }
+  ]
 }

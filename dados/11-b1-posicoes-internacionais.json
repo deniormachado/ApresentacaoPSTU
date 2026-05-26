@@ -1,15 +1,15 @@
 {
   "tipo": "texto",
   "modulo": "Bloco 1 · Romper as Engrenagens",
-  "tema": "claro",
+  "tema": "escuro",
   "pre_titulo": "Posições Internacionais do PSTU",
   "titulo": "Nossa posição no mundo",
   "subtitulo": "",
-  "texto": "A exploração dos trabalhadores é internacional. A libertação pressupõe a derrota do sistema mundial imperialista.",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
+  "texto": "A exploração dos trabalhadores é internacional. A libertação pressupõe a derrota do sistema mundial imperialista. A revolução começa pela conquista do poder em cada país. Mas é uma ilusão a teoria stalinista do 'Socialismo em um só país'. A história do séc. XX já mostrou que este caminho conduz à restauração capitalista. O PSTU e a LIT apoiam todas as lutas dos povos pela libertação. Cada vitória deve ser um ponto de apoio para expandir a revolução e derrotar os Estados imperialistas.",
+  "imagem_url": "https://aventurasnahistoria.com.br/wp-content/uploads/trotskyexercitvermelho234r.jpg",
+  "imagem_escurecimento": 0.72,
   "imagem_posicao": "centro",
-  "texto_borda": false,
+  "texto_borda": true,
   "itens": [
     "<strong>PALESTINA:</strong> Por uma Palestina laica e democrática, do rio ao mar. Contra o Estado de Israel e o imperialismo dos EUA. Todo apoio à Flotilha. Contra a condenação de Zé Maria. Antisssionismo não é antisemitismo.",
     "<strong>UCRÂNIA:</strong> Pela derrota da invasão imperialista russa. Apoio ao povo ucraniano. Contra a subordinação à OTAN.",
@@ -19,7 +19,7 @@
   "proposta": null,
   "diferencial": "",
   "links": [
-  { "icone": "video",  "texto": "Assista", "url": "https://..." },
-  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+  { "icone": "video",  "texto": "Socialismo em um só país e Internacionalismo", "url": "https://www.youtube.com/watch?v=O5SE-5VjXF0" },
+  { "icone": "artigo", "texto": "Apoio incondicional à luta de libertação palestina", "url": "https://litci.org/pt/2026/05/13/o-que-significa-apoio-incondicional-a-luta-de-libertacao-palestina-e-como-defende-lo-dentro-da-democracia-burguesa/?utm_source=copylink&utm_medium=browser" }
 ]
 }
