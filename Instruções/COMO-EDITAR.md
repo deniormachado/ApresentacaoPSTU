@@ -86,6 +86,13 @@ Cobre o slide inteiro, atrás do texto. Campos relacionados:
   - `0` ou ausente → usa o **padrão global** (0.55, definido em `ESCURECIMENTO_PADRAO` no topo do `<script>` do `index.html`)
   - `0.3` → mais claro que o padrão; `0.8` → mais escuro
   - `-1` → imagem totalmente viva, sem véu nenhum
+- `imagem_clareamento`: véu **branco** (0 a 1), para quando as letras sobre o
+  fundo são **escuras** (tema claro). Quando presente e maior que zero,
+  substitui o escurecimento.
+- **Dica:** o editor Delphi (EditScriptsSlides) tem um controle deslizante de
+  "véu de contraste" e o botão **Testar contraste ▶**, que varre do clarear ao
+  escurecer mostrando a prévia ao vivo — pare no ponto em que o texto ficar
+  mais legível.
 
 ### 2. Imagem em quadro (`imagem_quadro`)
 Figura com moldura, sombra e legenda opcional, dentro do conteúdo:

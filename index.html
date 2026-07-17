@@ -473,7 +473,9 @@ body.retrato .col-bg{
    ESCURECIMENTO_PADRAO: véu escuro sobre imagens de fundo (0 a 1).
    Vale para todo slide cujo "imagem_escurecimento" seja 0 ou ausente.
    Para um slide específico: "imagem_escurecimento": 0.3 (mais claro),
-   0.8 (mais escuro) ou -1 (imagem totalmente viva, sem véu). */
+   0.8 (mais escuro) ou -1 (imagem totalmente viva, sem véu).
+   Para letras ESCURAS sobre o fundo use "imagem_clareamento": 0 a 1
+   (véu branco; quando presente e > 0, substitui o escurecimento). */
 const ESCURECIMENTO_PADRAO = 0.55;
 
 /* ═══ DADOS EMBUTIDOS ════════════════════════════════════ */
@@ -512,10 +514,14 @@ const E=s=>s||'';
 function imgBg(d){
   let url=d.imagem_url||'';
   let dim=d.imagem_escurecimento;
+  const clar=d.imagem_clareamento||0;
   dim=(dim==null||dim===0)?ESCURECIMENTO_PADRAO:(dim<0?0:dim);
+  if(clar>0)dim=0; // clareamento substitui o escurecimento
   if(!url)return'';
   const pos={centro:'center center',topo:'center top',baixo:'center bottom',esquerda:'left center',direita:'right center'}[d.imagem_posicao]||'center center';
-  const dimHtml=dim>0?'<div class="bg-dim" style="opacity:'+dim+'"></div>':'';
+  let dimHtml='';
+  if(dim>0)dimHtml='<div class="bg-dim" style="opacity:'+dim+'"></div>';
+  else if(clar>0)dimHtml='<div class="bg-dim" style="background:#fff;opacity:'+clar+'"></div>';
   const guard='<img src="'+url+'" style="display:none" alt="" '
     +'onerror="var p=this.parentNode;p.style.backgroundImage=\'none\';'
     +'var s=p.nextElementSibling;if(s&&s.classList.contains(\'bg-dim\'))s.style.display=\'none\'">';
