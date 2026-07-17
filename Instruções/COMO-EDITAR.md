@@ -89,6 +89,10 @@ Cobre o slide inteiro, atrás do texto. Campos relacionados:
 - `imagem_clareamento`: véu **branco** (0 a 1), para quando as letras sobre o
   fundo são **escuras** (tema claro). Quando presente e maior que zero,
   substitui o escurecimento.
+- `veu_apenas_texto`: onde o véu é aplicado.
+  - `false` ou ausente → véu na **imagem inteira**
+  - `true` → véu **só atrás do quadro de texto** (a área ocupada pelo
+    conteúdo, com folga e cantos arredondados); o resto da imagem fica vivo
 - **Dica:** o editor Delphi (EditScriptsSlides) tem um controle deslizante de
   "véu de contraste" e o botão **Testar contraste ▶**, que varre do clarear ao
   escurecer mostrando a prévia ao vivo — pare no ponto em que o texto ficar

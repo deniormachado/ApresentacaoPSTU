@@ -117,6 +117,8 @@ body.paisagem #prog-h-wrap{display:none}
 /* imagem de fundo */
 .bg-img{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;z-index:0}
 .bg-dim{position:absolute;inset:0;background:#000;z-index:1}
+/* véu apenas no quadro de texto (posicionado via JS sobre o conteúdo) */
+.bg-dim.veu-quadro{inset:auto;display:none;border-radius:var(--r-md)}
 
 /* ═══ CONTEÚDO ════════════════════════════════════════════ */
 .sc{
@@ -537,9 +539,10 @@ function imgBg(d){
   if(clar>0)dim=0; // clareamento substitui o escurecimento
   if(!url)return'';
   const pos={centro:'center center',topo:'center top',baixo:'center bottom',esquerda:'left center',direita:'right center'}[d.imagem_posicao]||'center center';
+  const veuCls=d.veu_apenas_texto?' veu-quadro':'';
   let dimHtml='';
-  if(dim>0)dimHtml='<div class="bg-dim" style="opacity:'+dim+'"></div>';
-  else if(clar>0)dimHtml='<div class="bg-dim" style="background:#fff;opacity:'+clar+'"></div>';
+  if(dim>0)dimHtml='<div class="bg-dim'+veuCls+'" style="opacity:'+dim+'"></div>';
+  else if(clar>0)dimHtml='<div class="bg-dim'+veuCls+'" style="background:#fff;opacity:'+clar+'"></div>';
   const guard='<img src="'+url+'" style="display:none" alt="" '
     +'onerror="var p=this.parentNode;p.style.backgroundImage=\'none\';'
     +'var s=p.nextElementSibling;if(s&&s.classList.contains(\'bg-dim\'))s.style.display=\'none\'">';
@@ -720,14 +723,58 @@ function ajustarEscala(el){
   const sc=el.querySelector('.sc');
   if(!sc)return;
   sc.style.zoom='';
-  if(!document.body.classList.contains('paisagem'))return;
-  let z=1;
-  while(z>0.68&&sc.scrollHeight>sc.clientHeight+1){
-    z=Math.round((z-0.04)*100)/100;
-    sc.style.zoom=z;
+  if(document.body.classList.contains('paisagem')){
+    let z=1;
+    while(z>0.68&&sc.scrollHeight>sc.clientHeight+1){
+      z=Math.round((z-0.04)*100)/100;
+      sc.style.zoom=z;
+    }
   }
+  posicionarVeuQuadro(el);
 }
 function ajustarTodas(){slideEls.forEach(ajustarEscala)}
+
+/* ═══ VÉU APENAS NO QUADRO DE TEXTO ═══════════════════════
+   "veu_apenas_texto": true → o .bg-dim é redimensionado para
+   cobrir só a área realmente ocupada pelo conteúdo (com folga),
+   deixando o resto da imagem de fundo vivo. */
+function posicionarVeuQuadro(el){
+  const veu=el.querySelector('.bg-dim.veu-quadro');
+  if(!veu)return;
+  const sc=el.querySelector('.sc');
+  if(!sc){veu.style.display='none';return;}
+  // coleta os elementos de conteúdo (ignora fundos e absolutos,
+  // desce dentro das colunas para medir só o que é texto)
+  const els=[];
+  (function coletar(pai){
+    for(const ch of pai.children){
+      if(ch.classList.contains('col-bg'))continue;
+      if(ch.classList.contains('sc-col1')||ch.classList.contains('sc-col2')){coletar(ch);continue;}
+      if(getComputedStyle(ch).position==='absolute')continue;
+      els.push(ch);
+    }
+  })(sc);
+  let r=null;
+  for(const ch of els){
+    const b=ch.getBoundingClientRect();
+    if(b.width<1||b.height<1)continue;
+    if(!r)r={left:b.left,top:b.top,right:b.right,bottom:b.bottom};
+    else{
+      r.left=Math.min(r.left,b.left);r.top=Math.min(r.top,b.top);
+      r.right=Math.max(r.right,b.right);r.bottom=Math.max(r.bottom,b.bottom);
+    }
+  }
+  if(!r){veu.style.display='none';return;}
+  const base=el.getBoundingClientRect();
+  const M=12; // folga ao redor do quadro
+  const L=Math.max(base.left,r.left-M),T=Math.max(base.top,r.top-M);
+  const R2=Math.min(base.right,r.right+M),B=Math.min(base.bottom,r.bottom+M);
+  veu.style.display='block';
+  veu.style.left=(L-base.left)+'px';
+  veu.style.top=(T-base.top)+'px';
+  veu.style.width=(R2-L)+'px';
+  veu.style.height=(B-T)+'px';
+}
 
 function atualizarUI(){
   if(!total)return;
