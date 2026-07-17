@@ -1,34 +1,45 @@
-{
-  "tipo": "texto",
-  "modulo": "Bloco 1 · Romper as Engrenagens",
-  "tema": "vermelho",
-  "pre_titulo": "",
-  "titulo": "Chega de feminicídios e de violência contra as mulheres",
-  "subtitulo": "",
-  "texto": "As mulheres ganham <em>78% do salário dos homens</em> e ainda sustentam sozinhas o cuidado com filhos, idosos e a casa. Por isso, é interessante para o sistema incentivar o preconceito e a opressão. O resultado é a violência para manter as mulheres submissas.",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "itens": [
-    "O capitalismo utiliza o machismo para impor superexploração — paga menos, extrai mais.",
-    "O governo Lula rifou as pautas das mulheres para costurar acordos com a direita no Congresso e nas alianças eleitorais.",
-    "O Estado deve fornecer creches, lavanderias e restaurantes públicos."
-  ],
-  "proposta": {
-    "titulo": "Proposta do PSTU",
-    "texto": "Pelo fim dos feminicídios e pela legalização do aborto!"
-  },
-  "diferencial": "PT e centrão trocam vidas de mulheres por votos no Congresso. O PSTU defende as mulhres e busca educar a classe trabalhadora contra a opressão, unindo-a contra a burguesia.",
-  "imagem_rodape": {
-    "url": "https://www.brasildefato.com.br/wp-content/uploads/2024/09/image_processing20200201-29235-2gmfu9.jpg",
-    "alt": "Chega de feminicídios e de violência contra as mulheres",
-    "largura": "100%",
-    "altura": 200,
-    "posicao": "center 40%"
-  },
-  "links": [
-  { "icone": "video",  "texto": "Naturalizaram a Violência", "url": "https://www.youtube.com/watch?v=sTwvoZsMu78&t=1557s" },
-  { "icone": "artigo", "texto": "Marxismo e a luta contra as opressões", "url": "https://teoriaerevolucao.pstu.org.br/a-questao-das-mulheres-o-marxismo-e-a-luta-contra-as-opressoes/" }
-]
+﻿{
+    "tipo": "texto",
+    "modulo": "Bloco 1 · Romper as Engrenagens",
+    "tema": "vermelho",
+    "pre_titulo": "",
+    "titulo": "Chega de feminicídios e de violência contra as mulheres",
+    "subtitulo": "",
+    "texto": "As mulheres enfrentam uma escalada de feminicídios, além da sobrecarga do trabalho doméstico não pago e da desigualdade salarial. \r\n<\/br>\r\nAs maiores vítimas de violência doméstica, dos baixos salários e dupla jornada são as mulheres negras.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "O capitalismo utiliza o machismo para colocar homens contra mulheres, colocá-las em uma condição submissa. ",
+        "Esta divisão da classe trabalhadora é usada para impor uma superexploração ainda maior: paga menos, extrai mais. Isto rebaixa também os salários dos homens. ",
+        "<strong>O governo Lula e o PT rifam as pautas das mulheres em nome da governabilidade com setores conservadores, e \"economizar\" verbas que são necessárias para defender ",
+        "as mulheres da violência doméstica. <\/strong>",
+        "Tudo em nome do arcabouço fiscal, que beneficia os bancos e detentores dos títulos da dívida pública.",
+        "PT e centrão trocam vidas de mulheres por votos no Congresso. "
+    ],
+    "proposta": {
+        "titulo": "Proposta do PSTU",
+        "texto": "Pelo fim dos feminicídios e pela legalização do aborto!"
+    },
+    "diferencial": "O PSTU defende as mulheres e busca educar a classe trabalhadora contra a opressão, unindo-a contra a burguesia.",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Naturalizaram a Violência",
+            "url": "https:\/\/www.youtube.com\/watch?v=sTwvoZsMu78&t=1557s"
+        },
+        {
+            "icone": "artigo",
+            "texto": "Marxismo e a luta contra as opressões",
+            "url": "https:\/\/teoriaerevolucao.pstu.org.br\/a-questao-das-mulheres-o-marxismo-e-a-luta-contra-as-opressoes\/"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "https:\/\/www.brasildefato.com.br\/wp-content\/uploads\/2024\/09\/image_processing20200201-29235-2gmfu9.jpg",
+        "posicao": "center 40%",
+        "coluna": 1
+    }
 }

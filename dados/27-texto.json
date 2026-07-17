@@ -1,0 +1,27 @@
+﻿{
+    "tipo": "cards",
+    "modulo": "",
+    "tema": "profundo",
+    "pre_titulo": "O Estado burguês não cederá pacificamente o poder aos trabalhadores",
+    "titulo": "SÓ UMA REVOLUÇÃO SOCIALISTA PODE SUPERAR O CAPITALISMO",
+    "subtitulo": "A revolução será obra dos próprios trabalhadores - única força que pode paralisar a produção e a classe que pode encarnar a coletivização dos grandes meios de produção.",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "cards": [
+        {
+            "nome": "NÃO HÁ MUDANÇA SEM ACABAR COM CONTRADIÇÃO ENTRE PRODUÇÃO COLETIVA X APROPRIAÇÃO PRIVADA.",
+            "cargo": "",
+            "texto": "A distribuição da riqueza precisa ser social, assim como já é o trabalho.\r\nEsse é o objetivo central dos comunistas e socialistas. \r\nPara isso, precisamos tomar o poder do Estado e romper as engrenagens do capitalismo.",
+            "foto_url": ""
+        },
+        {
+            "nome": "COMO É POSSÍVEL TOMAR O PODER?",
+            "cargo": "",
+            "texto": "A tarefa não é reformar este Estado. Não é possível torná-lo socialista.\r\nConstruir um partido que dispute a classe trabalhadora para que ela tome o poder. Que participe de suas lutas convencendo que ela é capaz de mudar a sociedade em que vivemos.",
+            "foto_url": ""
+        }
+    ]
+}

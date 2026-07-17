@@ -1,38 +1,48 @@
-{
-  "tipo": "dividido",
-  "modulo": "Bloco 3 · Engrenagens do Capitalismo",
-  "tema": "escuro",
-  "titulo": "Por que o capitalismo não tem saída",
-  "subtitulo": "",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "itens_esquerda": [
-    {
-      "titulo": "Contradição 1",
-      "texto": "O trabalho é coletivo, mas a apropriação é privada. Meios de produção não são sociais. Há tecnologia e riqueza para toda a humanidade — mas o objetivo é outro: e ampliação do lucro."
+﻿{
+    "tipo": "dividido",
+    "modulo": "Bloco 3 · Engrenagens do Capitalismo",
+    "tema": "escuro",
+    "pre_titulo": "",
+    "titulo": "Por que o capitalismo não tem saída",
+    "subtitulo": "",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "itens_esquerda": [
+        {
+            "titulo": "Contradição 1",
+            "texto": "O trabalho é social, mas os meios de produção são propriedade de um grupo muito pequeno - a burguesia. Então tecnologia e riqueza não são para benefício da humanidade — são para ampliação do lucro de poucos."
+        },
+        {
+            "titulo": "Contradição 2",
+            "texto": "O capital precisa crescer sem limites. Mas os recursos naturais e o consumo são limitados."
+        },
+        {
+            "titulo": "Contradição 3",
+            "texto": "ANARQUIA da produção. Ninguêm controla o mercado. O crescimento gera, não a melhoria da vida, mas CRISES CÍCLICAS. Fecham empresas e vem o desemprego."
+        },
+        {
+            "titulo": "Contradição 4",
+            "texto": "GUERRAS são produzidas pela concorrência global. E também para esmagar revoluções. O capital é produção que resulta em destruição."
+        }
+    ],
+    "proposta": {
+        "titulo": "Conclusão",
+        "texto": "O capitalismo perdeu qualquer legitimidade. A única saída é a superação do próprio sistema..."
     },
-    {
-      "titulo": "Contradição 2",
-      "texto": "Precisa crescer de forma limitada. Mas os recursos naturais e a capacidade de consumo são limitados."
-    },
-     {
-      "titulo": "Contradição 3",
-      "texto": "Ninguém controlam a anarquia do sistema. O crescimento com inovação tecnológica barateia produtos e diminui taxa geral de lucros. Fecha o ciclo de investimentos e vem crise e desemprego."
-    },
-    {
-      "titulo": "Contradição 4",
-      "texto": "A produção é globalizada, mas a concorrência produz guerras, e também para esmagar revoluções."
-    }
-  ],
-  "proposta": {
-    "titulo": "Conclusão",
-    "texto": "O capitalismo perdeu qualquer legitimidade. A única saída é a superação do próprio sistema..."
-  },
-  "links": [
-  { "icone": "video",  "texto": "Assista", "url": "https://..." },
-  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
-]
+    "diferencial": "",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Assista",
+            "url": "https:\/\/..."
+        },
+        {
+            "icone": "artigo",
+            "texto": "Leia mais",
+            "url": "https:\/\/www.pstu.org.br\/diante-da-catastrofe-capitalista-saida-e-a-planificacao-economica-socialista\/"
+        }
+    ]
 }

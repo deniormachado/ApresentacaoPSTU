@@ -1,0 +1,57 @@
+﻿{
+    "tipo": "comparativo",
+    "modulo": "",
+    "tema": "profundo",
+    "pre_titulo": "O Estado burguês tem por objetivo manter a dominação da classe capitalista.",
+    "titulo": "Pode comportar vários tipos de regimes políticos e governos",
+    "subtitulo": "",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "coluna_esquerda": {
+        "titulo": "Democracias burguesas",
+        "cor": "cinza",
+        "itens": [
+            {
+                "texto": "Parlamentarismo",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Presidencialismo",
+                "estilo": "normal"
+            },
+            {
+                "texto": "outros tipos mistos",
+                "estilo": "normal"
+            }
+        ]
+    },
+    "coluna_direita": {
+        "titulo": "Ditaduras burguesas",
+        "cor": "vermelho",
+        "itens": [
+            {
+                "texto": "Ditadura militar",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Ditadura pessoal",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Teocracia",
+                "estilo": "normal"
+            },
+            {
+                "texto": "etc",
+                "estilo": "normal"
+            }
+        ]
+    },
+    "diferencial": "O ESTADO PODE SE ORGANIZAR DE DIFERENTES FORMAS, DIFERENTES REGIMES, <strong>MAS SUA NATUREZA DE CLASSE É A MESMA<\/strong>\r\n<\/br><\/br>\r\nApesar de se apoiar em diferentes instituições para se manter no poder, em todos os regimes o ESTADO tem sua garantia na força, ou seja, AS FORÇAS ARMADAS e a POLÍCIA.",
+    "links": [
+    ],
+    "imagem_rodape": null
+}

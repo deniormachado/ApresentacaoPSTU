@@ -1,14 +1,14 @@
-{
-  "tipo": "citacao",
-  "modulo": "Bloco 4 · O Estado e a Revolução",
-  "tema": "escuro",
-  "pre_titulo": "— Friedrich Engels · A Origem da Família, 1884",
-  "titulo": "\"O Estado não é de modo algum um poder imposto de fora à sociedade. É um produto da sociedade chegada a um certo grau de desenvolvimento.\"",
-  "subtitulo": "O Estado surgiu quando a sociedade se dividiu em classes. Surge para manter determinada ordem social — mas o faz defendendo privilégios e a propriedade de uma classe. A ideologia dominante diz que o Estado é neutro. Infelizmente, a maioria da esquerda repete na prática este erro.",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "tem_linha_acento": true
+﻿{
+    "tipo": "citacao",
+    "modulo": "Bloco 4 · O Estado e a Revolução",
+    "tema": "escuro",
+    "pre_titulo": "— Friedrich Engels · A Origem da Família, 1884",
+    "titulo": "Segundo Engels, o <strong>Estado não existiu sempre<\/strong>. Houve sociedades que não tinham a menor noção de Estado. A um certo grau do desenvolvimento econômico, houve a divisão da sociedade em classes.\r\n<\/br>\r\nPara Lênin, para que essas classes antagônicas não se destruíssem numa luta estéril, criou-se uma <strong>força que se colocou aparentemente acima deste conflito<\/strong> - como um juiz - mantendo-o nos limites da ‘ordem’. Essa força, que sai da sociedade, ficando, porém, por cima dela e dela se afastando cada vez mais, <strong>é o Estado<\/strong>. ",
+    "subtitulo": "O Estado surgiu quando a sociedade se dividiu em classes. Surge para manter determinada ordem social — mas o faz defendendo privilégios e a propriedade de uma classe. A ideologia dominante diz que o Estado é neutro. Infelizmente, a maioria da esquerda repete na prática este erro.",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "tem_linha_acento": true
 }

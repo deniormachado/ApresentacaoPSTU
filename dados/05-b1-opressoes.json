@@ -1,42 +1,42 @@
-{
-  "tipo": "texto",
-  "modulo": "Bloco 1 · Romper as Engrenagens",
-  "tema": "claro",
-  "pre_titulo": "Combate às Opressões",
-  "titulo": "Não pode ser livre quem oprime ou não luta contra a opressão",
-  "subtitulo": "",
-  "texto": "Queremos unir a classe trabalhadora contra o capitalismo — que não existe sem as opressões. As opressões são instrumentais para o capital: ele as utiliza para nos dividir e justificar a superexploração.",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "itens": [
-    "O Brasil é o país que <em>mais mata transexuais</em> no mundo.",
-    "A juventude negra é empurrada para o trabalho precário, o tráfico ou a morte precoce.",
-    "A extrema direita propõe matar e prender mais — mas o Brasil já tem a polícia que mais mata."
-  ],
-  "proposta": {
-    "titulo": "Princípio do PSTU",
-    "texto": "A unidade e a emancipação da classe trabalhadora não é possível sem o combate a toda opressão e ao capitalismo."
-  },
-  "diferencial": "",
-  "imagem_rodape": {
-    "url": "dados/05-b1-opressoes.png",
-    "alt": "A luta contra as opressões",
-    "largura": "100%",
-    "altura": 200,
-    "posicao": "center 40%"
-  },
-  "links": [
-    {
-      "icone": "video",
-      "texto": "Curso: Feminismo e Marxismo",
-      "url": "https://www.youtube.com/watch?v=FmkPo8XUlJo"
+﻿{
+    "tipo": "texto",
+    "modulo": "Bloco 1 · Romper as Engrenagens",
+    "tema": "claro",
+    "pre_titulo": "Combate às Opressões",
+    "titulo": "Não pode ser livre quem oprime ou não luta contra a opressão",
+    "subtitulo": "",
+    "texto": "Queremos unir a classe trabalhadora contra o capitalismo — que não existe sem as opressões. As opressões são instrumentais para o capital: ele as utiliza para nos dividir e justificar a superexploração.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "O Brasil é o país que <em>mais mata transexuais<\/em> no mundo.",
+        "A juventude negra é empurrada para o trabalho precário, o tráfico ou a morte precoce.",
+        "A extrema direita propõe matar e prender mais — mas o Brasil já tem a polícia que mais mata e a segunda maior população carcerária, maioria negra."
+    ],
+    "proposta": {
+        "titulo": "Princípio do PSTU",
+        "texto": "A unidade e a emancipação da classe trabalhadora não é possível sem o combate a toda opressão e ao capitalismo."
     },
-    {
-      "icone": "artigo",
-      "texto": "Não é uma tarefa só das mulheres",
-      "url": "https://www.pstu.org.br/a-luta-contra-o-machismo-e-a-violencia-sexual-nao-e-uma-tarefa-so-das-mulheres-mas-do-conjunto-dos-trabalhadores/"
+    "diferencial": "",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Curso: Feminismo e Marxismo",
+            "url": "https:\/\/www.youtube.com\/watch?v=FmkPo8XUlJo"
+        },
+        {
+            "icone": "artigo",
+            "texto": "Não é uma tarefa só das mulheres",
+            "url": "https:\/\/www.pstu.org.br\/a-luta-contra-o-machismo-e-a-violencia-sexual-nao-e-uma-tarefa-so-das-mulheres-mas-do-conjunto-dos-trabalhadores\/"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados\/05-b1-opressoes.png",
+        "posicao": "center 40%",
+        "coluna": 1
     }
-  ]
 }

@@ -1,50 +1,58 @@
-{
-  "tipo": "comparativo",
-  "modulo": "Bloco 4 · O Partido Revolucionário",
-  "tema": "escuro",
-  "pre_titulo": "Opostos ao PSTU",
-  "titulo": "Stalinismo e Reformismo",
-  "subtitulo": "",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "coluna_esquerda": {
-    "titulo": "Reformismo (PT, socialdemocracia)",
-    "cor": "cinza",
-    "itens": [
-      {
-        "texto": "Nasceu como instrumento de luta operária — mas foi digerido pela democracia burguesa.",
-        "estilo": "normal"
-      },
-      {
-        "texto": "Priorizou vitórias eleitorais e abandonou a independência de classe.",
-        "estilo": "normal"
-      },
-      {
-        "texto": "O socialismo virou discurso de festa — prometido para um futuro indefinido.",
-        "estilo": "destaque"
-      }
-    ]
-  },
-  "coluna_direita": {
-    "titulo": "Stalinismo (PCB e similares)",
-    "cor": "cinza",
-    "itens": [
-      {
-        "texto": "Teoria das \"etapas\": primeiro revolução democrática, só depois a socialista.",
-        "estilo": "normal"
-      },
-      {
-        "texto": "Aliança com setores burgueses \"progressistas\" — frente popular que traiu revoluções.",
-        "estilo": "normal"
-      },
-      {
-        "texto": "A independência de classe virou ficção, meramente ritual.",
-        "estilo": "destaque"
-      }
-    ]
-  },
-  "diferencial": "O PSTU: independência de classe total, revolução socialista como estratégia presente — não futura —, e centralismo democrático real."
+﻿{
+    "tipo": "comparativo",
+    "modulo": "Bloco 4 · O Partido Revolucionário",
+    "tema": "escuro",
+    "pre_titulo": "Opostos ao PSTU",
+    "titulo": "Stalinismo e Reformismo",
+    "subtitulo": "",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "coluna_esquerda": {
+        "titulo": "Reformismo (PT, socialdemocracia)",
+        "cor": "cinza",
+        "itens": [
+            {
+                "texto": "Nasceu como instrumento de luta operária — mas foi digerido pela democracia burguesa.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Priorizou vitórias eleitorais e abandonou a independência de classe.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "O socialismo virou discurso de festa — prometido para um futuro indefinido.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "coluna_direita": {
+        "titulo": "Stalinismo (PCdoB, UP, PCB e similares)",
+        "cor": "cinza",
+        "itens": [
+            {
+                "texto": "Teoria das \"etapas\": primeiro revolução democrático-burguesa, só depois a socialista.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Aliança com setores burgueses \"progressistas\" — resultou na traição das revoluções socialistas.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "A independência de classe virou ficção, meramente ritual.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "diferencial": "O PSTU: independência de classe total, revolução socialista como estratégia presente — não futura —, e centralismo democrático real.",
+    "links": [
+        {
+            "icone": "artigo",
+            "texto": "Leia mais - clique",
+            "url": "https:\/\/opiniaosocialista.com.br\/reformismo-fraco-e-efeito-orloff\/"
+        }
+    ],
+    "imagem_rodape": null
 }

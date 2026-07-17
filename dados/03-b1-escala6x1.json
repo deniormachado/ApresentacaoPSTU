@@ -1,24 +1,28 @@
-{
-  "tipo": "texto",
-  "modulo": "Bloco 1 · Romper as Engrenagens",
-  "tema": "escuro",
-  "pre_titulo": "Escala 6×1",
-  "titulo": "Vivemos para trabalhar<br/>e não temos tempo de viver",
-  "subtitulo": "",
-  "texto": "A escala 6×1 é a expressão cotidiana da exploração capitalista: não vemos a família, não temos lazer. O adoecimento físico e mental se alastra.",
-  "imagem_url": "https://opiniaosocialista.com.br/content/images/2025/02/ato-contra-escala-6x1-1.jpeg",
-  "imagem_escurecimento": 0.72,
-  "imagem_posicao": "centro",
-  "texto_borda": true,
-  "itens": [
-    "Redução para <strong>30 horas</strong> sem redução de salário e sem demissões",
-    "Aumento geral dos salários rumo ao mínimo do DIEESE (R$ 7.200)",
-    "Revogação das reformas Trabalhista e Previdenciária de Temer",
-    "Direitos trabalhistas para entregadores de apps (Uber, iFood)"
-  ],
-  "proposta": {
-    "titulo": "Proposta do PSTU",
-    "texto": "É possível e necessário acabar com a escala 6×1. Basta tirar parte do lucro das grandes empresas."
-  },
-  "diferencial": "As 40 horas semanais são uma vitória parcial. Lula não deve negociar nenhum recuo. Fim da 6x1 já, sem redução salarial nem 'indenização' dos patrões."
+﻿{
+    "tipo": "texto",
+    "modulo": "Bloco 1 · Romper as Engrenagens",
+    "tema": "escuro",
+    "pre_titulo": "Escala 6×1",
+    "titulo": "Vivemos para trabalhar<br\/>e não temos tempo de viver",
+    "subtitulo": "",
+    "texto": "A escala 6×1 é a expressão cotidiana da exploração capitalista: adoecemos, não vemos a família, não temos lazer. O povo não aguenta trabalhar tanto para receber tão pouco.\r\n<\/br>\r\n<strong>Fim da escala 6×1 sem redução de salário e sem demissões!<\/strong>",
+    "imagem_url": "https:\/\/opiniaosocialista.com.br\/content\/images\/2025\/02\/ato-contra-escala-6x1-1.jpeg",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": true,
+    "itens_col1": [
+    ],
+    "itens": [
+        "A pauta contra a 6x1 veio da base e o governo teve que adotá-la.",
+        "A proposta do governo já foi um recuo em relação à reivindicação de 30 horas, mas sua aprovação foi uma conquista parcial.",
+        "Alcolumbre, ao adiar para depois das eleições, mostra o papel do Senado, como uma segunda barreira contra as reividicações populares."
+    ],
+    "proposta": {
+        "titulo": "Proposta do PSTU",
+        "texto": "É possível e necessário acabar com a escala 6×1. Basta tirar parte do lucro das grandes empresas."
+    },
+    "diferencial": "Prosseguir a mobilização. Exigir das centrais a preparação de uma greve geral!",
+    "links": [
+    ],
+    "imagem_rodape": null
 }

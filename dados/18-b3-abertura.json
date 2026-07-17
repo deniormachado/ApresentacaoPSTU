@@ -1,15 +1,15 @@
-{
-  "tipo": "secao",
-  "modulo": "",
-  "tema": "profundo",
-  "pre_titulo": "Bloco 3 · Teoria",
-  "titulo": "As Engrenagens do Sistema Capitalista",
-  "subtitulo": "O marxismo continua sendo a principal base teórica para analisar a realidade e construir o socialismo.",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "numero_gigante": "3",
-  "tem_linha_acento": true
+﻿{
+    "tipo": "secao",
+    "modulo": "",
+    "tema": "profundo",
+    "pre_titulo": "Bloco 3 · Teoria",
+    "titulo": "As Engrenagens do Sistema Capitalista",
+    "subtitulo": "<strong>Afinal, como funciona o capitalismo?<\/strong> Por que não é possível conserta-lo? Ajustar suas engrenagens por dentro? - <strong>O marxismo<\/strong> continua sendo a principal base teórica para analisar a realidade e construir o socialismo.",
+    "texto": "",
+    "imagem_url": "dados\/18-b3-abertura.png",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "tem_linha_acento": true,
+    "numero_gigante": "3"
 }

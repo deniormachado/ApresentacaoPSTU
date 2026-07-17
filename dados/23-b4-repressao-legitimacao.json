@@ -1,50 +1,58 @@
-{
-  "tipo": "comparativo",
-  "modulo": "Bloco 4 · O Estado e a Revolução",
-  "tema": "claro",
-  "pre_titulo": "Os dois braços do mesmo Estado",
-  "titulo": "Repressão e legitimação",
-  "subtitulo": "",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "coluna_esquerda": {
-    "titulo": "Braço repressivo",
-    "cor": "vermelho",
-    "itens": [
-      {
-        "texto": "Polícia, exército, prisões, juízes.",
-        "estilo": "normal"
-      },
-      {
-        "texto": "Entram em cena em greves, ocupações, manifestações.",
-        "estilo": "normal"
-      },
-      {
-        "texto": "Intimidação permanente das comunidades pobres — especialmente negros.",
-        "estilo": "destaque"
-      }
-    ]
-  },
-  "coluna_direita": {
-    "titulo": "Braço da legitimação",
-    "cor": "escuro",
-    "itens": [
-      {
-        "texto": "Eleições, parlamento, escola, imprensa, igrejas.",
-        "estilo": "normal"
-      },
-      {
-        "texto": "Convencem os de baixo de que o sistema é justo.",
-        "estilo": "normal"
-      },
-      {
-        "texto": "Que as coisas podem mudar pelo voto.",
-        "estilo": "destaque"
-      }
-    ]
-  },
-  "diferencial": "No Brasil: a polícia que mata jovens negros na periferia é o mesmo Estado que realiza eleições de dois em dois anos."
+﻿{
+    "tipo": "comparativo",
+    "modulo": "Bloco 4 · O Estado e a Revolução",
+    "tema": "profundo",
+    "pre_titulo": "Os dois braços do mesmo Estado",
+    "titulo": "Repressão e legitimação",
+    "subtitulo": "",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "coluna_esquerda": {
+        "titulo": "Braço repressivo",
+        "cor": "vermelho",
+        "itens": [
+            {
+                "texto": "Polícia, exército, prisões, juízes.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Entram em cena em greves, ocupações, manifestações.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Intimidação permanente das comunidades pobres — especialmente negros.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "coluna_direita": {
+        "titulo": "Braço da legitimação",
+        "cor": "escuro",
+        "itens": [
+            {
+                "texto": "Eleições, parlamento, escola, imprensa, igrejas.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Tentam convencer que as leis são para todos, que não há privilégios de classe.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Dizem que a maneira de mudar as leis e os governantes é o voto. Os eleitos têm carta branca a cada mandato, sem controle do povo.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "diferencial": "No Brasil: a polícia que mata jovens negros na periferia é o mesmo Estado que realiza eleições de dois em dois anos.",
+    "links": [
+        {
+            "icone": "artigo",
+            "texto": "Leia mais, clique",
+            "url": "https:\/\/litci.org\/pt\/2024\/05\/11\/estado-e-revolucao-e-a-batalha-de-lenin-contra-o-oportunismo-pela-tomada-do-poder\/?utm_source=copylink&utm_medium=browser"
+        }
+    ],
+    "imagem_rodape": null
 }
