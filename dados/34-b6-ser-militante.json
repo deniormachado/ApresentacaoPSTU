@@ -1,32 +1,44 @@
-{
-  "tipo": "texto",
-  "modulo": "Bloco 6 · Ser Militante",
-  "tema": "claro",
-  "pre_titulo": "",
-  "titulo": "Ser militante",
-  "subtitulo": "",
-  "texto": "<strong>SER MEMBRO do PSTU é um projeto de vida</strong>, não uma adesão sazonal. De acordo com as possibilidades de cada um:",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "itens": [
-    "Atua nos movimentos de massa",
-    "Defende a política partidária em todos os espaços — no trabalho, no bairro, nas redes sociais",
-    "Participa dos debates em algum organismo do partido",
-    "Contribui financeiramente",
-    "Divulga a imprensa do partido",
-    "Participa das formações políticas baseadas no marxismo",
-    "Exerce o direito de voz e voto, de divergir, e de eleger e ser eleito dirigente",
-    "Passa um período como aspirante (3 meses se operário; 6 meses nos demais casos)"
-  ],
-  "proposta": {
-    "titulo": "Apoiadores e simpatizantes",
-    "texto": "O partido considera aderentes — mesmo não fazendo parte da estrutura orgânica — a todos que o apoiam política ou financeiramente ou atuam em conjunto conosco."
-  },
-  "diferencial": "",
-  "links": [
-  { "icone": "video",  "texto": "Assista", "url": "https://..." },
-  { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
-]
+﻿{
+    "tipo": "texto",
+    "modulo": "Bloco 6 · Ser Militante",
+    "tema": "claro",
+    "pre_titulo": "",
+    "titulo": "Ser militante",
+    "subtitulo": "",
+    "texto": "<strong>SER MEMBRO do PSTU é um projeto de vida<\/strong>. De acordo com as possibilidades, cada militante:",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "Defende a política do Partido em todos os espaços — no trabalho, no bairro, nas redes sociais",
+        "Participa dos debates em algum organismo do partido",
+        "Contribui financeiramente",
+        "Divulga a imprensa do partido",
+        "Participa das formações políticas baseadas no marxismo"
+    ],
+    "proposta": {
+        "titulo": "Apoiadores e simpatizantes",
+        "texto": "O partido considera aderentes — mesmo não fazendo parte da estrutura orgânica — a todos que o apoiam política ou financeiramente ou atuam politicamente em conjunto conosco."
+    },
+    "diferencial": "",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Assista",
+            "url": "https:\/\/..."
+        },
+        {
+            "icone": "artigo",
+            "texto": "Leia mais",
+            "url": "https:\/\/..."
+        }
+    ],
+    "imagem_rodape": null,
+    "imagem_quadro": null,
+    "imagem_pequena": null
 }

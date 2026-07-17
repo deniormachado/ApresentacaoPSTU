@@ -8,8 +8,10 @@
     "texto": "Não somos contra a democracia — <strong>somos contra esta democracia dos ricos.<\/strong> ",
     "imagem_url": "",
     "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
     "imagem_posicao": "centro",
     "texto_borda": false,
+    "quadros_opacos": false,
     "coluna_esquerda": {
         "titulo": "Democracia burguesa",
         "cor": "cinza",
@@ -53,5 +55,7 @@
     "diferencial": "Defender as liberdades democráticas contra golpistas não deve ser confundido com defender as instituições da democracia burguesa.",
     "links": [
     ],
-    "imagem_rodape": null
+    "imagem_rodape": null,
+    "imagem_quadro": null,
+    "imagem_pequena": null
 }

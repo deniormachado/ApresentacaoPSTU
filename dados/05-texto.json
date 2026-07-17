@@ -1,15 +1,28 @@
 ﻿{
-    "tipo": "secao",
+    "tipo": "dividido",
     "modulo": "",
     "tema": "claro",
     "pre_titulo": "",
     "titulo": "Também defendemos:",
     "subtitulo": "",
     "texto": "* Aumento geral dos salários rumo ao mínimo do DIEESE (R$7.200). <\/br>\r\n* Revogação das reformas Trabalhista e Previdenciária de Temer. <\/br>\r\n* Não à \"pejotização\" no STF! <\/br>\r\n* Direitos trabalhistas para trabalhadores de aplicativos.<\/br>",
-    "imagem_url": "dados\/03-b2-pautas.png",
+    "imagem_url": "",
     "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
     "imagem_posicao": "centro",
     "texto_borda": false,
-    "tem_linha_acento": true,
-    "numero_gigante": ""
+    "quadros_opacos": true,
+    "itens_esquerda": [
+    ],
+    "proposta": {
+        "titulo": "",
+        "texto": "* Aumento geral dos salários rumo ao mínimo do DIEESE (R$7.200,00). <\/br>\r\n* Revogação das reformas Trabalhista e Previdenciária de Temer. <\/br>\r\n* Não à \"pejotização\" no STF! <\/br>\r\n* Direitos trabalhistas para trabalhadores de aplicativos.<\/br>"
+    },
+    "diferencial": "",
+    "links": [
+    ],
+    "imagem_quadro": {
+        "url": "dados\/03-b2-pautas.png"
+    },
+    "imagem_pequena": null
 }

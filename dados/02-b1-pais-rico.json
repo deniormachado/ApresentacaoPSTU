@@ -1,42 +1,46 @@
-{
-  "tipo": "texto",
-  "modulo": "Bloco 1 · Romper as Engrenagens",
-  "tema": "claro",
-  "pre_titulo": "",
-  "titulo": "Um país <em>rico</em> governado contra seu povo",
-  "subtitulo": "",
-  "texto": "O Brasil é um país rico, mas extremamente desigual. A riqueza produzida pela classe trabalhadora não chega no andar de baixo.",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "itens": [
-    "<strong>PARASITAS.</strong> Uma pequena minoria de bilionários se apropria da riqueza. <em>250 grandes empresas</em> controlam a maior parte da economia brasileira.",
-    "<strong>ESQUERDA. DIREITA.</strong> Mudam os governos, prometem melhorar — o resultado é um país cada vez mais dependente, desindustrializado.",
-    "<strong>UM PAÍS DOMINADO.</strong> O Brasil está preso a um ciclo: importa tecnologia, exporta bens primários — nosso trabalho e riquezas escoam para fora."
-  ],
-  "proposta": {
-    "titulo": "O que o PSTU diz",
-    "texto": "Não é falta de recursos — são os governos a serviço dos capitalistas!"
-  },
-  "diferencial": "O PT manteve o capitalismo e a submissão nacional. A ultradireita é o entreguismo descarado ao imperialismo. O PSTU é oposição revolucionária, pelo fim do capitalismo.",
-  "imagem_rodape": {
-    "url": "dados/02-b1-pais-rico.png",
-    "alt": "Um país rico governado contra seu povo",
-    "largura": "100%",
-    "altura": 200,
-    "posicao": "center 40%"
-  },
-  "links": [
-    {
-      "icone": "video",
-      "texto": "Os bilionários capitalistas controlam a política",
-      "url": "https://www.youtube.com/watch?v=Q64x4y1RuAQ"
+﻿{
+    "tipo": "texto",
+    "modulo": "Bloco 1 · Romper as Engrenagens",
+    "tema": "claro",
+    "pre_titulo": "",
+    "titulo": "Um país <em>rico<\/em> governado contra seu povo",
+    "subtitulo": "",
+    "texto": "O Brasil é um país rico, mas extremamente desigual. O trabalho é social mas...",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "<strong>PARASITAS.<\/strong> Uma pequena minoria de bilionários se apropria da riqueza. <em>250 grandes empresas<\/em> controlam a maior parte da economia brasileira.",
+        "<strong>ESQUERDA. DIREITA.<\/strong> Mudam os governos, prometem melhorar — o resultado é um país cada vez mais dependente, desindustrializado.",
+        "<strong>UM PAÍS DOMINADO.<\/strong> O Brasil está preso a um ciclo: importa tecnologia, exporta bens primários — nosso trabalho e riquezas escoam para fora."
+    ],
+    "proposta": {
+        "titulo": "O que o PSTU diz",
+        "texto": "Não é falta de recursos — são os governos a serviço dos capitalistas!"
     },
-    {
-      "icone": "artigo",
-      "texto": "Explosão da Desigualdade",
-      "url": "https://www.pstu.org.br/explosao-da-desigualdade-1-tem-riqueza-superior-a-de-7-bilhoes-de-pessoas/"
-    }
-  ]
+    "diferencial": "",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Os bilionários capitalistas controlam a política",
+            "url": "https:\/\/www.youtube.com\/watch?v=Q64x4y1RuAQ"
+        },
+        {
+            "icone": "artigo",
+            "texto": "Explosão da Desigualdade",
+            "url": "https:\/\/www.pstu.org.br\/explosao-da-desigualdade-1-tem-riqueza-superior-a-de-7-bilhoes-de-pessoas\/"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados\/02-b1-pais-rico.png",
+        "posicao": "center 40%",
+        "coluna": 1
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
 }

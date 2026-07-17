@@ -7,14 +7,16 @@
     "subtitulo": "",
     "texto": "A escala 6×1 é a expressão cotidiana da exploração capitalista: adoecemos, não vemos a família, não temos lazer. O povo não aguenta trabalhar tanto para receber tão pouco.\r\n<\/br>\r\n<strong>Fim da escala 6×1 sem redução de salário e sem demissões!<\/strong>",
     "imagem_url": "https:\/\/opiniaosocialista.com.br\/content\/images\/2025\/02\/ato-contra-escala-6x1-1.jpeg",
-    "imagem_escurecimento": 0.0,
+    "imagem_escurecimento": 0.71,
+    "veu_apenas_texto": false,
     "imagem_posicao": "centro",
     "texto_borda": true,
+    "quadros_opacos": true,
     "itens_col1": [
     ],
     "itens": [
-        "A pauta contra a 6x1 veio da base e o governo teve que adotá-la.",
-        "A proposta do governo já foi um recuo em relação à reivindicação de 30 horas, mas sua aprovação foi uma conquista parcial.",
+        "A pauta <strong>contra a 6x1<\/strong> veio da base e o governo teve que abarcá-la",
+        "A proposta do governo foi um recuo em relação à reivindicação de 30 horas, mas sua aprovação foi uma conquista parcial.",
         "Alcolumbre, ao adiar para depois das eleições, mostra o papel do Senado, como uma segunda barreira contra as reividicações populares."
     ],
     "proposta": {
@@ -24,5 +26,7 @@
     "diferencial": "Prosseguir a mobilização. Exigir das centrais a preparação de uma greve geral!",
     "links": [
     ],
-    "imagem_rodape": null
+    "imagem_rodape": null,
+    "imagem_quadro": null,
+    "imagem_pequena": null
 }

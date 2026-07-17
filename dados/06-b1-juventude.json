@@ -5,31 +5,26 @@
     "pre_titulo": "Juventude",
     "titulo": "Sem futuro sob o capitalismo",
     "subtitulo": "",
-    "texto": "<em>33% dos jovens<\/em> entre 18 e 29 anos não têm emprego formal nem estão estudando — e a juventude negra é a mais atingida. A geração chamada de \"perdida\" não está doente por acaso: é o sistema que adoece.",
-    "imagem_url": "https:\/\/s2-oglobo.glbimg.com\/1T8KwyT_KRTSl_FHkEzHEm1Wz8Y=\/0x0:1024x683\/888x0\/smart\/filters:strip_icc()\/i.s3.glbimg.com\/v1\/AUTH_da025474c0c44edd99332dddb09cabe8\/internal_photos\/bs\/2024\/r\/A\/wunmbATW64NKvqr9ksog\/img-1629-1024x683.jpg",
+    "texto": "<em>33% dos jovens<\/em> entre 18 e 29 anos não têm emprego formal nem estão estudando — e a juventude negra é a mais atingida.",
+    "imagem_url": "",
     "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
     "imagem_posicao": "centro",
     "texto_borda": true,
+    "quadros_opacos": true,
     "itens_col1": [
-        "<strong>A falácia da meritocracia:<\/strong> dizem que basta esforço individual. Mas estudar mais ",
-        "não virou viver melhor — a metade mais pobre estudou 27% mais numa década e ainda viu sua ",
-        "renda cair (FGV Social).",
-        "<strong>O beco sem saída do trabalho:<\/strong> sem experiência não há emprego, sem emprego ",
-        "não há experiência. Quem trabalha é \"uberizado\" — chamado de \"parceiro\" e \"empreendedor\" para ",
-        "esconder a falta de direitos. Carteira assinada e casa própria viraram luxo."
+        "<strong>A falácia da meritocracia:<\/strong> dizem que basta esforço individual. Mas estudar mais renda cair (FGV Social).",
+        "<strong>O beco sem saída do trabalho:<\/strong> sem experiência não há emprego, sem emprego não há experiência. Cada vez mais \"uberizados\" — chamados de \"empreendedores\" para esconder a falta de direitos. "
     ],
     "itens": [
-        "<strong>Redes sociais e isolamento:<\/strong> algoritmos lucram com o ódio e empurram a ",
-        "juventude para ideologias preconceituosas. Cresce a cultura redpill, que culpa o indivíduo e esconde ",
-        "o sistema.",
-        "<strong>Pandemia de adoecimento:<\/strong> estresse, ansiedade e depressão viraram regra — 1 em ",
-        "cada 8 adolescentes entre 13 e 17 anos declara não ver sentido na vida."
+        "<strong>Redes sociais e isolamento:<\/strong> algoritmos lucram com o ódio e empurram a juventude para ideologias preconceituosas, que culpam mulheres pelas frustrações.",
+        "<strong>Pandemia de adoecimento:<\/strong> estresse, ansiedade e depressão viraram regra — 1 em cada 8 adolescentes entre 13 e 17 anos declara não ver sentido na vida."
     ],
     "proposta": {
         "titulo": "Proposta do PSTU e do Rebeldia",
-        "texto": "Jornada menor sem perder salário e primeiro emprego com direitos (fim da uberização); educação pública e gratuita com cotas para a juventude negra; cultura, lazer e saúde mental como direito; e fim da violência policial."
+        "texto": "A luta da juventude é pelo emprego com direitos; educação pública e gratuita com cotas para a juventude negra; cultura, lazer e saúde mental como direito; e fim da violência policial."
     },
-    "diferencial": "PT e PSOL querem reformar o capitalismo decadente. Mas nesse sistema zumbi não haverá emprego nem futuro. Lutar e organizar pelo socialismo!",
+    "diferencial": "",
     "links": [
         {
             "icone": "video",
@@ -37,5 +32,12 @@
             "url": "https:\/\/www.instagram.com\/reel\/DW6W1l9BLUl\/"
         }
     ],
-    "imagem_rodape": null
+    "imagem_rodape": null,
+    "imagem_quadro": {
+        "url": "dados\/06-b1-juventude.jpg",
+        "altura": 200,
+        "posicao": "top",
+        "coluna": 1
+    },
+    "imagem_pequena": null
 }

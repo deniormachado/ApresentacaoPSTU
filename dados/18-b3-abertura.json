@@ -6,10 +6,12 @@
     "titulo": "As Engrenagens do Sistema Capitalista",
     "subtitulo": "<strong>Afinal, como funciona o capitalismo?<\/strong> Por que não é possível conserta-lo? Ajustar suas engrenagens por dentro? - <strong>O marxismo<\/strong> continua sendo a principal base teórica para analisar a realidade e construir o socialismo.",
     "texto": "",
-    "imagem_url": "dados\/18-b3-abertura.png",
+    "imagem_url": "",
     "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
     "imagem_posicao": "centro",
     "texto_borda": false,
+    "quadros_opacos": false,
     "tem_linha_acento": true,
     "numero_gigante": "3"
 }

@@ -8,17 +8,15 @@
     "texto": "As mulheres enfrentam uma escalada de feminicídios, além da sobrecarga do trabalho doméstico não pago e da desigualdade salarial. \r\n<\/br>\r\nAs maiores vítimas de violência doméstica, dos baixos salários e dupla jornada são as mulheres negras.",
     "imagem_url": "",
     "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
     "imagem_posicao": "centro",
     "texto_borda": false,
+    "quadros_opacos": false,
     "itens_col1": [
     ],
     "itens": [
-        "O capitalismo utiliza o machismo para colocar homens contra mulheres, colocá-las em uma condição submissa. ",
-        "Esta divisão da classe trabalhadora é usada para impor uma superexploração ainda maior: paga menos, extrai mais. Isto rebaixa também os salários dos homens. ",
-        "<strong>O governo Lula e o PT rifam as pautas das mulheres em nome da governabilidade com setores conservadores, e \"economizar\" verbas que são necessárias para defender ",
-        "as mulheres da violência doméstica. <\/strong>",
-        "Tudo em nome do arcabouço fiscal, que beneficia os bancos e detentores dos títulos da dívida pública.",
-        "PT e centrão trocam vidas de mulheres por votos no Congresso. "
+        "O capitalismo incentiva o machismo para colocar as mulheres em uma condição submissa. ",
+        "Busca a divisão da classe trabalhadora e impor a superexploração: paga menos, extrai mais. Isto rebaixa também os salários dos homens. "
     ],
     "proposta": {
         "titulo": "Proposta do PSTU",
@@ -26,20 +24,13 @@
     },
     "diferencial": "O PSTU defende as mulheres e busca educar a classe trabalhadora contra a opressão, unindo-a contra a burguesia.",
     "links": [
-        {
-            "icone": "video",
-            "texto": "Naturalizaram a Violência",
-            "url": "https:\/\/www.youtube.com\/watch?v=sTwvoZsMu78&t=1557s"
-        },
-        {
-            "icone": "artigo",
-            "texto": "Marxismo e a luta contra as opressões",
-            "url": "https:\/\/teoriaerevolucao.pstu.org.br\/a-questao-das-mulheres-o-marxismo-e-a-luta-contra-as-opressoes\/"
-        }
     ],
-    "imagem_rodape": {
-        "url": "https:\/\/www.brasildefato.com.br\/wp-content\/uploads\/2024\/09\/image_processing20200201-29235-2gmfu9.jpg",
-        "posicao": "center 40%",
-        "coluna": 1
-    }
+    "imagem_rodape": null,
+    "imagem_quadro": {
+        "url": "dados\/04-b1-feminicidios.png",
+        "altura": 300,
+        "posicao": "top",
+        "coluna": 2
+    },
+    "imagem_pequena": null
 }

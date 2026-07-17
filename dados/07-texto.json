@@ -1,0 +1,48 @@
+﻿{
+    "tipo": "texto",
+    "modulo": "Bloco 1 · Romper as Engrenagens",
+    "tema": "vermelho",
+    "pre_titulo": "",
+    "titulo": "A luta contra o machismo é da classe trabalhadora",
+    "subtitulo": "",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "As mulheres estiveram à frente de grandes lutas e revoluções. Suas lutas e organização eram parte fundamental dos movimentos socialistas.",
+        "<\/br>",
+        "<strong>O governo Lula rifa as pautas das mulheres para governar com setores conservadores, e \"economizar\" verbas que são necessárias na defesa contra a violência doméstica. <\/strong>",
+        "PT e centrão trocam vidas de mulheres por votos no Congresso. "
+    ],
+    "proposta": {
+        "titulo": "Proposta do PSTU",
+        "texto": "Pelo fim dos feminicídios e pela legalização do aborto!"
+    },
+    "diferencial": "Para unir  a classe, combater o machismo.",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Naturalizaram a Violência",
+            "url": "https:\/\/www.youtube.com\/watch?v=sTwvoZsMu78&t=1557s"
+        },
+        {
+            "icone": "artigo",
+            "texto": "Marxismo e a luta contra as opressões",
+            "url": "https:\/\/teoriaerevolucao.pstu.org.br\/a-questao-das-mulheres-o-marxismo-e-a-luta-contra-as-opressoes\/"
+        }
+    ],
+    "imagem_rodape": null,
+    "imagem_quadro": {
+        "url": "dados\/04-b2-mulheres.png",
+        "altura": 250,
+        "posicao": "top",
+        "coluna": 1
+    },
+    "imagem_pequena": null
+}
