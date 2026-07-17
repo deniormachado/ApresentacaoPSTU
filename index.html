@@ -333,6 +333,24 @@ body.paisagem .sc{padding:18px 22px 18px}
 .tema-claro .img-legenda{background:var(--bg-lt)}
 .img-pequena{display:block;border-radius:var(--r);object-fit:cover;max-width:100%;flex-shrink:0;position:relative;z-index:1}
 
+/* ══════════ QUADROS DE TEXTO OPACOS ═════════════════════
+   "quadros_opacos": true no JSON → classe .qo no slide.
+   Os quadros ganham fundo sólido (misturado à cor do tema)
+   para tapar a imagem de fundo e garantir leitura.
+   Sem suporte a color-mix, fica o fundo translúcido padrão. */
+.qo .bloco-proposta,
+.qo .comp-col.cor-vermelho{background:color-mix(in srgb,var(--bg) 76%,#CC1111)}
+.qo .bloco-diff,
+.qo .div-item,
+.qo .card-item,
+.qo .stat-card.cor-escuro,
+.qo .link-btn,
+.qo .comp-col.cor-escuro{background:color-mix(in srgb,var(--bg) 88%,#808080)}
+.qo .comp-col.cor-cinza{background:color-mix(in srgb,var(--bg) 82%,#808080)}
+.qo .tl-item{background:color-mix(in srgb,var(--bg) 88%,#808080);border-radius:var(--r);padding:7px 9px;margin-bottom:3px;border-bottom:none}
+/* sem transição de background: interpolar rgba↔color-mix trava no Chromium */
+.qo .link-btn{transition:color .15s,border-color .15s}
+
 /* ══════════ INDICADOR DE ORIENTAÇÃO ════════════════════ */
 #orient-hint{
   position:fixed;bottom:0;left:0;right:0;
@@ -772,7 +790,7 @@ window.addEventListener('resize',()=>{clearTimeout(orientTimer);orientTimer=setT
   wrap.innerHTML='';
   SLIDES.forEach((d,i)=>{
     const div=document.createElement('div');
-    div.className='slide tema-'+(d.tema||'claro');
+    div.className='slide tema-'+(d.tema||'claro')+(d.quadros_opacos?' qo':'');
     div.dataset.i=i;
     div.innerHTML=(R[d.tipo]||R.texto)(d);
     wrap.appendChild(div);

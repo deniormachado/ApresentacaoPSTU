@@ -112,7 +112,7 @@ Figura com moldura, sombra e legenda opcional, dentro do conteúdo:
 - Funciona nos tipos: `texto`, `dividido`, `comparativo`, `estatisticas`, `timeline`, `cards`
 
 ### 3. Imagem pequena (`imagem_pequena`)
-Imagem menor para encaixar em colunas ou quadros:
+Imagem menor, colocada **dentro de quadros de texto ou colunas**:
 
 ```json
 "imagem_pequena": {
@@ -135,6 +135,20 @@ Imagem menor para encaixar em colunas ou quadros:
     "imagem": { "url": "dados/foto.jpg", "largura": 100, "alinhamento": "centro" }
 }
 ```
+
+## Quadros de texto: fundo opaco ou transparente
+
+Todo slide aceita o campo `"quadros_opacos"`:
+
+- `false` ou ausente → quadros de texto **transparentes** (a imagem de fundo
+  aparece através deles — comportamento padrão)
+- `true` → quadros de texto com **fundo sólido** que tapa a imagem de fundo,
+  garantindo a leitura (vale para proposta, diferencial, colunas do
+  comparativo, itens do dividido, cards, estatísticas, timeline e botões
+  de link)
+
+No editor Delphi há um checkbox na aba Geral: "Quadros de texto com fundo
+OPACO".
 
 ## Ajuste automático em paisagem
 
