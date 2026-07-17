@@ -70,6 +70,71 @@ Você pode usar estas tags HTML simples dentro dos textos:
 - **NÃO** altere o campo `"tipo"` (a menos que saiba o que está fazendo)
 - Se o texto contém aspas, use `\"` (aspas escapadas)
 
+## Imagens — os três tipos
+
+### 1. Imagem de fundo (`imagem_url`)
+Cobre o slide inteiro, atrás do texto. Campos relacionados:
+
+```json
+"imagem_url": "https://exemplo.com/foto.jpg",
+"imagem_posicao": "centro",
+"imagem_escurecimento": 0
+```
+
+- `imagem_posicao`: `"centro"`, `"topo"`, `"baixo"`, `"esquerda"`, `"direita"`
+- `imagem_escurecimento`: véu escuro sobre a imagem para o texto ficar legível.
+  - `0` ou ausente → usa o **padrão global** (0.55, definido em `ESCURECIMENTO_PADRAO` no topo do `<script>` do `index.html`)
+  - `0.3` → mais claro que o padrão; `0.8` → mais escuro
+  - `-1` → imagem totalmente viva, sem véu nenhum
+
+### 2. Imagem em quadro (`imagem_quadro`)
+Figura com moldura, sombra e legenda opcional, dentro do conteúdo:
+
+```json
+"imagem_quadro": {
+    "url": "dados/foto.png",
+    "legenda": "Texto da legenda (opcional)",
+    "altura": 140,
+    "posicao": "center top",
+    "coluna": 2
+}
+```
+
+- `altura` em pixels (opcional; sem ela a imagem usa a proporção natural)
+- `coluna`: `1` (esquerda) ou `2` (direita) — só vale para slides `"tipo": "texto"`
+- Funciona nos tipos: `texto`, `dividido`, `comparativo`, `estatisticas`, `timeline`, `cards`
+
+### 3. Imagem pequena (`imagem_pequena`)
+Imagem menor para encaixar em colunas ou quadros:
+
+```json
+"imagem_pequena": {
+    "url": "dados/foto.jpg",
+    "largura": 120,
+    "altura": 90,
+    "alinhamento": "centro",
+    "coluna": 1
+}
+```
+
+- `largura` em pixels (padrão 120); `altura` opcional
+- `alinhamento`: `"esquerda"` (padrão), `"centro"` ou `"direita"`
+- Nos slides `"tipo": "comparativo"`, cada coluna também aceita uma imagem própria:
+
+```json
+"coluna_esquerda": {
+    "titulo": "...",
+    "itens": [...],
+    "imagem": { "url": "dados/foto.jpg", "largura": 100, "alinhamento": "centro" }
+}
+```
+
+## Ajuste automático em paisagem
+
+No modo paisagem (tela deitada), se o conteúdo não couber na altura do slide,
+ele é reduzido automaticamente (até 68%) para nada ficar cortado no fundo.
+No modo retrato o slide rola normalmente.
+
 ## Tipos de slide
 
 ### `"tipo": "texto"` — Slide de texto simples

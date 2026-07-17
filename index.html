@@ -319,10 +319,19 @@ body.paisagem .comp-grid{grid-column:1/-1}
 
 /* tamanhos menores em paisagem para caber na altura */
 body.paisagem .slide-titulo{font-size:27px}
-body.paisagem .bloco-lista li,.body.paisagem .slide-texto{font-size:16px}
+body.paisagem .bloco-lista li,
+body.paisagem .slide-texto{font-size:16px}
 body.paisagem .sc{padding:18px 22px 18px}
 
 /* sem override extra para paisagem — col-bg é absoluto */
+
+/* ══════════ IMAGEM EM QUADRO / IMAGEM PEQUENA ═══════════ */
+.img-quadro{margin:10px 0;border-radius:var(--r-md);overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 3px 14px rgba(0,0,0,.35);flex-shrink:0;position:relative;z-index:1}
+.tema-claro .img-quadro{border-color:var(--border);box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.img-quadro img{display:block;width:100%;object-fit:cover}
+.img-legenda{font-size:12px;line-height:1.4;color:var(--fg2);padding:6px 10px;background:rgba(0,0,0,.35)}
+.tema-claro .img-legenda{background:var(--bg-lt)}
+.img-pequena{display:block;border-radius:var(--r);object-fit:cover;max-width:100%;flex-shrink:0;position:relative;z-index:1}
 
 /* ══════════ INDICADOR DE ORIENTAÇÃO ════════════════════ */
 #orient-hint{
@@ -380,7 +389,9 @@ html{
   position:relative;
   display:flex;
   flex-direction:column;
-  overflow:hidden;
+  /* overflow visível: excesso é detectado pelo ajuste de escala
+     (overflow:hidden aqui truncava texto no fundo em paisagem) */
+  overflow:visible;
 }
 .col-bg{
   position:absolute;
@@ -458,6 +469,13 @@ body.retrato .col-bg{
 <div id="orient-hint">↻ Girando tela…</div>
 
 <script>
+/* ═══ CONFIGURAÇÃO ═══════════════════════════════════════
+   ESCURECIMENTO_PADRAO: véu escuro sobre imagens de fundo (0 a 1).
+   Vale para todo slide cujo "imagem_escurecimento" seja 0 ou ausente.
+   Para um slide específico: "imagem_escurecimento": 0.3 (mais claro),
+   0.8 (mais escuro) ou -1 (imagem totalmente viva, sem véu). */
+const ESCURECIMENTO_PADRAO = 0.55;
+
 /* ═══ DADOS EMBUTIDOS ════════════════════════════════════ */
 let SLIDES = [];
 
@@ -493,7 +511,8 @@ const IC={
 const E=s=>s||'';
 function imgBg(d){
   let url=d.imagem_url||'';
-  let dim=d.imagem_escurecimento||0;
+  let dim=d.imagem_escurecimento;
+  dim=(dim==null||dim===0)?ESCURECIMENTO_PADRAO:(dim<0?0:dim);
   if(!url)return'';
   const pos={centro:'center center',topo:'center top',baixo:'center bottom',esquerda:'left center',direita:'right center'}[d.imagem_posicao]||'center center';
   const dimHtml=dim>0?'<div class="bg-dim" style="opacity:'+dim+'"></div>':'';
@@ -536,6 +555,30 @@ function imgRodapeFooter(d){
   const w=r.largura||'100%';
   return'<div style="width:'+w+';height:'+h+';background-image:url(\''+r.url+'\');background-size:cover;background-position:'+pos+';background-repeat:no-repeat;border-radius:var(--r);margin-top:8px;flex-shrink:0"></div>';
 }
+/* imagem em quadro: figura com moldura, sombra e legenda opcional
+   JSON: "imagem_quadro": { "url", "legenda", "altura" (px),
+         "posicao" (ex: "center top"), "coluna": 1|2 (tipo texto) } */
+function imgQuadro(q){
+  if(!q||!q.url)return'';
+  const h=q.altura?'height:'+q.altura+'px;':'';
+  const pos=q.posicao||'center center';
+  return'<figure class="img-quadro"><img src="'+q.url+'" alt="" loading="lazy" style="'+h+'object-position:'+pos
+    +'" onerror="this.parentNode.style.display=\'none\'">'
+    +(q.legenda?'<figcaption class="img-legenda">'+q.legenda+'</figcaption>':'')
+    +'</figure>';
+}
+/* imagem pequena: para colocar em quadros ou colunas
+   JSON: "imagem_pequena": { "url", "largura" (px, padrão 120),
+         "altura" (px), "alinhamento": "esquerda"|"centro"|"direita",
+         "coluna": 1|2 (tipo texto) } */
+function imgPequena(p){
+  if(!p||!p.url)return'';
+  const w=(p.largura||120)+'px';
+  const h=p.altura?'height:'+p.altura+'px;':'';
+  const mg={centro:'8px auto',direita:'8px 0 8px auto'}[p.alinhamento]||'8px 0';
+  return'<img class="img-pequena" src="'+p.url+'" alt="" loading="lazy" style="width:'+w+';'+h
+    +'margin:'+mg+'" onerror="this.style.display=\'none\'">';
+}
 function colItens(its){return(its||[]).map(it=>'<div class="col-item'+(it.estilo==='destaque'?' col-item-destaque':'')+'">'+it.texto+'</div>').join('')}
 
 /* ═══ RENDERIZADORES ══════════════════════════════════════ */
@@ -561,6 +604,9 @@ const R={
     const r=d.imagem_rodape||{};
     const col=r.coluna||1; // 1=coluna esquerda, 2=coluna direita
     const bg=colBg(d);
+    const qCol=(d.imagem_quadro&&d.imagem_quadro.coluna)||1;
+    const pCol=(d.imagem_pequena&&d.imagem_pequena.coluna)||1;
+    const q=imgQuadro(d.imagem_quadro),p=imgPequena(d.imagem_pequena);
     return imgBg(d)
       +'<div class="sc tipo-texto'+(d.texto_borda?' tb':'')
       +'"><div class="sc-col1">'
@@ -570,19 +616,23 @@ const R={
       +(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')
       +(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')
       +lista(d.itens_col1)
+      +(qCol===1?q:'')
+      +(pCol===1?p:'')
       +(col===1?bg:'')
       +'</div>'
       +'<div class="sc-col2">'
       +lista(d.itens)
       +proposta(d.proposta)
       +diferencial(d.diferencial)
+      +(qCol===2?q:'')
+      +(pCol===2?p:'')
       +links(d.links)
       +(col===2?bg:'')
       +'</div>'
       +'</div>';  },
   dividido(d){
     const esq=(d.itens_esquerda||[]).map(it=>'<div class="div-item"><strong>'+it.titulo+'</strong><p>'+it.texto+'</p></div>').join('');
-    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="div-grid">'+esq+'</div>'+proposta(d.proposta)+diferencial(d.diferencial)+links(d.links)+'</div>';
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="div-grid">'+esq+'</div>'+proposta(d.proposta)+diferencial(d.diferencial)+imgQuadro(d.imagem_quadro)+imgPequena(d.imagem_pequena)+links(d.links)+'</div>';
   },
   comparativo(d){
     const esq=d.coluna_esquerda||{},dir=d.coluna_direita||{};
@@ -594,27 +644,27 @@ const R={
     const imgW=imgHtml?'<div class="img-rodape-col">'+imgHtml+'</div>':'';
     return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')
     +'<div class="comp-grid">'
-    +'<div class="comp-col cor-'+(esq.cor||'escuro')+'"><div class="comp-col-titulo">'+E(esq.titulo)+'</div>'+colItens(esq.itens)+(imgEmEsq?imgW:'')+'</div>'
-    +'<div class="comp-col cor-'+(dir.cor||'escuro')+'"><div class="comp-col-titulo">'+E(dir.titulo)+'</div>'+colItens(dir.itens)+(!imgEmEsq?imgW:'')+'</div>'
-    +'</div>'+diferencial(d.diferencial)+imgRodapeFooter(d)+links(d.links)+'</div>';
+    +'<div class="comp-col cor-'+(esq.cor||'escuro')+'"><div class="comp-col-titulo">'+E(esq.titulo)+'</div>'+colItens(esq.itens)+imgPequena(esq.imagem)+(imgEmEsq?imgW:'')+'</div>'
+    +'<div class="comp-col cor-'+(dir.cor||'escuro')+'"><div class="comp-col-titulo">'+E(dir.titulo)+'</div>'+colItens(dir.itens)+imgPequena(dir.imagem)+(!imgEmEsq?imgW:'')+'</div>'
+    +'</div>'+diferencial(d.diferencial)+imgQuadro(d.imagem_quadro)+imgPequena(d.imagem_pequena)+imgRodapeFooter(d)+links(d.links)+'</div>';
   },
   estatisticas(d){
     const stats=(d.estatisticas||[]).map(s=>'<div class="stat-card cor-'+(s.cor||'escuro')+'">'+(s.imagem_url?'<img class="stat-img'+(s.imagem_modo&&s.imagem_modo!=='foto'?' modo-'+s.imagem_modo:'')+'" src="'+s.imagem_url+'" alt="" onerror="this.style.display=\'none\'">':'')+'<div class="stat-num">'+s.numero+'</div><div class="stat-desc">'+s.descricao+'</div><div class="stat-fonte">'+s.fonte+'</div></div>').join('');
-    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+'<div class="stats-grid">'+stats+'</div>'+diferencial(d.diferencial)+links(d.links)+'</div>';
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+'<div class="stats-grid">'+stats+'</div>'+diferencial(d.diferencial)+imgQuadro(d.imagem_quadro)+imgPequena(d.imagem_pequena)+links(d.links)+'</div>';
   },
   citacao(d){
     return imgBg(d)+'<div class="sc sc-citacao'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<blockquote class="cit-texto">'+E(d.titulo)+'</blockquote><div class="cit-fonte">'+E(d.pre_titulo)+'</div>'+(d.subtitulo?'<p class="cit-nota">'+d.subtitulo+'</p>':'')+'</div>';
   },
   timeline(d){
     const its=(d.itens_timeline||[]).map(it=>'<div class="tl-item"><div class="tl-ano">'+it.ano+'</div><div class="tl-texto">'+it.texto+'</div></div>').join('');
-    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="tl-wrap">'+its+'</div>'+diferencial(d.diferencial)+'</div>';
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2><div class="tl-wrap">'+its+'</div>'+diferencial(d.diferencial)+imgQuadro(d.imagem_quadro)+imgPequena(d.imagem_pequena)+'</div>';
   },
   cards(d){
     const cs=(d.cards||[]).map(c=>{
       const foto=c.foto_url?'<div class="card-foto" style="background-image:url(\''+c.foto_url+'\')"></div>':'<div class="card-foto card-foto-vazia"><span>'+c.nome.charAt(0)+'</span></div>';
       return'<div class="card-item">'+foto+'<div><div class="card-nome">'+c.nome+'</div><div class="card-cargo">'+c.cargo+'</div><div class="card-texto">'+c.texto+'</div></div></div>';
     }).join('');
-    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+'<div class="cards-grid">'+cs+'</div></div>';
+    return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+'<div class="cards-grid">'+cs+'</div>'+imgQuadro(d.imagem_quadro)+imgPequena(d.imagem_pequena)+'</div>';
   }
 };
 
@@ -634,8 +684,26 @@ function ir(n){
   slideEls[atual].classList.remove('sair-esq','sair-dir');
   slideEls[atual].scrollTop=0;
   setTimeout(()=>slideEls[ant].classList.remove('sair-esq','sair-dir'),300);
+  ajustarEscala(slideEls[atual]);
   atualizarUI();
 }
+
+/* ═══ AJUSTE DE ESCALA — evita truncar texto no fundo ═════
+   Só em paisagem: se o conteúdo não cabe na altura do slide,
+   reduz o zoom gradualmente (até 68%). Abaixo disso, mantém
+   a rolagem. No retrato o slide rola normalmente. */
+function ajustarEscala(el){
+  const sc=el.querySelector('.sc');
+  if(!sc)return;
+  sc.style.zoom='';
+  if(!document.body.classList.contains('paisagem'))return;
+  let z=1;
+  while(z>0.68&&sc.scrollHeight>sc.clientHeight+1){
+    z=Math.round((z-0.04)*100)/100;
+    sc.style.zoom=z;
+  }
+}
+function ajustarTodas(){slideEls.forEach(ajustarEscala)}
 
 function atualizarUI(){
   if(!total)return;
@@ -674,6 +742,7 @@ function aplicarOrientacao(){
   const paisagem=window.innerWidth>window.innerHeight;
   document.body.classList.toggle('paisagem',paisagem);
   document.body.classList.toggle('retrato',!paisagem);
+  if(slideEls.length)ajustarTodas();
 }
 let orientTimer;
 function aoGirar(){
@@ -708,6 +777,9 @@ window.addEventListener('resize',()=>{clearTimeout(orientTimer);orientTimer=setT
   if(slideEls.length>0)slideEls[0].classList.add('ativo');
   atualizarUI();
   aplicarOrientacao();
+  // reajusta quando as fontes e imagens terminarem de carregar
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(ajustarTodas);
+  window.addEventListener('load',ajustarTodas);
 })();
 
 /* ═══ FULLSCREEN API ════════════════════════════════════ */
