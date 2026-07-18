@@ -588,13 +588,24 @@ function colBg(d){
 }
 // mantém imgRodape como alias vazio para compatibilidade com comparativo
 function imgRodape(d){ return''; }
+/* Imagem que ocupa as duas colunas (rodapé do comparativo):
+   mostra a imagem INTEIRA na proporção natural, com a mesma
+   apresentação em retrato e paisagem, sempre centralizada
+   horizontalmente. "altura" é o teto em px; "largura" em px
+   (opcional) vira teto explícito de largura. */
 function imgRodapeFooter(d){
   if(!d.imagem_rodape||!d.imagem_rodape.url)return'';
   const r=d.imagem_rodape;
-  const pos=r.posicao||'center center';
-  const h=(r.altura||200)+'px';
-  const w=r.largura||'100%';
-  return'<div style="width:'+w+';height:'+h+';background-image:url(\''+r.url+'\');background-size:cover;background-position:'+pos+';background-repeat:no-repeat;border-radius:var(--r);margin-top:8px;flex-shrink:0"></div>';
+  const h=r.altura||200;
+  let wCap='max-width:100%;';
+  if(r.largura&&r.largura!=='100%'){
+    const l=(''+r.largura).match(/^\d+$/)?r.largura+'px':r.largura;
+    wCap='max-width:min('+l+',100%);';
+  }
+  return'<img src="'+r.url+'" alt="" style="display:block;margin:8px auto 0;'
+    +wCap+'max-height:'+h+'px;width:auto;height:auto;border-radius:var(--r);flex-shrink:0" '
+    +'onload="if(window.ajustarEscala)ajustarEscala(this.closest(\'.slide\'))" '
+    +'onerror="this.style.display=\'none\'">';
 }
 /* imagem em quadro: figura com moldura, sombra e legenda opcional
    JSON: "imagem_quadro": { "url", "legenda", "altura" (px),
