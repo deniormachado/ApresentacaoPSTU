@@ -1,36 +1,44 @@
-{
-  "tipo": "timeline",
-  "modulo": "Bloco 2 · Quem Somos",
-  "tema": "claro",
-  "pre_titulo": "Origens e luta contra a ditadura",
-  "titulo": "A construção da independência de classe",
-  "subtitulo": "",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "itens_timeline": [
-    {
-      "ano": "1973",
-      "texto": "Jovens trotskistas brasileiros exilados organizam-se após o golpe no Chile em torno da futura LIT, liderada por Nahuel Moreno."
-    },
-    {
-      "ano": "1978",
-      "texto": "Lançamento da Convergência Socialista (CS) — uma das primeiras org. trotskistas a atuar abertamente no Brasil."
-    },
-    {
-      "ano": "1980",
-      "texto": "CS foi co-fundadora do PT, respondendo por ~20% das primeiras 100 mil filiações. 1ª Conferência de Mulheres da CS."
-    },
-    {
-      "ano": "1992",
-      "texto": "CS defende o \"Fora Collor!\". A direção do PT se opõe e expulsa a CS."
-    },
-    {
-      "ano": "1994",
-      "texto": "Fundação do PSTU em 5 de junho, em São Paulo, como alternativa revolucionária e independente."
-    }
-  ],
-  "diferencial": "A expulsão do PT não foi derrota — foi coerência. O PT foi crescendo para dentro do sistema; o PSTU manteve a perspectiva revolucionária."
+﻿{
+    "tipo": "timeline",
+    "modulo": "Bloco 2 · Quem Somos",
+    "tema": "claro",
+    "pre_titulo": "Das origens na luta contra a ditadura ao PSTU",
+    "titulo": "Uma trajetória de luta com independência de classe",
+    "subtitulo": "",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "itens_timeline": [
+        {
+            "ano": "1973",
+            "texto": "Após o golpe de Pinochet no Chile, jovens trotskistas brasileiros, ligados a Nahuel Moreno, publicaram o jornal Independência Operária distribuído clandestinamente no Brasil."
+        },
+        {
+            "ano": "1978",
+            "texto": "Em 1978, lançaram em SP o Movimento Convergência Socialista, uma das primeiras organizações a atuar abertamente na ditadura. Herdeira da tradição de Trotsky e Nahuel Moreno, recusando tanto o stalinismo quanto o reformismo."
+        },
+        {
+            "ano": "1980",
+            "texto": "Greve dos metalúrgicos do ABC -  Zé Maria e Lula presos. A CS chama a fundação do PT, sendo responsável por 1\/5 das 100 mil filiações iniciais."
+        },
+        {
+            "ano": "1980",
+            "texto": "1ª Conferência de Mulheres da CS, feminismo classista desde a origem."
+        },
+        {
+            "ano": "1992",
+            "texto": "Expulsão do PT: a CS defendeu o \"Fora Collor!\" quando a direção petista ainda relutava. Mais de 730 militantes reagem e criam o Movimento Pró-PSTU."
+        },
+        {
+            "ano": "1994",
+            "texto": "Fundação do PSTU: independência de classe, oposição ao PT e a qualquer governo que governe com os patrões."
+        }
+    ],
+    "diferencial": "A expulsão do PT não foi derrota — foi coerência. O PT foi crescendo para dentro do sistema; o PSTU manteve a perspectiva revolucionária.",
+    "imagem_quadro": null,
+    "imagem_pequena": null
 }

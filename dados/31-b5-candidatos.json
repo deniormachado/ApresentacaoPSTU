@@ -1,51 +1,55 @@
-{
-  "tipo": "cards",
-  "modulo": "Bloco 5 · Os rostos do PSTU",
-  "tema": "claro",
-  "pre_titulo": "Figuras públicas",
-  "titulo": "Os rostos do PSTU",
-  "subtitulo": "A classe trabalhadora representando a si mesma",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "cards": [
-    {
-      "nome": "Zé Maria",
-      "cargo": "Presidente Nacional · ex-candidato à presidência",
-      "texto": "Ex-metalúrgico do ABC. Presidente do PSTU desde 1998. Preso junto a Lula na greve histórica de 1980. Símbolo de 31 anos de independência de classe.",
-      "foto_url": "dados/ZeMaria.jpg"
-    },
-    {
-      "nome": "Hertz Dias",
-      "cargo": "Pré-candidato à presidência em 2026",
-      "texto": "Rapper do Gíria Vermelha. Fundador do Quilombo Urbano no Maranhão. Professor de História da rede pública. Ativista do movimento negro.",
-      "foto_url": "dados/hertz.jpg"
-    },
-    {
-      "nome": "Vera Lúcia",
-      "cargo": "Candidata ao governo de SP em 2026",
-      "texto": "Operária, negra, nordestina. Primeira mulher negra a disputar a presidência por um partido de esquerda (2018 e 2022).",
-      "foto_url": "dados/vera.jpg"
-    },
-    {
-      "nome": "Gustavo Machado",
-      "cargo": "do Canal Orientação Marxista e ILAESE",
-      "texto": "Divulgador do Marxismo nas redes sociais, polemizando com outras posições políticas. Escreveu livros sobre Marx e é um dos principais responsáveis pelo Anuário Estatístico do ILAESE.",
-      "foto_url": "dados/gustavo.jpg"
-    },
-    {
-      "nome": "Mandi Coelho",
-      "cargo": "da Juventude Rebeldia e luta palestina",
-      "texto": "Dirigente do PSTU e Rebeldia. Participou da Global Sumud Flotilla, em solidariedade à Palestina, tendo sido presa pelo Estado de Israel. Tem um canal no Youtube de divulgação das lutas da juventude, das mulheres e do socialismo.",
-      "foto_url": "dados/mandi.jpg"
-    },
-    {
-      "nome": "Atnágoras Lopes",
-      "cargo": "da Secretaria Executiva Nacional da CSP-Conlutas",
-      "texto": "Operário da construção civil e dirigente sindical. Ativista do movimento operário e internacionalista, defensor da independência de classe e de uma alternativa socialista para os trabalhadores.",
-      "foto_url": "dados/atnagoras.jpg"
-    }
-  ]
+﻿{
+    "tipo": "cards",
+    "modulo": "Bloco 5 · Os rostos do PSTU",
+    "tema": "claro",
+    "pre_titulo": "Figuras públicas",
+    "titulo": "Os rostos do PSTU",
+    "subtitulo": "A classe trabalhadora representando a si mesma",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "cards": [
+        {
+            "nome": "Zé Maria",
+            "cargo": "Presidente Nacional · ex-candidato à presidência",
+            "texto": "Ex-metalúrgico do ABC. Presidente do PSTU desde 1998. Preso junto a Lula na greve histórica de 1980. Símbolo de 31 anos de independência de classe.",
+            "foto_url": "dados\/ZeMaria.jpg"
+        },
+        {
+            "nome": "Hertz Dias",
+            "cargo": "Pré-candidato à presidência em 2026",
+            "texto": "Rapper do Gíria Vermelha. Fundador do Quilombo Urbano no Maranhão. Professor de História da rede pública. Ativista do movimento negro.",
+            "foto_url": "dados\/hertz.jpg"
+        },
+        {
+            "nome": "Vera Lúcia",
+            "cargo": "Candidata ao governo de SP em 2026",
+            "texto": "Operária, negra, nordestina. Primeira mulher negra a disputar a presidência por um partido de esquerda (2018 e 2022).",
+            "foto_url": "dados\/vera.jpg"
+        },
+        {
+            "nome": "Gustavo Machado",
+            "cargo": "do Canal Orientação Marxista e ILAESE",
+            "texto": "Divulgador do Marxismo nas redes sociais, polemizando com outras posições políticas. Escreveu livros sobre Marx e é um dos principais responsáveis pelo Anuário Estatístico do ILAESE.",
+            "foto_url": "dados\/gustavo.jpg"
+        },
+        {
+            "nome": "Mandi Coelho",
+            "cargo": "da Juventude Rebeldia e luta palestina",
+            "texto": "Dirigente do PSTU e Rebeldia. Participou da Global Sumud Flotilla, em solidariedade à Palestina, tendo sido presa pelo Estado de Israel. Tem um canal no Youtube de divulgação das lutas da juventude, das mulheres e do socialismo.",
+            "foto_url": "dados\/mandi.jpg"
+        },
+        {
+            "nome": "Atnágoras Lopes",
+            "cargo": "da Secretaria Executiva Nacional da CSP-Conlutas",
+            "texto": "Operário da construção civil e dirigente sindical. Ativista do movimento operário e internacionalista, defensor da independência de classe e de uma alternativa socialista para os trabalhadores.",
+            "foto_url": "dados\/atnagoras.jpg"
+        }
+    ],
+    "imagem_quadro": null,
+    "imagem_pequena": null
 }

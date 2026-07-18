@@ -1,14 +1,20 @@
-{
-  "tipo": "citacao",
-  "modulo": "Bloco 2 · Quem Somos",
-  "tema": "profundo",
-  "pre_titulo": "— Vera Lúcia · 30 anos do PSTU · São Paulo, junho de 2024",
-  "titulo": "\"Nesses 30 anos, muitas coisas aconteceram. Nas batalhas que travamos, perdemos companheiros. Outros abandonaram a perspectiva da revolução socialista. Por isso, temos orgulho e festejamos nossos 30 anos. O PSTU não se afastou do propósito para o qual foi criado — permaneceu, de forma incondicional, ao lado da classe trabalhadora na luta pela revolução socialista.\"",
-  "subtitulo": "Esta citação resume o que distingue o PSTU de toda a esquerda que apoiou total ou parcialmente o governo — limitando sua política à democracia burguesa.",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "tem_linha_acento": true
+﻿{
+    "tipo": "citacao",
+    "modulo": "Bloco 2 · Quem Somos",
+    "tema": "profundo",
+    "pre_titulo": "— Vera Lúcia · 30 anos do PSTU · São Paulo, junho de 2024",
+    "titulo": "\"Nesses 30 anos, muitas coisas aconteceram. Nas batalhas que travamos, perdemos companheiros. Outros abandonaram a perspectiva da revolução socialista. Por isso, temos orgulho e festejamos nossos 30 anos. O PSTU não se afastou do propósito para o qual foi criado — permaneceu, de forma incondicional, ao lado da classe trabalhadora na luta pela revolução socialista.\"",
+    "subtitulo": "Esta citação resume o que distingue o PSTU de toda a esquerda que apoiou total ou parcialmente o governo — limitando sua política à democracia burguesa.",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tem_linha_acento": true,
+    "imagem_quadro": {
+        "url": "dados\/17-b2-vera-lucia.png"
+    },
+    "imagem_pequena": null
 }

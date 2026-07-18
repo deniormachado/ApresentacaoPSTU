@@ -1,15 +1,17 @@
-{
-  "tipo": "secao",
-  "modulo": "",
-  "tema": "profundo",
-  "pre_titulo": "Bloco 2",
-  "titulo": "Quem Somos: 32 Anos na Luta",
-  "subtitulo": "Histórico do Partido, identidade da LIT-QI e fundamentação do internacionalismo revolucionário.",
-  "texto": "",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "numero_gigante": "2",
-  "tem_linha_acento": true
+﻿{
+    "tipo": "secao",
+    "modulo": "",
+    "tema": "profundo",
+    "pre_titulo": "Bloco 2",
+    "titulo": "Quem Somos: 32 Anos na Luta",
+    "subtitulo": "<strong>por uma sociedade sem explorados e sem exploradores<\/strong>.",
+    "texto": "\r\nHistórico do Partido, identidade da LIT-QI e fundamentação do internacionalismo revolucionário.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tem_linha_acento": true,
+    "numero_gigante": "2"
 }
