@@ -13,8 +13,8 @@
     "texto_borda": true,
     "quadros_opacos": true,
     "itens_col1": [
-        "<strong>A falácia da meritocracia:<\/strong> dizem que basta esforço individual. Mas estudar mais renda cair (FGV Social).",
-        "<strong>O beco sem saída do trabalho:<\/strong> sem experiência não há emprego, sem emprego não há experiência. Cada vez mais \"uberizados\" — chamados de \"empreendedores\" para esconder a falta de direitos. "
+        "<strong>A falácia da meritocracia:<\/strong> dizem que basta esforço individual. Mas estudar mais não garante maior renda (fonte: FGV Social).",
+        "<strong>O beco sem saída do trabalho:<\/strong> sem experiência não há emprego, sem emprego não há experiência. Há cada vez mais \"uberizados\" — chamados de \"empreendedores\" para esconder a falta de direitos. "
     ],
     "itens": [
         "<strong>Redes sociais e isolamento:<\/strong> algoritmos lucram com o ódio e empurram a juventude para ideologias preconceituosas, que culpam mulheres pelas frustrações.",
@@ -34,9 +34,9 @@
     ],
     "imagem_rodape": null,
     "imagem_quadro": {
-        "url": "dados\/06-b1-juventude.jpg",
+        "url": "dados\/06-b1-juventude.png",
         "altura": 200,
-        "posicao": "top",
+        "posicao": "top 10%",
         "coluna": 1
     },
     "imagem_pequena": null

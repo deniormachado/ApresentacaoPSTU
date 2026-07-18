@@ -5,11 +5,13 @@
     "pre_titulo": "Combate às Opressões",
     "titulo": "Não pode ser livre quem oprime ou não luta contra a opressão",
     "subtitulo": "",
-    "texto": "Queremos unir a classe trabalhadora contra o capitalismo — que não existe sem as opressões. As opressões são instrumentais para o capital: ele as utiliza para nos dividir e justificar a superexploração.",
+    "texto": "Buscamos unir a classe trabalhadora. As opressões são instrumentais para o capital: desvaloriza as mulheres, os negros, os LGBTQI+, os indígenas, as pessoas com deficiência, usando a ideologia para \"dividir para reinar\", e rebaixar salários e direitos.",
     "imagem_url": "",
     "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
     "imagem_posicao": "centro",
     "texto_borda": false,
+    "quadros_opacos": false,
     "itens_col1": [
     ],
     "itens": [
@@ -38,5 +40,7 @@
         "url": "dados\/05-b1-opressoes.png",
         "posicao": "center 40%",
         "coluna": 1
-    }
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
 }

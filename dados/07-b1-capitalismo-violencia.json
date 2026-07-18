@@ -1,39 +1,43 @@
-{
-  "tipo": "texto",
-  "modulo": "Bloco 1 · Romper as Engrenagens",
-  "tema": "profundo",
-  "pre_titulo": "",
-  "titulo": "O capitalismo não existe sem violência, opressão e destruição",
-  "subtitulo": "",
-  "texto": "A jornada interminável, o feminicídio, o genocídio da juventude negra, a devastação ambiental — não são falhas do sistema. <em>São O SISTEMA.</em>",
-  "imagem_url": "",
-  "imagem_escurecimento": 0,
-  "imagem_posicao": "centro",
-  "texto_borda": false,
-  "itens": [
-    "<strong>TRUMP</strong> é a cara do sistema ameaçado: reage com guerras comerciais e militares.",
-    "O capitalismo-imperialismo em decadência ataca violentamente os direitos dos trabalhadores. Precisa regimes autoritários, pode até ir ao fascismo.",
-    "No Brasil: a burguesia e governos, inclusive Lula, aceitam um papel submisso, com desindustrialização relativa e papel de exportador de matérias-primas."
-  ],
-  "proposta": null,
-  "diferencial": "Nem burguesia nem governos controlam o capitalismo. Quando vem as crises e os lucros não estão garantidos, disputam o mundo nas guerras, avançam para a barbárie.",
-  "imagem_rodape": {
-    "url": "dados/07-b1-capitalismo-violencia.png",
-    "alt": "O capitalismo não existe sem violência, opressão e destruição",
-    "largura": "100%",
-    "altura": 200,
-    "posicao": "center 40%"
-  },
-  "links": [
-    {
-      "icone": "video",
-      "texto": "Tarifaço e a Podridão do Capitalismo",
-      "url": "https://www.youtube.com/watch?v=SaaofhfhJyo&t=36s"
+﻿{
+    "tipo": "texto",
+    "modulo": "Bloco 1 · Romper as Engrenagens",
+    "tema": "profundo",
+    "pre_titulo": "",
+    "titulo": "O capitalismo não existe sem violência, opressão e destruição",
+    "subtitulo": "",
+    "texto": "A jornada interminável, o feminicídio, o genocídio da juventude negra, a devastação ambiental — não são falhas do sistema. São <strong>O SISTEMA<\/strong>.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "<strong>TRUMP<\/strong> é a cara do sistema ameaçado: os EUA reagem com guerras comerciais e militares.",
+        "O capitalismo imperialista em decadência ataca violentamente os direitos dos trabalhadores. Precisa regimes autoritários, pode até ir ao fascismo.",
+        "No Brasil: a burguesia e governos, inclusive Lula, aceitam um papel submisso, com desindustrialização relativa e papel de exportador de matérias-primas."
+    ],
+    "proposta": null,
+    "diferencial": "Nem burguesia nem governos conseguem evitar as crises. Então disputam o mercado mundial nas guerras, atacam mais o nível de vida popular e avançam para a barbárie.",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Tarifaço e a Podridão do Capitalismo",
+            "url": "https:\/\/www.youtube.com\/watch?v=SaaofhfhJyo&t=36s"
+        },
+        {
+            "icone": "artigo",
+            "texto": "A nova política do imperialismo...",
+            "url": "https:\/\/litci.org\/pt\/2026\/02\/05\/a-nova-politica-do-imperialismo-estadunidense-em-relacao-a-america-latina\/?utm_source=copylink&utm_medium=browser"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados\/07-b1-capitalismo-violencia.png",
+        "posicao": "center 40%",
+        "coluna": 1
     },
-    {
-      "icone": "artigo",
-      "texto": "A nova política do imperialismo...",
-      "url": "https://litci.org/pt/2026/02/05/a-nova-politica-do-imperialismo-estadunidense-em-relacao-a-america-latina/?utm_source=copylink&utm_medium=browser"
-    }
-  ]
+    "imagem_quadro": null,
+    "imagem_pequena": null
 }
