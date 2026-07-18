@@ -176,6 +176,9 @@ Cada item da direita tem: `titulo`, `texto`, `nota`
 ### `"tipo": "comparativo"` — Duas colunas de comparação
 Campos usados: `coluna_esquerda`, `coluna_direita`
 
+Opcional: `"tamanho_titulo_colunas": 16` — tamanho da fonte (px) dos títulos
+das duas colunas (padrão 12).
+
 Cada coluna tem: `titulo`, `items` (array com `texto` e `estilo`)
 
 ### `"tipo": "estatisticas"` — Grid de números

@@ -688,6 +688,8 @@ const R={
   },
   comparativo(d){
     const esq=d.coluna_esquerda||{},dir=d.coluna_direita||{};
+    // tamanho da fonte dos títulos das colunas (px; padrão 12 do CSS)
+    const tt=d.tamanho_titulo_colunas>0?' style="font-size:'+d.tamanho_titulo_colunas+'px"':'';
     const imgHtml=imgRodape(d);
     // coloca imagem na coluna com menos itens (mais espaço sobrando)
     const nEsq=(esq.itens||[]).length;
@@ -696,8 +698,8 @@ const R={
     const imgW=imgHtml?'<div class="img-rodape-col">'+imgHtml+'</div>':'';
     return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.texto?'<p class="slide-texto">'+d.texto+'</p>':'')
     +'<div class="comp-grid">'
-    +'<div class="comp-col cor-'+(esq.cor||'escuro')+'"><div class="comp-col-titulo">'+E(esq.titulo)+'</div>'+colItens(esq.itens)+imgPequena(esq.imagem)+(imgEmEsq?imgW:'')+'</div>'
-    +'<div class="comp-col cor-'+(dir.cor||'escuro')+'"><div class="comp-col-titulo">'+E(dir.titulo)+'</div>'+colItens(dir.itens)+imgPequena(dir.imagem)+(!imgEmEsq?imgW:'')+'</div>'
+    +'<div class="comp-col cor-'+(esq.cor||'escuro')+'"><div class="comp-col-titulo"'+tt+'>'+E(esq.titulo)+'</div>'+colItens(esq.itens)+imgPequena(esq.imagem)+(imgEmEsq?imgW:'')+'</div>'
+    +'<div class="comp-col cor-'+(dir.cor||'escuro')+'"><div class="comp-col-titulo"'+tt+'>'+E(dir.titulo)+'</div>'+colItens(dir.itens)+imgPequena(dir.imagem)+(!imgEmEsq?imgW:'')+'</div>'
     +'</div>'+diferencial(d.diferencial)+imgQuadro(d.imagem_quadro)+imgPequena(d.imagem_pequena)+imgRodapeFooter(d)+links(d.links)+'</div>';
   },
   estatisticas(d){
