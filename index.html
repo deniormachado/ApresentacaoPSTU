@@ -707,7 +707,8 @@ const R={
     return imgBg(d)+'<div class="sc'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div><div class="slide-pretitulo">'+E(d.pre_titulo)+'</div><h2 class="slide-titulo">'+E(d.titulo)+'</h2>'+(d.subtitulo?'<p class="slide-subtitulo">'+d.subtitulo+'</p>':'')+'<div class="stats-grid">'+stats+'</div>'+diferencial(d.diferencial)+imgQuadro(d.imagem_quadro)+imgPequena(d.imagem_pequena)+links(d.links)+'</div>';
   },
   citacao(d){
-    return imgBg(d)+'<div class="sc sc-citacao'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<blockquote class="cit-texto">'+E(d.titulo)+'</blockquote><div class="cit-fonte">'+E(d.pre_titulo)+'</div>'+(d.subtitulo?'<p class="cit-nota">'+d.subtitulo+'</p>':'')+'</div>';
+    // citação usa imagem em QUADRO (moldura), não imagem de fundo
+    return '<div class="sc sc-citacao'+(d.texto_borda?' tb':'')+'"><div class="slide-modulo">'+E(d.modulo)+'</div>'+(d.tem_linha_acento?'<div class="linha-acento"></div>':'')+'<blockquote class="cit-texto">'+E(d.titulo)+'</blockquote><div class="cit-fonte">'+E(d.pre_titulo)+'</div>'+(d.subtitulo?'<p class="cit-nota">'+d.subtitulo+'</p>':'')+imgQuadro(d.imagem_quadro)+imgPequena(d.imagem_pequena)+'</div>';
   },
   timeline(d){
     const its=(d.itens_timeline||[]).map(it=>'<div class="tl-item"><div class="tl-ano">'+it.ano+'</div><div class="tl-texto">'+it.texto+'</div></div>').join('');

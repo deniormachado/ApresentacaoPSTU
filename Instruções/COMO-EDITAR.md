@@ -189,6 +189,9 @@ Cada estatística tem: `numero`, `descricao`, `fonte`, `cor`
 ### `"tipo": "citacao"` — Citação de autor
 Campos usados: `titulo` (texto da citação), `pre_titulo` (autor)
 
+A citação usa **imagem em quadro** (`imagem_quadro`), nunca imagem de fundo
+(`imagem_url` é ignorada neste tipo).
+
 ### `"tipo": "timeline"` — Linha do tempo
 Campos usados: `titulo`, `itens_timeline` (array de `ano` + `texto`)
 
