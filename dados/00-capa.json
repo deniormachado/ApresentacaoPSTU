@@ -1,20 +1,18 @@
 {
   "tipo": "capa",
   "modulo": "",
-  "tema": "escuro",
-  "eh_secao": true,
-  "rotulo_secao": "Início",
-  "pre_titulo": "Apresentação · PSTU · LIT-QI",
+  "tema": "vermelho",                
+  "pre_titulo": "PELA REVOLUÇÃO E O SOCIALISMO",
   "titulo": "PSTU",
-  "subtitulo": "Partido Socialista dos Trabalhadores Unificado<br/>Venha conhecer o PSTU. Faça parte!",
-  "texto": "",
+  "subtitulo": "Quem somos, o que defendemos e por que lutamos — da vida real dos trabalhadores à estratégia revolucionária",
   "imagem_url": "dados/00-capa-bandeira-pstu.png",
-  "imagem_escurecimento": 0.72,
+  "imagem_escurecimento": -1,         
   "imagem_posicao": "centro",
   "texto_borda": true,
   "logos": [
     "https://pstu.org.br/new/img/logo.webp",
     "https://litci.org/pt/wp-content/uploads/2022/07/LIT.jpg"
   ],
-  "tem_linha_acento": true
+  "tem_linha_acento": true,
+  "links": []                         
 }

@@ -22,7 +22,9 @@
     "links": [
     ],
     "imagem_quadro": {
-        "url": "dados\/03-b2-pautas.png"
+        "url": "dados\/03-b2-pautas.png",
+        "altura": 300,
+        "posicao": "center 35%"
     },
     "imagem_pequena": null
 }
