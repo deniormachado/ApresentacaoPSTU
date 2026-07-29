@@ -6,7 +6,10 @@ echo ============================================
 echo  ApresentacaoPSTU (site GitHub Pages)
 echo ============================================
 echo.
-echo Alteracoes pendentes:
+rem O que entra aqui e definido pelo .gitignore: materiais .pptx/.pdf,
+rem backups .save, anotacoes locais e temporarios ficam de fora, entao
+rem o git add -A abaixo pega somente as pecas reais do site.
+echo Alteracoes pendentes (pecas do site):
 git status --short
 echo.
 

@@ -1,13 +1,16 @@
 # Arquivos grandes / gerados — nao versionar
 PSTU_2026.pdf
-PSTU_2026.pptx
+*.pptx
 
 # Backups e anotacoes locais
 dados (backup)/
 todo.txt
+*.save
+SUGESTOES-VISUAL.md
 
 # Ambiente da sessao Claude
 .claude/
+_claude_*
 
 # Scripts avulsos de apoio
 deepseek_python_*.py
