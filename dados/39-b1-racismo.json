@@ -1,0 +1,38 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 1 · Romper as Engrenagens",
+  "tema": "escuro",
+  "pre_titulo": "Racismo estrutural",
+  "titulo": "O racismo é um pilar da exploração no Brasil",
+  "subtitulo": "",
+  "texto": "Negras e negros são <em>mais da metade da população</em> — e a maioria entre os desempregados, os presos e os mortos. Não é coincidência: é assim que o capitalismo brasileiro se organiza desde a escravidão.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0.0,
+  "veu_apenas_texto": false,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "quadros_opacos": false,
+  "itens_col1": [
+    "<strong>Genocídio da população negra:</strong> cerca de <em>3 em cada 4</em> vítimas de homicídio no país são negras — e a maioria dos mortos pela polícia também.",
+    "<strong>Superexploração no trabalho:</strong> trabalhadores negros recebem pouco mais da <em>metade</em> do rendimento dos brancos, e as mulheres negras estão na base da pirâmide."
+  ],
+  "itens": [
+    "<strong>Dividir para reinar:</strong> o racismo não rebaixa só o salário do trabalhador negro — puxa para baixo o piso de toda a classe.",
+    "<strong>Com tantos anos do PT no governo, o discurso contrasta com o aumento do encarceramento de negros e a continuidade do racismo.</strong> Agora a extrema direita organiza o ódio abertamente."
+  ],
+  "proposta": {
+    "titulo": "Proposta do PSTU",
+    "texto": "Desmilitarização da polícia e fim do genocídio negro; combater o racismo e unir a classe na luta contra o capitalismo. Reparação Histórica e Titulação dos territórios quilombolas; Trabalho Igual, Salário Igual e Fim da Precarização"
+  },
+  "diferencial": "Combater o racismo não é pauta separada: sem isso não há unidade da classe — e sem revolução socialista não há fim do racismo.",
+  "links": [
+    {
+      "icone": "artigo",
+      "texto": "Teoria e Revolução",
+      "url": "https://teoriaerevolucao.pstu.org.br/"
+    }
+  ],
+  "imagem_rodape": null,
+  "imagem_quadro": null,
+  "imagem_pequena": null
+}

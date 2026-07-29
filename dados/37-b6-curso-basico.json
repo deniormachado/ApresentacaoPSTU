@@ -1,0 +1,46 @@
+{
+  "tipo": "texto",
+  "modulo": "Bloco 6 · Ser Militante",
+  "tema": "claro",
+  "pre_titulo": "Formação política",
+  "titulo": "Venha conhecer o Curso Básico do PSTU",
+  "subtitulo": "",
+  "texto": "<strong>Sete módulos de formação marxista</strong>, entre cursos de estudo coletivo e palestras, com apostila, roteiro de debate e questões para leitura. Não é preciso ser militante para participar — é por aqui que muita gente começa.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0.0,
+  "veu_apenas_texto": false,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "quadros_opacos": false,
+  "itens_col1": [
+    "<strong>1 · Alienação e Materialismo Histórico</strong> <em>(palestra)</em>",
+    "<strong>2 · O Manifesto Comunista</strong> <em>(curso)</em>",
+    "<strong>3 · O Estado e a Revolução</strong> <em>(curso)</em>",
+    "<strong>4 · A Revolução Russa</strong> <em>(palestra)</em>"
+  ],
+  "itens": [
+    "<strong>5 · A Revolução Permanente</strong> <em>(curso)</em>",
+    "<strong>6 · História das Internacionais</strong> <em>(palestra)</em>",
+    "<strong>7 · O Partido Bolchevique</strong> <em>(curso)</em>"
+  ],
+  "proposta": {
+    "titulo": "Como participar",
+    "texto": "Os cursos são organizados pelos núcleos e regionais do Partido. Procure a militância do PSTU na sua cidade ou fale com quem te trouxe até aqui."
+  },
+  "diferencial": "Estudar é tarefa de militância: sem teoria revolucionária não há prática revolucionária.",
+  "links": [
+    {
+      "icone": "artigo",
+      "texto": "Teoria e Revolução",
+      "url": "https://teoriaerevolucao.pstu.org.br/"
+    },
+    {
+      "icone": "link",
+      "texto": "facaparte.pstu.org.br",
+      "url": "https://facaparte.pstu.org.br"
+    }
+  ],
+  "imagem_rodape": null,
+  "imagem_quadro": null,
+  "imagem_pequena": null
+}
