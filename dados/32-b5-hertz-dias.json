@@ -5,7 +5,7 @@
     "pre_titulo": "Hertz Dias 2026",
     "titulo": "Uma candidatura a serviço da construção socialista",
     "subtitulo": "",
-    "texto": "Não se trata de um projeto eleitoreiro — é uma ferramenta para fortalecer a construção de uma alternativa socialista e revolucionária, <em>independente dos patrões, dos bilionários e do imperialismo<\/em>.",
+    "texto": "Não se trata de mudar através de eleições — mas usar este espaço para fortalecer a construção de uma alternativa socialista e revolucionária, <em>independente dos patrões, dos bilionários e do imperialismo<\/em>.",
     "imagem_url": "",
     "imagem_escurecimento": 0.0,
     "veu_apenas_texto": false,
@@ -38,6 +38,9 @@
         }
     ],
     "imagem_rodape": null,
-    "imagem_quadro": null,
+    "imagem_quadro": {
+        "url": "dados\/32-Hertz-Dias.png",
+        "coluna": 1
+    },
     "imagem_pequena": null
 }
