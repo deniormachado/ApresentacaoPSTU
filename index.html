@@ -7,6 +7,12 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#000000">
+<!-- A apresentacao controla a propria paleta pelo campo "tema" de cada slide
+     (claro/escuro/profundo/vermelho). Declarar suporte aos dois esquemas
+     desliga o "Auto Dark Theme" do Chromium, que em celular com modo escuro
+     reescrevia as cores: clareava os textos mas nao mexia nos fundos vindos
+     de color-mix(), deixando o quadro de proposta ilegivel. -->
+<meta name="color-scheme" content="light dark">
 <link rel="manifest" href="manifest.json">
 <title>PSTU — Apresentação 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,18 +134,41 @@ body.paisagem #prog-h-wrap{display:none}
   display:flex;flex-direction:column
 }
 
-/* texto com borda branca
-   .capa-pretitulo e .secao-pretitulo entram aqui junto com
-   .slide-pretitulo: sem elas, o pré-título era o único texto que
-   ficava sem contorno sobre a imagem de fundo (capa e slide de
-   seção do Bloco 5), embora o JSON pedisse texto_borda. */
-.tb .slide-titulo,.tb .slide-pretitulo,.tb .slide-texto,
-.tb .capa-pretitulo,.tb .secao-pretitulo,
-.tb .bloco-lista li,.tb .secao-titulo,.tb .capa-titulo,.tb .cit-texto{
-  text-shadow:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.8),
+/* ── Contorno preto sob texto claro ──────────────────────────
+   Fonte branca leva contorno preto por padrao: os temas escuro,
+   profundo e vermelho tem --fg claro, entao o contorno vale neles
+   sem precisar de nada no JSON. O "texto_borda": true (.tb) segue
+   existindo para FORCAR o contorno tambem no tema claro, cujo texto
+   e escuro, quando ha imagem de fundo.
+
+   Os temas apenas ARMAM a variavel; cada elemento de texto a
+   consome. E de proposito: assim o contorno nao entra em texto
+   pequeno de interface nem dentro dos quadros de fundo solido
+   (proposta, cards, botoes), onde so engrossaria a letra sem
+   ganho de leitura. */
+.tb,
+.tema-escuro,
+.tema-profundo,
+.tema-vermelho{
+  --contorno:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.8),
     -1px -1px 0 rgba(0,0,0,.6),1px -1px 0 rgba(0,0,0,.6),
-    -1px 1px 0 rgba(0,0,0,.6),1px 1px 0 rgba(0,0,0,.6)
+    -1px 1px 0 rgba(0,0,0,.6),1px 1px 0 rgba(0,0,0,.6);
 }
+.slide-titulo,.slide-pretitulo,.slide-texto,.slide-modulo,
+.capa-pretitulo,.secao-pretitulo,.bloco-lista li,
+.secao-titulo,.capa-titulo,.enc-titulo,.cit-texto{
+  text-shadow:var(--contorno,none);
+}
+
+/* No tema vermelho os acentos em var(--red) caem sobre fundo vermelho:
+   contraste 1:1. Ficavam invisiveis, e com o contorno preto padrao
+   passariam a borrao escuro. Viram brancos — a hierarquia continua
+   garantida pelo tamanho (11px contra 32px do titulo), nao pela cor. */
+.tema-vermelho .slide-modulo,
+.tema-vermelho .bloco-lista li::before,
+.tema-vermelho .diff-s,
+.tema-vermelho .tl-ano,
+.tema-vermelho .div-item strong{ color:#fff }
 /* Sobre imagem, o pré-título em var(--fg2) (75% de branco) fica fraco
    mesmo com o contorno — vai a var(--fg), força total. Só sob .tb,
    para preservar a hierarquia mais discreta nos fundos chapados. */

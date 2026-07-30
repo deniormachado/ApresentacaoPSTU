@@ -1,7 +1,7 @@
 {
   "tipo": "texto",
   "modulo": "Bloco 6 · Ser Militante",
-  "tema": "claro",
+  "tema": "escuro",
   "pre_titulo": "Formação política",
   "titulo": "Venha conhecer o Curso Básico do PSTU",
   "subtitulo": "",
@@ -42,5 +42,10 @@
   ],
   "imagem_rodape": null,
   "imagem_quadro": null,
-  "imagem_pequena": null
+  "imagem_pequena": {
+    "url": "dados/37-b6-curso-basico_karl_marx.png",
+    "largura": 170,
+    "alinhamento": "esquerda",
+    "coluna": 1
+  }
 }
