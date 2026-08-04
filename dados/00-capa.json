@@ -1,18 +1,27 @@
 {
   "tipo": "capa",
+  "bloco": 0,
   "modulo": "",
-  "tema": "vermelho",                
+  "tema": "vermelho",
   "pre_titulo": "PELA REVOLUÇÃO E O SOCIALISMO",
   "titulo": "PSTU",
-  "subtitulo": "Quem somos, o que defendemos e por que lutamos — da vida real dos trabalhadores à estratégia revolucionária",
-  "imagem_url": "dados/00-capa-bandeira-pstu.png",
-  "imagem_escurecimento": -1,         
+  "titulo_extenso": "PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO",
+  "subtitulo": "Quem somos, o que defendemos <span class=\"capa-destaque\">e por que lutamos</span>",
+  "texto": "Da vida real dos trabalhadores à estratégia revolucionária",
+  "imagem_url": "",
+  "imagem_escurecimento": -1,
   "imagem_posicao": "centro",
+  "imagem_degrade": {
+    "url": "dados/00-capa-manifestacao-pstu.png",
+    "posicao": "center bottom"
+  },
   "texto_borda": true,
   "logos": [
     "https://pstu.org.br/new/img/logo.webp",
     "https://litci.org/pt/wp-content/uploads/2022/07/LIT.jpg"
   ],
   "tem_linha_acento": true,
-  "links": []                         
+  "links": [],
+  "rodape_esquerda": "Apresentação, programa e bases teóricas",
+  "rodape_direita": "Seção brasileira da LIT-QI"
 }

@@ -1,5 +1,6 @@
 ﻿{
     "tipo": "cards",
+    "bloco": 4,
     "modulo": "",
     "tema": "profundo",
     "pre_titulo": "O Estado burguês não cederá pacificamente o poder aos trabalhadores",
@@ -23,5 +24,9 @@
             "texto": "A tarefa não é reformar este Estado. Não é possível torná-lo socialista.\r\nConstruir um partido que dispute a classe trabalhadora para que ela tome o poder. Que participe de suas lutas convencendo que ela é capaz de mudar a sociedade em que vivemos.",
             "foto_url": ""
         }
-    ]
+    ],
+    "citacao_embutida": {
+        "texto": "Para nós, não se trata de reformar a propriedade privada, mas de aboli-la; não se trata de atenuar os antagonismos de classe, mas de abolir as classes; não se trata de melhorar a sociedade existente, mas de fundar uma nova. (...) O seu grito de guerra deve ser: A Revolução Permanente.",
+        "fonte": "— Karl Marx e Friedrich Engels · Mensagem da Direção Central à Liga dos Comunistas, 1850"
+    }
 }

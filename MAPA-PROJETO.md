@@ -113,8 +113,39 @@ timeline, cards, encerramento }` — uma função por tipo, que recebe o JSON do
 slide e devolve uma string HTML.
 
 ### Campos comuns a todo slide
-`tipo, modulo, tema (claro/escuro/profundo/vermelho), pre_titulo, titulo,
-subtitulo, texto, texto_borda (contorno escuro no texto), quadros_opacos`
+`tipo, bloco (1-6, ver "Acento por bloco" abaixo; 0/ausente = sem bloco,
+usa --red), modulo, tema (claro/escuro/profundo/vermelho), pre_titulo,
+titulo, subtitulo, texto, texto_borda (contorno escuro no texto),
+quadros_opacos`
+
+### Acento por bloco (identidade de cor)
+`--acento` é uma CSS var por slide (`.slide{--acento:var(--red)}`, sobrescrita
+por `.slide.bloco-N{--acento:#hex}`, N=2..6 — bloco 1 usa a própria `--red`).
+Controla FUNDOS CHEIOS com texto branco em cima: `.proposta-selo`,
+`.card-foto-vazia`, hover do `.link-btn` — aí o contraste com branco já é
+bom (~5.7-6:1) e não precisa de ajuste por tema.
+Cores: bloco2 `#137164`, bloco3 `#7B4FB5`, bloco4 `#B8306E`, bloco5
+`#925808`, bloco6 `#346F34`. O campo `bloco` de cada slide é atribuído
+manualmente (não há inferência automática a partir de `modulo`, que às vezes
+vem vazio)
+
+`--acento-legivel` é a variante pra TEXTO/BORDA FININHA sobre o próprio
+fundo do slide: módulo, marcadores de lista, borda da citação, cabeçalho de
+coluna do comparativo, ano da timeline, título/borda do item do dividido,
+cargo do card, linha de acento, marcador do diferencial. Em `tema-claro`/
+`tema-vermelho` é igual a `--acento` (~4.3:1, já era assim desde sempre);
+em `tema-escuro`/`tema-profundo` clareia via `color-mix(acento 65%, branco
+35%)` — sem isso ficava em ~2.4-3.2:1 contra o fundo escuro (medido no
+navegador, auditoria de contraste elemento a elemento), ilegível. **Regra
+geral: qualquer seletor novo que use `--acento` como COR DE TEXTO ou BORDA
+FININHA deve usar `--acento-legivel`; só fundo cheio com texto branco em
+cima usa `--acento` puro.**
+Elementos de CHROME fixo (barra de progresso, botões de nav/sidebar)
+continuam em `--red` fixo, propositalmente, por ficarem fora de `.slide`.
+`tema` continua livre por slide dentro do bloco (pacing/contraste não
+mudou) — só a cor de acento passou a ser consistente dentro de cada bloco.
+— ao criar um slide novo, definir `bloco` de acordo com a vizinhança em
+`indice.json`.
 
 ### Os três tipos de imagem (decisão de design importante)
 1. **Imagem de fundo** (`imagem_url` + `imagem_posicao` + `imagem_escurecimento`
@@ -146,16 +177,38 @@ fundo sólido (via `color-mix`) para tapar a imagem de fundo. `false`/ausente
   imagem?`), `tamanho_titulo_colunas` (px, opcional, padrão 12),
   `imagem_rodape` (imagem que ocupa as duas colunas — ver abaixo).
 - `texto`: `itens_col1[]` (coluna 1), `itens[]` (coluna 2), `proposta {titulo,
-  texto}`, `diferencial`, `imagem_rodape {url, coluna, altura_bg}` (fundo
-  parcial de coluna), `links[]`.
+  texto}` (renderiza como cartão levantado com cantos redondos; se `titulo`
+  vier preenchido, aparece como selo/pill na cor de acento do bloco flutuando
+  acima do cartão — se vazio, só o cartão com `texto`), `diferencial`,
+  `imagem_rodape {url, coluna, altura_bg}` (fundo parcial de coluna), `links[]`.
 - `estatisticas`: `estatisticas[]` (`numero, descricao, fonte, cor,
   imagem_url, imagem_modo`).
 - `timeline`: `itens_timeline[]` (`ano, texto`).
-- `cards`: `cards[]` (`nome, cargo, texto, foto_url`).
+- `cards`: `cards[]` (`nome, cargo, texto, foto_url`), `citacao_embutida
+  {texto, fonte}` (opcional — bloco de citação embutido dentro do slide,
+  via helper `citEmbutida()` no motor JS, mesmo padrão de `imgQuadro`/
+  `imgPequena`; hoje só ligado em `cards`, mas o helper é genérico e pode
+  ser chamado de qualquer `R[tipo]`).
 - `citacao`: `titulo` (texto da citação), `pre_titulo` (autor), `subtitulo`
-  (nota opcional) + imagem em quadro/pequena.
-- `capa`/`secao`/`encerramento`: `tem_linha_acento`, `logos[]`, `links[]`,
-  `numero_gigante` (só seção).
+  (nota opcional) + imagem em quadro/pequena. Tipo dedicado (slide inteiro);
+  `citacao_embutida` acima é a versão "encaixável" dentro de outro tipo.
+- `secao`/`encerramento`: `tem_linha_acento`, `logos[]`, `links[]`,
+  `numero_gigante` (só seção). `encerramento` usa o layout ANTIGO de capa
+  (`capa-pretitulo`/`capa-titulo`/`capa-subtitulo`/`capa-logos`/`capa-hint`,
+  grid de 2 colunas em paisagem) — não foi tocado no redesenho abaixo.
+- `capa`: layout "hero" agitprop (só a capa, não o encerramento) — fundo em
+  gradiente vermelho (`.capa-hero`, sem foto), sem `imgBg`. Campos: `titulo`
+  (sigla, vira selo/badge pequeno) + `titulo_extenso` (nome por extenso, ao
+  lado do selo), `pre_titulo` (badge no canto oposto), `subtitulo` (agora é
+  a MANCHETE grande — aceita HTML embutido tipo `<span class="capa-destaque">`
+  pra destacar um trecho na cor `--capa-dourado`, local a este layout), `texto`
+  (caixa escura de apoio, com borda esquerda dourada), `logos[]` (índice 0/1
+  aparecem pequenos no rodapé, ao lado de `rodape_esquerda`/`rodape_direita`
+  respectivamente — novos campos, texto institucional do rodapé),
+  `tem_linha_acento`, `links[]`. `imagem_url`/`imagem_escurecimento` continuam
+  aceitos no código (`imgBg` ainda é chamado) mas ficam vazios/inertes nessa
+  proposta — se quiser voltar a usar foto de fundo, precisa reforçar o
+  z-index/opacidade de `.capa-hero` (hoje o gradiente cobre tudo).
 
 ### `imagem_rodape` no comparativo — "imagem de duas colunas"
 Renderizada como `<img>` de proporção natural (não mais `background-size:cover`),
@@ -165,10 +218,15 @@ no commit `a8fe381`).
 
 ### Ajuste anti-truncamento (paisagem)
 Função `ajustarEscala(slideEl)`: em modo paisagem, se o conteúdo não cabe na
-altura do slide, aplica `zoom` decrescente (até 0.68) até caber. Chamada ao
-trocar de slide, no resize, na mudança de orientação e no `onload` de imagens
-carregadas depois (como a de duas colunas). No retrato o slide simplesmente
-rola (`overflow` normal).
+altura do slide, aplica `zoom` decrescente até `ZOOM_MINIMO` (constante no
+topo do `<script>`, hoje **0.84** — era 0.68, subido porque abaixo disso a
+letra fica ilegível num telão; `.sc` já tem `overflow-y:auto` como rede de
+segurança, então bater no piso vira scroll residual em vez de continuar
+encolhendo). Chamada ao trocar de slide, no resize, na mudança de orientação
+e no `onload` de imagens carregadas depois (como a de duas colunas). No
+retrato o slide simplesmente rola (`overflow` normal). Hoje só o slide
+`17-b2-vera-lucia.json` (citação longa + foto) bate no piso, com ~35px de
+scroll residual — os outros 6 slides que precisam de zoom ficam ≥0.84.
 
 ## Duplicação intencional: site vs. prévia do editor
 
@@ -232,7 +290,18 @@ ler CSV), essa é a pasta a olhar primeiro antes de reinventar.
   `Text` é `TCaption`, então precisa copiar para `string` antes de usar
   `Replace`/`Split` (string helpers não valem em `TCaption` direto).
 - **Arquivos `.pas` têm BOM UTF-8** — preservar ao editar (acentos quebram
-  sem ele).
+  sem ele). Já os JSON de `dados/` **não** têm BOM (só `indice.json` tem) —
+  e a quebra de linha varia arquivo a arquivo (LF ou CRLF, sem padrão) —
+  então editar em lote precisa checar bytes, não só decodificar como texto.
+- **`uSlideEditor.pas`'s `MontarJSONAtual` reconstrói o JSON do zero** a
+  partir dos controles da tela — não faz merge com o que foi carregado.
+  Qualquer campo novo no JSON que ainda não tenha controle próprio na tela
+  (ex.: `citacao_embutida`, `bloco`) **é apagado ao salvar pelo editor
+  Delphi**, a menos que `MontarJSONAtual` tenha uma linha explícita de
+  passthrough (`FJSON.TryGetValue(...)` + `Result.AddPair(...)`) pra esse
+  campo — ver os dois exemplos já feitos nessa função como modelo. Ao
+  adicionar QUALQUER campo novo ao motor, checar se precisa desse
+  passthrough antes de considerar a tarefa concluída no lado Delphi.
 - **`color-mix()` em `.qo .link-btn`**: a `transition: background` original
   trava a interpolação `rgba` ↔ `color-mix` no Chromium — foi restrita a
   `transition: color, border-color` só nesse seletor.
@@ -245,6 +314,18 @@ ler CSV), essa é a pasta a olhar primeiro antes de reinventar.
 - **`dcc32`/`msbuild` não compilam nesta máquina** — qualquer mudança em
   `.pas` precisa ser compilada pelo usuário na IDE; nunca reportar "testado"
   sem isso.
+- **`preview/estilo.css`/`preview/motor.js` são relidos do disco a cada
+  render** (`Renderizar`, em `uSlidePreview.pas`, chama `CarregarAssets` no
+  início — corrigido numa sessão em 04/08/2026; antes só lia uma vez, no
+  `Preparar`, e ficava em memória pro resto da execução). Motivo de ter
+  existido esse bug: a janela principal (`uMain.SlidePreview`) e o editor
+  modal (`TfrmSlideEditor`, criado com `.Create(nil)` a cada "Editar") são
+  DOIS `TFrameSlidePreview` diferentes — fechar só o editor modal não
+  recriava o painel da janela principal, então "fechar e abrir o programa"
+  tinha que ser o app inteiro, não só o diálogo, e mesmo assim exigia
+  lembrar disso toda vez. Com a correção, edições em `preview/*` aparecem
+  na prévia assim que você seleciona/edita qualquer slide, sem precisar
+  reiniciar nada — só recompilar (F9) essa mudança em si, uma vez.
 - Pasta `dados (backup)/`, `PSTU_2026.pdf`, `*.pptx`, `todo.txt`, `*.save`,
   `SUGESTOES-VISUAL.md`, `.claude/`, `_claude_*`, `deepseek_python_*.py`
   ficam **fora do git** de propósito (`.gitignore` da ApresentacaoPSTU muda
@@ -255,6 +336,17 @@ ler CSV), essa é a pasta a olhar primeiro antes de reinventar.
   `push`ados (ficam invisíveis num `git status` limpo).
 
 ## Histórico recente relevante (mais novo primeiro)
+
+**Estado em 04/08/2026**: sessão em andamento adicionou `citacao_embutida`
+(cards), slide `40-b3-superacao.json` (citação de encerramento do bloco 3),
+`ZOOM_MINIMO` (0.68→0.84), campo `bloco` em todos os 44 slides + sistema de
+`--acento`/`--acento-legivel` por bloco, redesenho de `.bloco-proposta`
+(cartão com selo), redesenho da capa (`.capa-hero`, campos `titulo_extenso`/
+`rodape_esquerda`/`rodape_direita`) — tudo já descrito nas seções acima, mas
+**nenhum commit feito ainda** (nem em
+ApresentacaoPSTU nem em `EditScriptsSlides/`) — os campos/decisões abaixo
+ficam desatualizados até isso ser commitado. Ver `git status` antes de supor
+que o histórico abaixo reflete o estado atual dos arquivos.
 
 Commits do repositório **ApresentacaoPSTU** (motor em `index.html`):
 
