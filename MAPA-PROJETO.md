@@ -5,30 +5,45 @@
 
 ## Visão geral
 
-Duas partes que trabalham juntas:
+Este mapa cobre três pastas — as únicas relevantes para este projeto dentro
+de `D:\Projetos\VersionadosGIT`. **Outras pastas do mesmo diretório
+(outros projetos Delphi do usuário) não fazem parte deste escopo e não
+devem ser tocadas, lidas ou mencionadas** a menos que explicitamente pedido.
 
 1. **ApresentacaoPSTU** — site estático (HTML/CSS/JS puro, sem build) que
    roda uma apresentação de slides no navegador. Publicado no GitHub Pages.
 2. **EditScriptsSlides** — editor visual em Delphi (VCL) para criar e editar
    os slides sem mexer em JSON na mão, com prévia ao vivo via WebView2.
+3. **Global** — pacote/biblioteca Delphi de units utilitárias compartilhadas
+   do usuário (grids, parsers, exportação Excel/CSV, PDF, etc.). Hoje **não é
+   referenciada pelo `EditScriptsSlides.dproj`** (sem `uses` cruzado
+   confirmado) — está no mapa porque o usuário pediu que ficasse disponível
+   como contexto, não porque haja dependência ativa. Ver seção própria abaixo.
 
 O "motor" de renderização (HTML/CSS/JS que transforma um JSON de slide em
-tela) existe **duplicado em dois lugares** que precisam ficar sincronizados
-manualmente (ver seção "Duplicação intencional" abaixo).
+tela) existe **duplicado em dois lugares** (item 1 e 2) que precisam ficar
+sincronizados manualmente (ver seção "Duplicação intencional" abaixo).
 
 ## Os dois repositórios git (importante!)
 
-| | ApresentacaoPSTU | VersionadosGIT (contém EditScriptsSlides) |
+| | ApresentacaoPSTU | VersionadosGIT (contém EditScriptsSlides **e** Global) |
 |---|---|---|
 | Caminho | `D:\Projetos\VersionadosGIT\ApresentacaoPSTU` | `D:\Projetos\VersionadosGIT` |
 | Remoto | `github.com/deniormachado/ApresentacaoPSTU` | `github.com/deniormachado/VersionadosGIT` |
 | Branch | `master` | `main` |
 | É um repo git **aninhado** dentro do outro (pasta dentro de pasta), mas são históricos **independentes**. | | |
-| `.gitignore` da raiz de VersionadosGIT usa estratégia *whitelist*: ignora tudo, libera só fontes Delphi (`.pas .dfm .dpr .dproj` etc.) + `EditScriptsSlides/preview/*.css` e `*.js` (exceção explícita, ver `.gitignore`). | | |
-| Publicado via **GitHub Pages** em `https://deniormachado.github.io/ApresentacaoPSTU/` | | Não publicado — uso interno do editor. |
+| `.gitignore` da raiz de VersionadosGIT usa estratégia *whitelist*: ignora tudo, libera só fontes Delphi (`.pas .dfm .dpr .dproj .dpk` etc.) + `EditScriptsSlides/preview/*.css` e `*.js` (exceção explícita, ver `.gitignore`). | | |
+| Publicado via **GitHub Pages** em `https://deniormachado.github.io/ApresentacaoPSTU/` | | Não publicado — uso interno. |
+
+**Escopo dentro de VersionadosGIT**: este mapa e o trabalho da IA aqui cobrem
+**só** `EditScriptsSlides/` e `Global/`. O repositório tem outras pastas de
+outros projetos Delphi do usuário — **fora de escopo, não mencionar nem
+tocar** a menos que pedido explicitamente.
 
 **Scripts de commit rápido** (duplo clique no Explorer):
 - `commit-delphi.bat` (raiz de VersionadosGIT) → commit + push para `main`
+  — **cuidado**: esse script comita o repo inteiro, então ao usá-lo revisar
+  o `git status` antes para não misturar mudanças de fora do escopo.
 - `ApresentacaoPSTU/commit-apresentacao.bat` → commit + push para `master`,
   mostra o link do site (atualiza em ~1 min após o push)
 
@@ -36,13 +51,17 @@ Se o `.git` da ApresentacaoPSTU sumir (já aconteceu uma vez), reconectar com:
 `git init && git remote add origin <url> && git fetch && git reset origin/master`
 (nunca `--hard`, para preservar trabalho local antes de resetar).
 
+**Se preferir escopar o commit do Delphi manualmente** (mais seguro que o
+`.bat`, que faz `git add` amplo): `git add EditScriptsSlides/ Global/
+.gitignore` e então commit/push — assim fica garantido que nada de fora do
+escopo entra no commit.
+
 ## Estrutura de arquivos
 
 ```
-VersionadosGIT/                          (repo Delphi, branch main)
-├── commit-delphi.bat
+VersionadosGIT/                          (repo Delphi, branch main — outras pastas fora de escopo)
+├── commit-delphi.bat                    (cuidado: git add -A, ver aviso acima)
 ├── .gitignore                           (whitelist Delphi + exceções preview/)
-├── ContribNacionais/                    (outro projeto Delphi, não relacionado)
 ├── EditScriptsSlides/                   (editor visual dos slides)
 │   ├── EditScriptsSlides.dpr/.dproj
 │   ├── uMain.pas/.dfm                   (janela principal: lista de slides)
@@ -55,10 +74,18 @@ VersionadosGIT/                          (repo Delphi, branch main)
 │       ├── estilo.css                   (CÓPIA do <style> de index.html)
 │       └── motor.js                     (CÓPIA da lógica JS de index.html)
 │
+├── Global/                              (pacote Delphi de units utilitárias compartilhadas)
+│   ├── Global.dpk/.dproj                (package — requires rtl, vclx, vcl, ...)
+│   ├── UExtrato.pas, UParser.pas        (leitura/parse de arquivos delimitados;
+│   │                                     UParser é camada de conveniência sobre TExtrato)
+│   ├── UParser_Documentacao.md          (doc da classe TParser)
+│   └── U*.pas (dezenas)                 (grids, Excel/CSV, PDF, componentes VCL diversos)
+│
 └── ApresentacaoPSTU/                    (repo separado, branch master)
     ├── commit-apresentacao.bat
-    ├── .gitignore                       (exclui PDF/PPTX/backup/.claude)
+    ├── .gitignore                       (exclui PDF/PPTX/backup/.claude — ver arquivo, muda com frequência)
     ├── .claude/launch.json              (preview_start "ApresentacaoPSTU" → :8080)
+    ├── MAPA-PROJETO.md                  (este arquivo)
     ├── index.html                       (TUDO: HTML + <style> + <script>, ~750 linhas)
     ├── manifest.json, serve.py          (PWA manifest / servidor local simples)
     ├── Instruções/COMO-EDITAR.md        (documentação do formato JSON p/ humanos)
@@ -178,6 +205,25 @@ Botão **"Testar contraste ▶"** varre o slider automaticamente (passo 10 a
 cada 450ms) renderizando a prévia a cada passo, para visualizar o ponto de
 melhor legibilidade; clicar de novo para parar (`■ Parar no valor atual`).
 
+## Global — pacote de units compartilhadas
+
+Biblioteca Delphi de uso geral do usuário (não específica deste projeto):
+grids/frames padrão (`UfrmPadrao`, `UfrmPadraoDB`), exportação Excel/CSV
+(`UExcelFile`, `UArquivoXLSX`, `UExcelToCSV`), leitura de arquivo delimitado
+(`UExtrato` → `UParser`, camada de conveniência com navegação por registro,
+leitura de campo por nome/posição, busca por texto — ver
+`UParser_Documentacao.md`), PDF (`PdfiumCore`/`PdfiumCtrl`), entre outras.
+
+**Estado em 04/08/2026**: `Global.dpk` e `UExtrato.pas` modificados,
+`UParser.pas` novo — **nenhum desses commitados ainda**. Não foram tocados
+nesta sessão; se for pedido para mexer em `Global`, checar `git status
+Global/` primeiro para não perder ou misturar esse trabalho em progresso.
+
+Hoje **`EditScriptsSlides.dproj` não referencia `Global`** — são projetos
+Delphi independentes que compartilham o repositório. Se uma tarefa futura
+pedir para o editor de slides usar algo de `Global` (ex.: exportar dados,
+ler CSV), essa é a pasta a olhar primeiro antes de reinventar.
+
 ## Armadilhas conhecidas / decisões não óbvias
 
 - **`TMemo.Lines[]` vs `TMemo.Text`**: com `WordWrap=True`, `Lines[]` devolve
@@ -199,13 +245,22 @@ melhor legibilidade; clicar de novo para parar (`■ Parar no valor atual`).
 - **`dcc32`/`msbuild` não compilam nesta máquina** — qualquer mudança em
   `.pas` precisa ser compilada pelo usuário na IDE; nunca reportar "testado"
   sem isso.
-- Pasta `dados (backup)/`, `PSTU_2026.pdf/.pptx`, `todo.txt`, `.claude/` ficam
-  **fora do git** de propósito (`.gitignore` da ApresentacaoPSTU).
+- Pasta `dados (backup)/`, `PSTU_2026.pdf`, `*.pptx`, `todo.txt`, `*.save`,
+  `SUGESTOES-VISUAL.md`, `.claude/`, `_claude_*`, `deepseek_python_*.py`
+  ficam **fora do git** de propósito (`.gitignore` da ApresentacaoPSTU muda
+  com frequência — conferir o arquivo em vez de confiar nesta lista).
+- **Sempre checar `git log origin/<branch>..HEAD` (commits locais não
+  enviados) além de `git status`** antes de dizer "está tudo salvo" — já
+  aconteceu de haver commits feitos numa sessão anterior que nunca foram
+  `push`ados (ficam invisíveis num `git status` limpo).
 
 ## Histórico recente relevante (mais novo primeiro)
 
-| Commit (site) | O quê |
+Commits do repositório **ApresentacaoPSTU** (motor em `index.html`):
+
+| Commit | O quê |
 |---|---|
+| `045b5a6` | Imagens de slides atualizadas + este mapa |
 | `d2f035e` | Citação usa imagem em quadro, não de fundo |
 | `4793052` | `tamanho_titulo_colunas` (fonte dos títulos do comparativo) |
 | `a8fe381` | Imagem de duas colunas: inteira, centrada, igual nas orientações |
@@ -215,8 +270,18 @@ melhor legibilidade; clicar de novo para parar (`■ Parar no valor atual`).
 | `d50cb1c` | `imagem_clareamento` (véu branco) |
 | `fe8368c` | `ESCURECIMENTO_PADRAO`, anti-truncamento em paisagem, `imagem_quadro`/`imagem_pequena` |
 
-Todos com equivalente sincronizado em `EditScriptsSlides/preview/` e, quando
-aplicável, controles novos em `uSlideEditor.pas` (recompilar na IDE).
+Commits do repositório **VersionadosGIT**, pasta `EditScriptsSlides/` (motor
+espelhado em `preview/` + controles em `uSlideEditor.pas`):
+
+| Commit | O quê |
+|---|---|
+| `6decd3f` | Sincroniza `preview/estilo.css`: contorno padrão e acentos do tema vermelho |
+| `5c28d2c` | Sincroniza `preview/estilo.css` com o motor da apresentação (caixa de proposta, `.tb`, folha sobre foto) |
+| `b3e2759` | Véu de contraste + spin de teste, `quadros_opacos`, imagem em quadro/pequena, correção `TMemo.Text`, tipo citação |
+
+Cada mudança no motor de `index.html` deve gerar um commit equivalente em
+`EditScriptsSlides/preview/` — e, quando adiciona campo editável, também em
+`uSlideEditor.pas` (aí precisa recompilar na IDE).
 
 ## Perguntas que uma nova sessão provavelmente vai precisar responder
 
