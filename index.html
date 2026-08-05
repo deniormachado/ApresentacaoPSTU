@@ -21,6 +21,7 @@
 /* ═══ TOKENS ═══════════════════════════════════════════ */
 :root{
   --red:#CC1111;--red-lt:#fff3f3;--red-bd:#f5cccc;--red-dk:#8B0A0A;
+  --dourado:#FFD200;
   --dark:#111;--deep:#1c1c2e;--gray:#555;--gray-lt:#888;
   --border:#ddd;--bg-lt:#f5f5f5;--r:4px;--r-md:8px;
   --dur:.28s;
@@ -173,16 +174,26 @@ body.paisagem #prog-h-wrap{display:none}
    ganho de leitura. */
 .tb,
 .tema-escuro,
-.tema-profundo,
-.tema-vermelho{
+.tema-profundo{
   --contorno:0 0 8px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.8),
     -1px -1px 0 rgba(0,0,0,.6),1px -1px 0 rgba(0,0,0,.6),
     -1px 1px 0 rgba(0,0,0,.6),1px 1px 0 rgba(0,0,0,.6);
 }
-.slide-titulo,.slide-pretitulo,.slide-texto,.slide-modulo,
-.capa-pretitulo,.secao-pretitulo,.bloco-lista li,
-.secao-titulo,.capa-titulo,.enc-titulo,.cit-texto{
+/* Vermelho é fundo vibrante: o contorno duro de cima (4 sombras ±1px)
+   "borra" a tipografia e cansa a vista nele — branco puro já tem
+   contraste alto o bastante contra o vermelho sem precisar de reforço.
+   Só o título principal guarda uma sombra, mas suave (um blur só, sem
+   traçado duro) — texto corrido e rótulos pequenos ficam sem sombra
+   nenhuma; texto pequeno é onde o traçado duro mais atrapalha. */
+.tema-vermelho{
+  --contorno-titulo:0 2px 10px rgba(0,0,0,.55);
+}
+.slide-pretitulo,.slide-texto,.slide-modulo,
+.capa-pretitulo,.secao-pretitulo,.bloco-lista li,.cit-texto{
   text-shadow:var(--contorno,none);
+}
+.slide-titulo,.secao-titulo,.capa-titulo,.enc-titulo{
+  text-shadow:var(--contorno-titulo,var(--contorno,none));
 }
 
 /* No tema vermelho os acentos em var(--red) caem sobre fundo vermelho:
@@ -191,7 +202,6 @@ body.paisagem #prog-h-wrap{display:none}
    garantida pelo tamanho (11px contra 32px do titulo), nao pela cor. */
 .tema-vermelho .slide-modulo,
 .tema-vermelho .bloco-lista li::before,
-.tema-vermelho .diff-s,
 .tema-vermelho .tl-ano,
 .tema-vermelho .div-item strong{ color:#fff }
 /* Sobre imagem, o pré-título em var(--fg2) (75% de branco) fica fraco
@@ -277,9 +287,16 @@ body.paisagem #prog-h-wrap{display:none}
    posicionado, então perde para o z-index de .img-quadro). */
 .bloco-proposta:has(+ .img-quadro) { width: 88% }
 .bloco-proposta + .img-quadro { margin-top: -30px }
-.bloco-diff{background:rgba(255,255,255,.07);border-radius:var(--r);padding:8px 11px;margin:9px 0;font-size:15px;line-height:1.52;color:var(--fg2)}
+/* fundo do bloco-diff é sempre um pouco mais claro que o próprio tema
+   (7% de branco a mais) — nos temas escuros, texto em --fg2 (já
+   esmaecido) sobre esse fundo já mais claro somava dois esmaecimentos e
+   ficava sem destaque nenhum. Vira --dourado (mesmo dourado da capa) só
+   nos temas escuros: cor de "isso é a conclusão", não a cor de acento do
+   bloco. No claro mantém o cinza discreto original. */
+.bloco-diff{background:rgba(255,255,255,.07);border-radius:var(--r);padding:8px 11px;margin:9px 0;font-size:15px;line-height:1.52;color:var(--dourado)}
 .tema-claro .bloco-diff{background:#f0f0f0;color:var(--gray)}
-.diff-s{font-weight:800;color:var(--acento-legivel);margin-right:5px}
+.diff-s{font-weight:800;color:var(--dourado);margin-right:5px}
+.tema-claro .diff-s{color:var(--acento-legivel)}
 
 .bloco-links{padding-top:11px;border-top:1px solid rgba(255,255,255,.1);margin-top:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .tema-claro .bloco-links{border-color:var(--border)}
@@ -338,16 +355,14 @@ body.paisagem #prog-h-wrap{display:none}
 
 /* ══════════ CAPA "HERO" — cartaz agitprop ══════════════════
    Troca a foto da bandeira por um selo tipográfico com as mesmas
-   cores dela (vermelho + dourado). --capa-dourado é local a este
-   layout — não é um token do tema, é específico da capa. */
-.capa-hero{--capa-dourado:#FFD200}
+   cores dela (vermelho + dourado, o mesmo --dourado do token global). */
 .tema-vermelho .capa-hero{
   background: radial-gradient(120% 100% at 50% 22%, #D81E1E 0%, #99000A 55%, #4D0000 100%);
 }
 .capa-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
 .capa-marca{display:flex;align-items:center;gap:10px}
 .capa-marca-badge{
-  background:var(--capa-dourado);color:#7A0505;
+  background:var(--dourado);color:#7A0505;
   font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:.04em;
   padding:6px 12px;border-radius:6px;line-height:1;flex-shrink:0
 }
@@ -356,7 +371,7 @@ body.paisagem #prog-h-wrap{display:none}
   letter-spacing:.05em;line-height:1.25;max-width:190px
 }
 .capa-selo{
-  background:var(--capa-dourado);color:#7A0505;
+  background:var(--dourado);color:#7A0505;
   font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
   padding:6px 13px;border-radius:6px
 }
@@ -364,9 +379,9 @@ body.paisagem #prog-h-wrap{display:none}
   font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:44px;line-height:1.08;
   color:#fff;margin:20px 0 16px
 }
-.capa-headline .capa-destaque{color:var(--capa-dourado)}
+.capa-headline .capa-destaque{color:var(--dourado)}
 .capa-caixa{
-  background:rgba(0,0,0,.28);border-left:4px solid var(--capa-dourado);border-radius:12px;
+  background:rgba(0,0,0,.28);border-left:4px solid var(--dourado);border-radius:12px;
   padding:14px 18px;color:#fff;font-size:17px;line-height:1.5;max-width:640px
 }
 .capa-rodape{

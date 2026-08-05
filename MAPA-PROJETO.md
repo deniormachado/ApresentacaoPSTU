@@ -302,6 +302,38 @@ ler CSV), essa é a pasta a olhar primeiro antes de reinventar.
   campo — ver os dois exemplos já feitos nessa função como modelo. Ao
   adicionar QUALQUER campo novo ao motor, checar se precisa desse
   passthrough antes de considerar a tarefa concluída no lado Delphi.
+- **Campo novo com URL de imagem local (`dados/...`) precisa de MAIS um
+  lugar**, além do passthrough acima: `ReescreverImagensLocais`, em
+  `uSlidePreview.pas`, é quem reescreve `dados/arquivo.png` para
+  `https://slide.local/arquivo.png` (o host virtual mapeado pro WebView2
+  achar a imagem, já que a prévia roda de um `NavigateToString` sem URL
+  real por trás). Um campo de imagem que não passa por essa função funciona
+  normalmente no site (servido por HTTP de verdade) mas fica **invisível,
+  sem erro nenhum, só na prévia do editor Delphi** — background-image
+  quebrada não tem `onerror` pra disfarçar, só some (aconteceu com
+  `imagem_degrade`, corrigido faltando um `ReescreverObjImagem(Obj,
+  'imagem_degrade')`). Ao adicionar um campo `{url, ...}` novo, adicionar
+  também uma chamada `ReescreverObjImagem` (objeto único) ou
+  `ReescreverCampoDe` dentro de um loop (array, como `estatisticas`/`cards`)
+  pra esse campo.
+- **`--dourado:#FFD200`** é um token global agora (`:root`, junto de `--red`
+  etc.) — dourado da própria bandeira do PSTU. Usado na capa (selos,
+  destaque na manchete) e em `.bloco-diff`/`.diff-s` nos temas escuros
+  (escuro/profundo/vermelho): o fundo desses boxes é sempre ~7% mais claro
+  que o próprio tema, e o texto em `--fg2` (já esmaecido) somava dois
+  esmaecimentos e não destacava nada — virou a cor de "isso é a conclusão"
+  ao em vez da cor de acento do bloco. No `tema-claro` continua cinza
+  discreto (`--gray`) + acento, sem mudança.
+- **Contorno de texto (`--contorno`) não é mais uniforme entre os temas
+  escuros**: `tema-escuro`/`tema-profundo` mantêm o contorno dura original
+  (4 sombras ±1px + glow) em todo texto. `tema-vermelho` é tratado à parte
+  desde 04/08/2026 — fundo vibrante + traçado duro "borra" a tipografia
+  (feedback do usuário) — lá o texto corrido e rótulos pequenos ficam SEM
+  sombra nenhuma (branco puro já contrasta bem), e só o título principal
+  (`--contorno-titulo`) leva uma sombra suave (um blur só, sem traçado
+  duro). Ao adicionar um elemento de texto novo, decidir explicitamente em
+  qual dos dois grupos ele entra — não existe mais um `--contorno` único
+  pra todo mundo.
 - **`color-mix()` em `.qo .link-btn`**: a `transition: background` original
   trava a interpolação `rgba` ↔ `color-mix` no Chromium — foi restrita a
   `transition: color, border-color` só nesse seletor.
@@ -326,6 +358,18 @@ ler CSV), essa é a pasta a olhar primeiro antes de reinventar.
   lembrar disso toda vez. Com a correção, edições em `preview/*` aparecem
   na prévia assim que você seleciona/edita qualquer slide, sem precisar
   reiniciar nada — só recompilar (F9) essa mudança em si, uma vez.
+- **Editar um `.pas` por fora enquanto a IDE do Delphi está aberta com o
+  projeto carregado nem sempre é pego pelo Build seguinte**: se o arquivo
+  já estava aberto numa aba do editor (mesmo em background) desde antes da
+  edição externa, a IDE pode compilar a partir do buffer antigo em memória
+  em vez de reler o disco — build dá "Success" e o `.exe` sai com timestamp
+  novo, mas sem a mudança de verdade (aconteceu com `uSlidePreview.pas`
+  numa sessão em 04/08/2026: passei uma tarde inteira descartando "processo
+  antigo rodando" até perceber que era isso). Sinal de alerta: build "some
+  sucesso" e o `.exe` tem timestamp novo, mas o comportamento não muda nem
+  um pouco. Solução: fechar o projeto inteiro na IDE (não só a aba) e
+  reabrir antes do próximo build, sempre que eu tiver editado `.pas` que
+  pode estar aberto na IDE do usuário.
 - Pasta `dados (backup)/`, `PSTU_2026.pdf`, `*.pptx`, `todo.txt`, `*.save`,
   `SUGESTOES-VISUAL.md`, `.claude/`, `_claude_*`, `deepseek_python_*.py`
   ficam **fora do git** de propósito (`.gitignore` da ApresentacaoPSTU muda
