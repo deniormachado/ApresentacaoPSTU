@@ -316,6 +316,41 @@ ler CSV), essa é a pasta a olhar primeiro antes de reinventar.
   também uma chamada `ReescreverObjImagem` (objeto único) ou
   `ReescreverCampoDe` dentro de um loop (array, como `estatisticas`/`cards`)
   pra esse campo.
+- **`--fg2` (texto esmaecido) foi removido dos temas escuro/profundo/
+  vermelho para `.slide-pretitulo`, `.slide-subtitulo`, `.capa-pretitulo`,
+  `.capa-subtitulo`, `.capa-hint`, `.secao-subtitulo`, `.secao-texto`,
+  `.cit-fonte`, `.cit-nota`** — viram `--fg` (branco cheio) nesses temas;
+  só `tema-claro` continua com `--fg2` (nunca foi reclamado lá). Motivo:
+  misturar título/corpo em `--fg` com pré-título/nota em `--fg2` no MESMO
+  slide lia como "uns brancos, outros apagados" (feedback do usuário,
+  print da citação do Manifesto Comunista — fonte e nota esmaecidas ao
+  lado da citação em branco cheio). `--fg2` numericamente não era
+  ilegível (~5:1 de contraste, passa WCAG AA) — o problema era de
+  CONSISTÊNCIA dentro do mesmo slide, não de contraste isolado; por isso
+  a expectativa devia ter sido "só branco ou amarelo", não uma auditoria
+  de contraste. `.card-texto` e `.bloco-diff` já tinham sido corrigidos
+  antes (ver notas acima) por serem casos de contraste genuinamente baixo
+  (fundo do box mais claro por cima). `.img-legenda` (legenda de foto)
+  ficou de fora de propósito — sempre em cima de uma faixa preta própria
+  (`rgba(0,0,0,.35)`), contexto diferente do "texto sobre o tema".
+- **Véu translúcido (`rgba(255,255,255,.0X)`) vs. fundo sólido — regra
+  geral, não só do `.bloco-diff`**: o fundo de vários boxes nos temas
+  escuros é um véu translúcido (`rgba(255,255,255,.05)`/`.07`/`.08`) em vez
+  de uma cor definida — some visualmente como "caixa" e, combinado com
+  texto em `--fg2`/opacity reduzida por cima, lê como "tudo meio baço"
+  (feedback do usuário, duas vezes: primeiro no `.bloco-diff`, corrigi só
+  a cor do texto pro dourado e ACHEI que tinha resolvido — mas o fundo
+  translúcido continuava lá; só na volta, quando ele repetiu "ainda há um
+  véu", percebi que faltava a outra metade). Tratamento nos dois casos já
+  corrigidos (`.card-item`, `.bloco-diff`) nos temas escuros/profundo/
+  vermelho: fundo vira `color-mix(in srgb, var(--bg) 88%, #fff 12%)`
+  (mesma fórmula do `.bloco-proposta`) E o texto vira a cor cheia (`--fg`
+  ou `--dourado`, conforme o caso) — **as duas metades juntas**, nunca só
+  uma. Existem outros elementos com o mesmo fundo `rgba(255,255,255,.0X)`
+  translúcido que NÃO foram mexidos porque o texto deles já usa `--fg`
+  cheio (sem o problema de dupla dessaturação): `.link-btn`,
+  `.stat-card.cor-escuro`, `.div-item`, `.capa-logo-img`. Bons candidatos
+  se o usuário apontar o mesmo problema neles.
 - **`--dourado:#FFD200`** é um token global agora (`:root`, junto de `--red`
   etc.) — dourado da própria bandeira do PSTU. Usado na capa (selos,
   destaque na manchete) e em `.bloco-diff`/`.diff-s` nos temas escuros

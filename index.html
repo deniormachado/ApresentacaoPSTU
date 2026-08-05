@@ -211,10 +211,20 @@ body.paisagem #prog-h-wrap{display:none}
 
 /* ══════════ TIPOGRAFIA COMUM ════════════════════════════ */
 .slide-modulo{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--acento-legivel);margin-bottom:5px}
-.slide-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2);margin-bottom:7px}
+.slide-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);margin-bottom:7px}
 .slide-titulo{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:800;line-height:1.1;text-transform:uppercase;color:var(--fg);margin-bottom:9px}
 .tema-claro .slide-titulo{color:var(--acento-legivel)}
-.slide-subtitulo{font-size:16px;color:var(--fg2);line-height:1.55;margin-bottom:7px;font-style:italic}
+/* Nos temas escuros/vermelho, pré-título/subtítulo/nota viravam --fg2
+   (esmaecido) — misturado com título/corpo em --fg (brilho cheio) no
+   mesmo slide, lia como "uns brancos, outros apagados" (feedback do
+   usuário). Ficam --fg cheio nesses temas; só o claro mantém --fg2
+   (nunca foi reclamado lá, e o par cinza-escuro/creme já tem contraste
+   de sobra sem precisar de brilho total). */
+.tema-claro .slide-pretitulo,.tema-claro .slide-subtitulo,
+.tema-claro .capa-pretitulo,.tema-claro .capa-subtitulo,.tema-claro .capa-hint,
+.tema-claro .secao-subtitulo,.tema-claro .secao-texto,
+.tema-claro .cit-fonte,.tema-claro .cit-nota{color:var(--fg2)}
+.slide-subtitulo{font-size:16px;color:var(--fg);line-height:1.55;margin-bottom:7px;font-style:italic}
 .slide-texto{font-size:17px;line-height:1.62;color:var(--fg);margin:5px 0 8px}
 
 /* ══════════ BLOCOS ══════════════════════════════════════ */
@@ -295,6 +305,9 @@ body.paisagem #prog-h-wrap{display:none}
    bloco. No claro mantém o cinza discreto original. */
 .bloco-diff{background:rgba(255,255,255,.07);border-radius:var(--r);padding:8px 11px;margin:9px 0;font-size:15px;line-height:1.52;color:var(--dourado)}
 .tema-claro .bloco-diff{background:#f0f0f0;color:var(--gray)}
+.tema-escuro .bloco-diff,
+.tema-profundo .bloco-diff,
+.tema-vermelho .bloco-diff{background:color-mix(in srgb, var(--bg) 88%, #fff 12%)}
 .diff-s{font-weight:800;color:var(--dourado);margin-right:5px}
 .tema-claro .diff-s{color:var(--acento-legivel)}
 
@@ -311,9 +324,9 @@ body.paisagem #prog-h-wrap{display:none}
 .linha-acento{width:38px;height:3px;background:var(--acento-legivel);margin:7px 0 11px;border-radius:2px}
 
 /* ══════════ CAPA ════════════════════════════════════════ */
-.capa-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--fg2);margin-bottom:16px}
+.capa-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--fg);margin-bottom:16px}
 .capa-titulo{font-family:'Renfrew','Playfair Display',Georgia,serif;font-size:72px;font-weight:900;line-height:.9;text-transform:uppercase;color:var(--fg);margin-bottom:8px}
-.capa-subtitulo{font-size:17px;line-height:1.62;color:var(--fg2);margin-bottom:20px}
+.capa-subtitulo{font-size:17px;line-height:1.62;color:var(--fg);margin-bottom:20px}
 /* ── REGRA PARA SUBTÍTULO PRETO NO TEMA VERMELHO ── */
 .tema-vermelho .capa-subtitulo {
   color: #000 !important;
@@ -351,7 +364,7 @@ body.paisagem #prog-h-wrap{display:none}
 }
 .capa-logos{display:flex;gap:10px;align-items:center;margin-bottom:16px}
 .capa-logo-img{height:38px;width:auto;border-radius:var(--r);border:1px solid rgba(255,255,255,.15);object-fit:contain;background:rgba(255,255,255,.05)}
-.capa-hint{font-size:14px;color:var(--fg2);margin-top:auto;padding-top:16px}
+.capa-hint{font-size:14px;color:var(--fg);margin-top:auto;padding-top:16px}
 
 /* ══════════ CAPA "HERO" — cartaz agitprop ══════════════════
    Troca a foto da bandeira por um selo tipográfico com as mesmas
@@ -411,14 +424,14 @@ body.paisagem .sc-capa.capa-hero{display:flex;flex-direction:column}
 .secao-num{position:absolute;top:8px;right:10px;font-family:'Barlow Condensed',sans-serif;font-size:120px;font-weight:800;line-height:1;color:rgba(255,255,255,.05);pointer-events:none;user-select:none;letter-spacing:-.03em}
 .secao-pretitulo{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acento-legivel);margin-bottom:7px}
 .secao-titulo{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:800;text-transform:uppercase;line-height:1.1;color:var(--fg);margin-bottom:12px}
-.secao-subtitulo{font-size:17px;color:var(--fg2);line-height:1.62}
-.secao-texto{font-size:16px;color:var(--fg2);line-height:1.62;margin-top:7px}
+.secao-subtitulo{font-size:17px;color:var(--fg);line-height:1.62}
+.secao-texto{font-size:16px;color:var(--fg);line-height:1.62;margin-top:7px}
 
 /* ══════════ CITAÇÃO ═════════════════════════════════════ */
 .sc-citacao{justify-content:center}
 .cit-texto{font-size:19px;line-height:1.72;font-style:italic;color:var(--fg);border-left:3px solid var(--acento-legivel);padding-left:15px;margin:10px 0}
-.cit-fonte{font-size:14px;font-weight:600;color:var(--fg2);text-align:right;margin-bottom:12px}
-.cit-nota{font-size:15px;color:var(--fg2);line-height:1.58;border-top:1px solid rgba(255,255,255,.1);padding-top:11px}
+.cit-fonte{font-size:14px;font-weight:600;color:var(--fg);text-align:right;margin-bottom:12px}
+.cit-nota{font-size:15px;color:var(--fg);line-height:1.58;border-top:1px solid rgba(255,255,255,.1);padding-top:11px}
 .tema-claro .cit-nota{border-color:var(--border)}
 
 /* ══════════ COMPARATIVO ═════════════════════════════════ */
@@ -463,11 +476,22 @@ body.paisagem .sc-capa.capa-hero{display:flex;flex-direction:column}
 .cards-grid{display:flex;flex-direction:column;gap:9px;margin:9px 0}
 .card-item{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.05);border-radius:var(--r-md);padding:11px}
 .tema-claro .card-item{background:var(--bg-lt);border:1px solid var(--border)}
+/* rgba(255,255,255,.05) é um véu translúcido — fundo E letras ficam
+   "atrás" dele, com aparência baça. Nos temas escuros vira um fundo
+   sólido de verdade (color-mix, mesma fórmula do cartão da proposta),
+   com o texto (card-texto) em --fg cheio na frente — não mais --fg2,
+   que dava um segundo esmaecimento em cima do véu. */
+.tema-escuro .card-item,
+.tema-profundo .card-item,
+.tema-vermelho .card-item{background:color-mix(in srgb, var(--bg) 88%, #fff 12%)}
 .card-foto{width:42px;height:42px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0}
 .card-foto-vazia{background:var(--acento);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:#fff}
 .card-nome{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;text-transform:uppercase;color:var(--fg)}
 .card-cargo{font-size:12px;color:var(--acento-legivel);font-weight:600;margin:2px 0 3px}
 .card-texto{font-size:15px;line-height:1.45;color:var(--fg2)}
+.tema-escuro .card-texto,
+.tema-profundo .card-texto,
+.tema-vermelho .card-texto{color:var(--fg)}
 
 /* ══════════ PAISAGEM — LAYOUTS ESPECIAIS ══════════════════
    Aplica grid de 2 colunas apenas em slides tipo texto
