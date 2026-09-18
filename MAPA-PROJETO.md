@@ -245,9 +245,30 @@ também reescreve URLs `dados/...` para um host virtual (`slide.local`) via
 - **uMain.pas**: janela principal — grid de slides (arquivo + título),
   botões Novo/Editar/Excluir/Subir/Descer/Salvar índice, painel de prévia.
 - **uSlideEditor.pas**: formulário modal de edição. Aba "Geral" (campos
-  comuns + imagem de fundo + véu de contraste) e aba "Conteúdo específico do
-  tipo" (grupos que aparecem/somem conforme `cbTipo`, ver `AtualizarVisibilidade`).
-  Debounce de 300ms (`TimerPreview`) atualiza a prévia a cada mudança de campo.
+  comuns + imagem de fundo + véu de contraste + links "Aprofunde") e aba
+  "Conteúdo específico do tipo" (grupos que aparecem/somem conforme
+  `cbTipo`, ver `AtualizarVisibilidade`). Debounce de 300ms (`TimerPreview`)
+  atualiza a prévia a cada mudança de campo.
+  **O layout inteiro é montado em código Pascal, não no `.dfm`** — o
+  `.dfm` só tem a casca (painéis, splitter, abas vazias com `TScrollBox`).
+  `ConstruirAbaGeral`/`ConstruirAbaConteudo`/`ConstruirGrupoXxx` criam os
+  controles (com posições-placeholder); `ReposicionarAbaGeral`/
+  `ReposicionarAbaConteudo` (chamadas de `AtualizarVisibilidade` e de
+  `FormResize`) calculam as posições/alturas de verdade a cada resize ou
+  troca de tipo, distribuindo o espaço livre por peso entre os campos
+  "elásticos" (`Tag` guarda a altura-base de cada um). Editar esse layout é
+  seguro como editar CSS — sem risco de corromper um `.dfm` binário.
+  Desde 04/08/2026: form abre maximizado (`FormResize` força
+  `PanelDireita.Width := ClientWidth div 2`, split sempre exato mesmo
+  redimensionando); colunas do tipo `texto` ficam lado a lado (como
+  `sc-col1`/`sc-col2` no motor, não empilhadas); título/subtítulo têm TETO
+  de altura (sem isso, num form maximizado e sem outros campos elásticos,
+  uma única linha de texto virava uma caixa gigante); na capa, os pesos
+  invertem (`Subtítulo` = manchete grande, `Título` = selo pequeno) porque
+  é assim que a capa nova usa esses dois campos. **`uMain.pas` ganhou o
+  mesmo tratamento** (maximizado + `FormResize` dividindo `PanelPreview`
+  ao meio) — só que lá a divisão é grid+botões (esquerda) vs. prévia
+  (direita), não tem campos de conteúdo pra reorganizar.
 - **uSlidePreview.pas**: frame reutilizável com `TEdgeBrowser`, monta um HTML
   standalone (`estilo.css` + `motor.js` + `renderSlide(json)`) e recarrega a
   cada mudança.
