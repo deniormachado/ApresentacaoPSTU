@@ -1,0 +1,60 @@
+{
+  "tipo": "comparativo",
+  "bloco": 2,
+  "modulo": "Bloco 2 · Quem Somos",
+  "tema": "claro",
+  "pre_titulo": "A inserção na classe operária",
+  "titulo": "O PSTU herdou da CS a inserção nas lutas operárias.<br><span style=\"font-size:0.78em;opacity:0.82\">Nosso programa revolucionário é para ganhar o proletariado para protagonizar uma revolução.</span>",
+  "subtitulo": "",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0.0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "coluna_esquerda": {
+    "titulo": "O PT e a esquerda em geral",
+    "cor": "cinza",
+    "itens": [
+      {
+        "texto": "O PT é o partido mais influente entre os trabalhadores — mas não trata a classe operária como sujeito estratégico da transformação.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Governa com os capitalistas, subordina os sindicatos à CUT burocrática, usa os movimentos como base eleitoral.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "A maioria dos demais partidos de esquerda ou seguem a estratégia petista, ou não têm a mesma centralidade na classe operária.",
+        "estilo": "destaque"
+      }
+    ]
+  },
+  "coluna_direita": {
+    "titulo": "PSTU: teoria e prática",
+    "cor": "vermelho",
+    "itens": [
+      {
+        "texto": "Fundou e é maioria na direção da CSP-Conlutas — central sindical classista e independente de governos e patrões, criada em 2004 após romper com a CUT de Lula.",
+        "estilo": "normal"
+      },
+      {
+        "texto": "Buscamos construir uma direção de maioria operária e marxista para o Partido.",
+        "estilo": "destaque"
+      }
+    ]
+  },
+  "diferencial": "",
+  "links": [
+    {
+      "icone": "artigo",
+      "texto": "Congresso da CSP-Conlutas 2026",
+      "url": "https://litci.org/pt/2026/04/17/congresso-da-csp-conlutas-e-seminario-internacional-reforcam-articulacao-da-classe-trabalhadora-contra-ofensiva-imperialista/?utm_source=copylink&utm_medium=browser"
+    }
+  ],
+  "imagem_rodape": null,
+  "imagem_quadro": {
+    "url": "dados/15-b2-csp-conlutas.png",
+    "coluna": 1
+  },
+  "imagem_pequena": null
+}

@@ -1,0 +1,49 @@
+{
+    "tipo": "texto",
+    "bloco": 0,
+    "modulo": "Introdução",
+    "tema": "claro",
+    "pre_titulo": "Este é um convite",
+    "titulo": "Os próximos blocos aprofundam cada um desses temas",
+    "subtitulo": "",
+    "texto": "Você acaba de ver o resumo. O que vem a seguir é a explicação completa — a realidade dos trabalhadores, a história do partido, o funcionamento do capitalismo, o papel do Estado e a alternativa que construímos.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "<strong>Bloco 1 · Com os Trabalhadores, Contra o Sistema<\/strong> — a realidade que nos move: 6×1, feminicídio, juventude, racismo, imperialismo.",
+        "<strong>Bloco 2 · {{ANOS:1994}} Anos na Luta<\/strong> — quem somos: o histórico do partido e sua independência de classe.",
+        "<strong>Bloco 3 · As Engrenagens do Capitalismo<\/strong> — por que somos socialistas.",
+        "<strong>Bloco 4 · O Estado e a Revolução<\/strong> — por que somos revolucionários.",
+        "<strong>Bloco 5 · Ser Militante<\/strong> — o que é o partido revolucionário."
+    ],
+    "proposta": {
+        "titulo": "Venha fazer parte",
+        "texto": "facaparte.pstu.org.br"
+    },
+    "diferencial": "",
+    "links": [
+        {
+            "icone": "link",
+            "texto": "pstu.org.br",
+            "url": "https:\/\/pstu.org.br"
+        },
+        {
+            "icone": "link",
+            "texto": "opiniaosocialista.com.br",
+            "url": "https:\/\/opiniaosocialista.com.br"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados\/00-capa-bandeira-pstu.png",
+        "posicao": "center 40%",
+        "coluna": 1
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
+}

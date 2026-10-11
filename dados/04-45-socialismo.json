@@ -1,0 +1,31 @@
+{
+  "tipo": "texto",
+  "bloco": 4,
+  "modulo": "Bloco 4 · O Estado e a Revolução",
+  "tema": "vermelho",
+  "pre_titulo": "O que é o Socialismo?",
+  "titulo": "Romper com as engrenagens que impedem a humanidade de decidir seus próprios rumos",
+  "subtitulo": "",
+  "texto": "O marxismo não tem um modelo pronto de sociedade futura. Não existe um manual dizendo como as pessoas vão viver depois da revolução — isso seria utopia. O que propõe é romper com as engrenagens que hoje impedem a humanidade de decidir seus próprios rumos: a propriedade privada, a exploração, o Estado a serviço de uma minoria.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0.0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "<strong>Propriedade coletiva</strong> dos meios de produção — fábricas, bancos, terras deixam de ser de poucos.",
+    "<strong>Planificação democrática</strong> da economia — produzir para as necessidades, não para o lucro.",
+    "<strong>Governo dos trabalhadores</strong> — o poder gerido pelos de baixo, não pela burguesia.",
+    "<strong>Fim das opressões</strong> — igualdade real entre mulheres e homens, negros e brancos, LGBTQIA+.",
+    "<strong>Internacionalismo</strong> — a revolução não tem fronteiras, porque o capitalismo também não tem."
+  ],
+  "proposta": {
+    "titulo": "Sem ditadura econômica nem política",
+    "texto": "A própria sociedade, liberta da exploração e da miséria, vai decidir seus rumos coletivamente."
+  },
+  "diferencial": "<strong>O que foi então a ex-URSS?</strong> A URSS não foi socialismo — foi deformada pela burocracia stalinista, que traiu as origens da Revolução de 1917 e reprimiu os próprios trabalhadores.",
+  "links": [
+    { "icone": "video",  "texto": "Assista", "url": "https://..." },
+    { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+  ],
+  "imagem_rodape": null
+}

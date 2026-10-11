@@ -1,0 +1,48 @@
+{
+    "bloco": 0,
+    "modulo": "Introdução · O Partido",
+    "tema": "manchete",
+    "subtitulo": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tipo": "texto",
+    "pre_titulo": "Métodos de atuação",
+    "titulo": "Luta, organização e disputa da consciência",
+    "texto": "Este programa não é promessa eleitoral — é chamado à ação.",
+    "itens_col1": [],
+    "itens": [
+        "<strong>Luta direta:</strong> greves, ocupações, manifestações — o partido na linha de frente, não na arquibancada.",
+        "<strong>Disputa da consciência:</strong> formação política, imprensa, redes. Espontaneamente, a classe trabalhadora não tem como objetivo tomar o poder — a consciência socialista não surge sozinha.",
+        "<strong>Ligar cada luta setorial</strong> à perspectiva de transformação do sistema.",
+        "<strong>Eleições como tática:</strong> tribuna revolucionária, subordinada à mobilização e à ação direta — não para administrar o capitalismo.",
+        "<strong>Greve geral:</strong> prosseguir a mobilização e exigir das centrais a sua preparação."
+    ],
+    "proposta": {
+        "titulo": "Na prática",
+        "texto": "Greves gerais que paralisam a economia, ocupações de fábricas e terras, conselhos de trabalhadores: é assim que a classe muda a correlação de forças a seu favor."
+    },
+    "diferencial": "A esquerda do sistema convida à passividade. O PSTU não espera a correlação mudar — constrói as condições para mudá-la.",
+    "links": [
+        {
+            "icone": "artigo",
+            "texto": "Opinião Socialista",
+            "url": "https://opiniaosocialista.com.br"
+        },
+        {
+            "icone": "artigo",
+            "texto": "Teoria e Revolução",
+            "url": "https://teoriaerevolucao.pstu.org.br/"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados/00-capa-manifestacao-pstu.png",
+        "posicao": "center 40%",
+        "coluna": 1
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
+}

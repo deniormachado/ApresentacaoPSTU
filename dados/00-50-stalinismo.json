@@ -1,0 +1,77 @@
+﻿{
+    "tipo": "comparativo",
+    "bloco": 0,
+    "modulo": "Introdução",
+    "tema": "claro",
+    "pre_titulo": "Uma diferença de programa",
+    "titulo": "A URSS sob Stalin não chegou ao Socialismo",
+    "subtitulo": "",
+    "texto": "A Revolução de 1917 foi traída. A partir de 2024, uma burocracia, tendo Stalin como dirigente, suprimiu a democracia operária. Para isto, assassinou a maioria da direção bolchevique que dirigiu a revolução. Para manter seus privilégios dentro da URSS, impôs uma nova política aos partidos comunistas do mundo.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tamanho_titulo_colunas": 16,
+    "coluna_esquerda": {
+        "titulo": "Stalinismo (PCB, PCdoB e similares)",
+        "cor": "cinza",
+        "itens": [
+            {
+                "texto": "<strong>Teoria do “Socialismo num só país”<\/strong> abandona a estratégia leninista de derrota do imperialismo.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "<strong>Etapismo<\/strong>: 1º) revolução democrático-burguesa, 2º) só num futuro o socialismo — PCs defenderam aliança com setores burgueses “progressistas”.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Com esta política <strong>perderam-se diversas revoluções<\/strong>.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "<strong>Seus modelos<\/strong> foram a China, Rússia, Cuba, Venezuela, etc.",
+                "estilo": "normal"
+            }
+        ]
+    },
+    "coluna_direita": {
+        "titulo": "Trotskismo",
+        "cor": "vermelho",
+        "itens": [
+            {
+                "texto": "<strong>Teoria da Revolução Permanente<\/strong> — combinam-se tarefas mínimas e democráticas com a transição ao socialismo. Vitória só se conclui em escala mundial.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "<strong>Independência de classe total<\/strong>",
+                "estilo": "normal"
+            },
+            {
+                "texto": "A vitória depende da consciência e organização dos trabalhadores. <strong>Esta tarefa só um partido revolucionário pode cumprir<\/strong>.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "LIT(QI) - <strong>Contra todos os imperialismos<\/strong> — EUA, China e Rússia, etc",
+                "estilo": "normal"
+            }
+        ]
+    },
+    "diferencial": "<strong>A história deu razão a Trotsky<\/strong>: o domínio do imperialismo sufocou os Estados operários burocraticos e levou à restauração capítalista sob a condução da burocracia do Estado convertendo-se em burguesia.",
+    "links": [
+        {
+            "icone": "artigo",
+            "texto": "Reformismo fraco e efeito Orloff",
+            "url": "https:\/\/opiniaosocialista.com.br\/reformismo-fraco-e-efeito-orloff\/"
+        }
+    ],
+    "imagem_rodape": null,
+    "imagem_quadro": {
+        "url": "dados\/00-lenin-trotsky-1920.jpg",
+        "legenda": "Moscou, 1920: Lenin discursa; Trotsky e Kamenev, na escada da tribuna, seriam depois apagados das fotos oficiais do stalinismo.",
+        "altura": 260,
+        "posicao": "center 30%"
+    },
+    "imagem_pequena": null
+}

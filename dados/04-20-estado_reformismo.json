@@ -1,0 +1,37 @@
+{
+  "tipo": "comparativo",
+  "bloco": 4,
+  "modulo": "Bloco 4 · O Estado e a Revolução",
+  "tema": "profundo",
+  "pre_titulo": "A ilusão de mudar o Estado por dentro",
+  "titulo": "A concepção reformista x a marxista",
+  "subtitulo": "",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0.0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "coluna_esquerda": {
+    "titulo": "O que diz o reformismo PT e PSOL",
+    "cor": "cinza",
+    "itens": [
+      { "texto": "O Estado pode ser disputado por dentro. Se a classe trabalhadora conquistar maioria no parlamento, pode reformar o Estado até transformá-lo.", "estilo": "normal" },
+      { "texto": "Base teórica: Gramsci — conquistar hegemonia cultural e política antes de tomar o poder.", "estilo": "normal" },
+      { "texto": "O PT governou 13 anos. O latifúndio continua. Os bancos continuam. A dívida pública continua. A estrutura do Estado não mudou.", "estilo": "destaque" }
+    ]
+  },
+  "coluna_direita": {
+    "titulo": "O que diz o marxismo PSTU",
+    "cor": "vermelho",
+    "itens": [
+      { "texto": "O Estado tem instituições que não dependem de eleição: forças armadas, judiciário, Banco Central — orientadas para defender a ordem capitalista.", "estilo": "normal" },
+      { "texto": "Quando um governo eleito ameaça de verdade os interesses do capital, o Estado reage: golpe de 1964, Chile 1973, Brasil 2016.", "estilo": "normal" },
+      { "texto": "Usamos as eleições como tribuna revolucionária — não para administrar o capitalismo.", "estilo": "destaque" }
+    ]
+  },
+  "diferencial": "A diferença com o PT e o PSOL não é sobre participar de eleições — é sobre o que fazer com o poder quando se tem: reformar o sistema ou romper com ele.",
+  "links": [
+    { "icone": "artigo", "texto": "Leia mais", "url": "https://litci.org/pt/2024/05/11/estado-e-revolucao-e-a-batalha-de-lenin-contra-o-oportunismo-pela-tomada-do-poder/" }
+  ],
+  "imagem_rodape": null
+}

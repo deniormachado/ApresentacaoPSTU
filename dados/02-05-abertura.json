@@ -1,10 +1,10 @@
-﻿{
+{
     "tipo": "secao",
     "bloco": 2,
     "modulo": "",
     "tema": "profundo",
     "pre_titulo": "Bloco 2",
-    "titulo": "Quem Somos: 32 Anos na Luta",
+    "titulo": "Quem Somos: {{ANOS:1994}} Anos na Luta",
     "subtitulo": "<strong>por uma sociedade sem explorados e sem exploradores<\/strong>.",
     "texto": "\r\nHistórico do Partido, identidade da LIT-QI e fundamentação do internacionalismo revolucionário.",
     "imagem_url": "",

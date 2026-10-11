@@ -1,0 +1,50 @@
+{
+    "bloco": 0,
+    "modulo": "Introdução · O Partido",
+    "tema": "manchete",
+    "subtitulo": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tipo": "texto",
+    "pre_titulo": "Onde estamos e o que defendemos",
+    "titulo": "Posições e palavras de ordem",
+    "texto": "Cada palavra de ordem sintetiza um programa — e revela contra quem lutamos.",
+    "itens_col1": [],
+    "itens": [
+        "<strong>Fim da escala 6×1!</strong> Jornada de 36 horas, escala 4×3, sem corte de salário e sem demissões!",
+        "<strong>Pelo fim dos feminicídios</strong> e pela legalização do aborto!",
+        "<strong>Racismo:</strong> desmilitarização da polícia e fim do genocídio negro; reparação histórica e titulação dos territórios quilombolas!",
+        "<strong>As terras raras são nossas!</strong> Estatização sob controle dos trabalhadores, com tecnologia nacional a serviço da classe.",
+        "<strong>Palestina livre, do rio ao mar!</strong> Contra o genocídio financiado pelos EUA. Pela derrota da invasão russa da Ucrânia.",
+        "<strong>Contra todos os imperialismos</strong> — EUA, China, Rússia e Europa!",
+        "<strong>Por um governo socialista dos trabalhadores, sem capitalistas!</strong> Estatizar bancos e grandes empresas; acabar com a dívida pública como mecanismo de espoliação."
+    ],
+    "proposta": {
+        "titulo": "Internacionalismo",
+        "texto": "O PSTU é a seção brasileira da LIT-QI — presente em dezenas de países."
+    },
+    "diferencial": "A luta dos trabalhadores não tem fronteiras.",
+    "links": [
+        {
+            "icone": "artigo",
+            "texto": "litci.org/pt/",
+            "url": "https://litci.org/pt/"
+        },
+        {
+            "icone": "video",
+            "texto": "Socialismo em um só país e Internacionalismo",
+            "url": "https://www.youtube.com/watch?v=O5SE-5VjXF0"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados/03-b2-pautas.png",
+        "posicao": "center 42%",
+        "coluna": 1
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
+}

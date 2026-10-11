@@ -91,10 +91,26 @@ VersionadosGIT/                          (repo Delphi, branch main — outras pa
     ├── Instruções/COMO-EDITAR.md        (documentação do formato JSON p/ humanos)
     ├── PSTU_2026.pdf, PSTU_2026.pptx    (materiais, não versionados)
     └── dados/
-        ├── indice.json                  (array ordenado de nomes de arquivo — 41 slides)
-        ├── NN-bloco-nome.json           (um arquivo por slide)
+        ├── indice.json                  (array ordenado de nomes de arquivo — 55 slides)
+        ├── bb-nn-assunto.json           (um arquivo por slide — ver convenção abaixo)
         └── *.png/*.jpg                  (imagens locais referenciadas como "dados/arquivo.png")
 ```
+
+## Convenção de nomes dos JSONs de slide
+
+```
+bb-nn-assunto.json
+```
+
+| Parte | Significado | Exemplos |
+|---|---|---|
+| `bb` | Número do bloco, zero-padded | `00`, `01`, `06` |
+| `nn` | Sequência de 5 em 5, reinicia a cada bloco | `05`, `10`, `15`, `20`… |
+| `assunto` | Tema do slide em poucas palavras, minúsculas, espaços → `_` | `abertura`, `pais_rico`, `revolucao_socialista` |
+
+Exemplos reais: `00-05-capa.json`, `01-10-pais_rico.json`, `04-35-revolucao_socialista.json`, `06-25-encerramento.json`.
+
+O espaçamento de 5 em 5 (em vez de 1 a 1) permite inserir slides intermediários sem renomear os existentes. O índice de navegação fica em `dados/indice.json` (array de strings com os nomes na ordem de apresentação).
 
 ## Como rodar/testar
 

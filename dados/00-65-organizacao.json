@@ -1,0 +1,64 @@
+﻿{
+    "tipo": "comparativo",
+    "bloco": 0,
+    "modulo": "Introdução · O Partido",
+    "tema": "claro",
+    "pre_titulo": "Como nos organizamos",
+    "titulo": "Centralismo democrático",
+    "subtitulo": "",
+    "texto": "Debater livremente — agir unitariamente. Maioria operária na base e na direção, programa revolucionário e formação política permanente.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tamanho_titulo_colunas": 16,
+    "coluna_esquerda": {
+        "titulo": "Democracia",
+        "cor": "cinza",
+        "itens": [
+            {
+                "texto": "Debate livre em todos os organismos. Direito de divergir.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Eleição democrática de todas as direções.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Poder de decisão nas mãos da base.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "coluna_direita": {
+        "titulo": "Centralismo",
+        "cor": "vermelho",
+        "itens": [
+            {
+                "texto": "Decisão coletiva cumprida por todos — inclusive por quem votou contra.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Independência de classe total, sem conciliação com a burguesia.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Sem unidade na ação não há partido revolucionário.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "diferencial": "<strong>O militante<\/strong> atua no movimento de massas · defende a política do partido · contribui com a formação dos novos · financia o partido com cota mensal · não aceita dinheiro de empresa. Um partido que pretende apenas reformas organiza-se como partido eleitoral: subordina seu programa às alianças com a burguesia.",
+    "links": [
+    ],
+    "imagem_rodape": null,
+    "imagem_quadro": {
+        "url": "dados\/30-b5-lenin.png",
+        "legenda": "O partido leninista: programa revolucionário, centralismo democrático e internacionalismo.",
+        "altura": 260,
+        "posicao": "center 15%"
+    },
+    "imagem_pequena": null
+}

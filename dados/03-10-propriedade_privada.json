@@ -1,0 +1,29 @@
+{
+  "tipo": "texto",
+  "bloco": 3,
+  "modulo": "Bloco 3 · Engrenagens do Capitalismo",
+  "tema": "claro",
+  "pre_titulo": "A engrenagem principal",
+  "titulo": "A propriedade privada dos meios de produção",
+  "subtitulo": "",
+  "texto": "Tudo que existe — fábricas, terras, bancos, supermercados, aplicativos — pertence a uma pequena minoria. Não por mérito, mas pelo capital que possuem: herança, acúmulo sobre o trabalho alheio, muitas vezes violência e roubo. O que garante esse poder é ser dona de tudo que é necessário para produzir.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "A classe trabalhadora só tem uma coisa para oferecer: sua <strong>FORÇA DE TRABALHO</strong>. Para sobreviver, é obrigada a vendê-la aos donos dos meios de produção.",
+    "O trabalhador produz a riqueza, mas não é dono dela. O salário é sempre menor do que o valor gerado — Marx chamou esse trabalho não pago de <strong>MAIS-VALIA</strong>.",
+    "A engrenagem não obedece a governo nenhum. A concorrência de mercado impõe uma corrida para aumentar a exploração — <em>sob pena de perder para quem explorar mais</em>.",
+    "Quanto mais o capitalismo avança, mais riqueza se concentra num polo — e mais miséria se acumula no outro. São dois lados da mesma engrenagem."
+  ],
+  "proposta": {
+    "titulo": "Resultado inevitável",
+    "texto": "A desigualdade, as crises e a destruição não são acidentes. São o resultado inevitável do funcionamento do sistema."
+  },
+  "diferencial": "",
+  "links": [
+    { "icone": "video",  "texto": "Assista", "url": "https://..." },
+    { "icone": "artigo", "texto": "Leia mais", "url": "https://..." }
+  ]
+}

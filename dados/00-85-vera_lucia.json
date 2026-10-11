@@ -1,0 +1,18 @@
+{
+  "tipo": "citacao",
+  "bloco": 0,
+  "modulo": "Introdução",
+  "tema": "manchete",
+  "pre_titulo": "— Vera Lúcia · 30 anos do PSTU · São Paulo, junho de 2024",
+  "titulo": "\"Nesses 30 anos, muitas coisas aconteceram. Nas batalhas que travamos, perdemos companheiros. Outros abandonaram a perspectiva da revolução socialista. Por isso, temos orgulho e festejamos nossos 30 anos. O PSTU não se afastou do propósito para o qual foi criado — permaneceu, de forma incondicional, ao lado da classe trabalhadora na luta pela revolução socialista.\"",
+  "subtitulo": "{{ANOS:1994}} anos de independência de classe — enquanto a esquerda governista capitulava.",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "tem_linha_acento": true,
+  "imagem_quadro": {
+    "url": "dados/17-b2-vera-lucia.png"
+  }
+}

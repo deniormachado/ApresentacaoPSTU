@@ -1,0 +1,82 @@
+﻿{
+    "tipo": "comparativo",
+    "bloco": 0,
+    "modulo": "Introdução",
+    "tema": "claro",
+    "pre_titulo": "A armadilha da polarização",
+    "titulo": "Distintos regimes, o mesmo sistema",
+    "subtitulo": "",
+    "texto": "A ultradireita quer uma mudança autoritária no regime e tentou um golpe. A classe precisa de liberdades para lutar e se organizar. Mas a extrema direita cresceu porque a esquerda governou sem alterar a estrutura do país — e os trabalhadores se decepcionaram.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tamanho_titulo_colunas": 16,
+    "coluna_esquerda": {
+        "titulo": "Extrema direita",
+        "cor": "cinza",
+        "itens": [
+            {
+                "texto": "Articula com Trump a entrega do Brasil aos EUA.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Regimes bonapartistas e fascistas proíbem a luta e organização dos trabalhadores.",
+                "estilo": "destaque"
+            },
+            {
+                "texto": "Racismo, machismo, xenofobia são das armas preferidas para colocar trabalhador contra trabalhador.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Diz-se antissistema, mas é a face mais brutal do mesmo sistema capitalista.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "coluna_direita": {
+        "titulo": "PT e esquerda do sistema",
+        "cor": "cinza",
+        "itens": [
+            {
+                "texto": "Lula governa com bancos, agronegócio e centrão — arcabouço fiscal corta gastos sociais para remunerar capital especulativo.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Rifou as pautas das mulheres, negros, LGBTI e indígenas por governabilidade com o centrão.",
+                "estilo": "destaque"
+            },
+            {
+                "texto": "Convida à passividade: “vote e volte a trabalhar”.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Reformismo: ilusão de melhorias permanentes dentro do capitalismo.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "diferencial": "Nenhum dos dois enfrenta o capitalismo, que produz desigualdades crescentes.",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Fascismo e Bolsonarismo",
+            "url": "https:\/\/www.youtube.com\/watch?v=L7vOaxwl6sI"
+        },
+        {
+            "icone": "artigo",
+            "texto": "O Estado burguês e o fascismo",
+            "url": "https:\/\/www.pstu.org.br\/o-estado-burgues-e-o-fascismo\/"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados\/09-b1-extrema-direita-pt.png",
+        "posicao": "center top",
+        "altura": 235,
+        "largura": "100%"
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
+}

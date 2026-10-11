@@ -1,0 +1,47 @@
+{
+    "bloco": 0,
+    "modulo": "Introdução",
+    "tema": "manchete",
+    "subtitulo": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tipo": "texto",
+    "pre_titulo": "O capitalismo em decadência",
+    "titulo": "Não são falhas. É o sistema.",
+    "texto": "O Brasil é um dos países mais desiguais do planeta. Trabalha-se cada vez mais para viver cada vez pior: a jornada interminável, o feminicídio, o genocídio da juventude negra, a devastação ambiental <strong>não são falhas do sistema. São O SISTEMA.</strong>",
+    "itens_col1": [],
+    "itens": [
+        "<strong>Parasitas:</strong> uma pequena minoria de bilionários se apropria da riqueza. Cerca de 250 grandes empresas controlam a economia — e a riqueza produzida é drenada para fora.",
+        "<strong>Um país dominado:</strong> plataforma de exportação de commodities, importa produtos de alto valor agregado e exporta bens primários — reversão colonial. Nos últimos 15 anos, o déficit comercial com os EUA foi de R$ 2 trilhões.",
+        "<strong>Trump é a cara do sistema ameaçado:</strong> o imperialismo em decadência reage com guerras comerciais e militares.",
+        "<strong>Repressão:</strong> aparatos policiais para conter qualquer expressão de revolta social — e, se preciso, regimes autoritários e até o fascismo."
+    ],
+    "proposta": {
+        "titulo": "O que o PSTU diz",
+        "texto": "Não é falta de recursos — são governos a serviço dos capitalistas!"
+    },
+    "diferencial": "Nem burguesia nem governos conseguem evitar as crises: disputam o mercado mundial, atacam o nível de vida popular e avançam para a barbárie. A solução não é um governo melhor dentro do sistema — é a superação do próprio sistema.",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Tarifaço e a Podridão do Capitalismo",
+            "url": "https://www.youtube.com/watch?v=SaaofhfhJyo&t=36s"
+        },
+        {
+            "icone": "artigo",
+            "texto": "Explosão da Desigualdade",
+            "url": "https://www.pstu.org.br/explosao-da-desigualdade-1-tem-riqueza-superior-a-de-7-bilhoes-de-pessoas/"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados/07-b1-capitalismo-violencia.png",
+        "posicao": "center 40%",
+        "coluna": 1
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
+}

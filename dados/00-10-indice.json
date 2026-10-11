@@ -1,0 +1,60 @@
+{
+    "tipo": "indice",
+    "bloco": 0,
+    "modulo": "",
+    "tema": "profundo",
+    "pre_titulo": "",
+    "titulo": "Índice da Apresentação",
+    "subtitulo": "",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "blocos": [
+        {
+            "numero": 0,
+            "titulo": "INTRODUÇÃO",
+            "descricao": "Síntese da Apresentação do PSTU",
+            "cor": "dourado",
+            "slide": 2
+        },
+        {
+            "numero": 1,
+            "titulo": "Com os Trabalhadores, Contra o Sistema",
+            "descricao": "Partir da vida real dos trabalhadores e oprimidos. Nossa estratégia: que a classe trabalhadora seja SUJEITO social da revolução.",
+            "cor": "vermelho",
+            "slide": 15
+        },
+        {
+            "numero": 2,
+            "titulo": "{{ANOS:1994}} Anos na Luta",
+            "descricao": "Quem somos — histórico do partido",
+            "cor": "verde",
+            "slide": 29
+        },
+        {
+            "numero": 3,
+            "titulo": "As Engrenagens do Capitalismo",
+            "descricao": "Por que somos socialistas",
+            "cor": "roxo",
+            "slide": 34
+        },
+        {
+            "numero": 4,
+            "titulo": "O Estado e a Revolução",
+            "descricao": "Por que somos revolucionários",
+            "cor": "rosa",
+            "slide": 38
+        },
+        {
+            "numero": 5,
+            "titulo": "Ser Militante",
+            "descricao": "O que é o partido revolucionário",
+            "cor": "verde-escuro",
+            "slide": 50
+        }
+    ]
+}

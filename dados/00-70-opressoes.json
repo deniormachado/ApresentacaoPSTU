@@ -1,0 +1,48 @@
+﻿{
+    "tipo": "texto",
+    "bloco": 0,
+    "modulo": "Introdução · O Partido",
+    "tema": "claro",
+    "pre_titulo": "Contra as opressões aos negros, mulheres, LGBTI e indígenas",
+    "titulo": "Quem discrimina os seus próprios irmãos não pode se libertar.",
+    "subtitulo": "",
+    "texto": "350 anos de escravidão, milhares de submissão das mulheres. A discriminação divide a classe — é uma ideologia mantida artificialmente, instrumental para a exploração: desvaloriza mulheres, negros, LGBTI, indígenas e pessoas com deficiência. Rebaixando seus salários e direitos, pressiona todos os salários para baixo.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "Impossível vencer sem incorporar a luta contra as opressões — a classe já é maioria negra, feminina, periférica.",
+        "Negras e negros são a maioria entre os desempregados, os presos e os mortos. O Brasil é o país que mais mata transexuais no mundo.",
+        "<strong>≠ Contra o identitarismo:<\/strong> são pautas fragmentadas, sem luta de classes e sem programa de poder, incapazes de acabar com a opressão.",
+        "<strong>≠ Contra o economicismo:<\/strong> setores da esquerda criticam o identitarismo mas para secundarizar as opressões, com discurso que se aproxima do da direita."
+    ],
+    "proposta": {
+        "titulo": "Polêmico",
+        "texto": "Não é a luta dos oprimidos que divide. A recusa em combater a discriminação é que mantém a divisão."
+    },
+    "diferencial": "",
+    "links": [
+        {
+            "icone": "video",
+            "texto": "Curso: Feminismo e Marxismo",
+            "url": "https:\/\/www.youtube.com\/watch?v=FmkPo8XUlJo"
+        },
+        {
+            "icone": "artigo",
+            "texto": "Não é uma tarefa só das mulheres",
+            "url": "https:\/\/www.pstu.org.br\/a-luta-contra-o-machismo-e-a-violencia-sexual-nao-e-uma-tarefa-so-das-mulheres-mas-do-conjunto-dos-trabalhadores\/"
+        }
+    ],
+    "imagem_rodape": {
+        "url": "dados\/05-b1-opressoes.png",
+        "posicao": "center 40%",
+        "coluna": 1
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
+}

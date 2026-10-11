@@ -1,0 +1,33 @@
+{
+  "tipo": "dividido",
+  "bloco": 3,
+  "modulo": "Bloco 3 · Engrenagens do Capitalismo",
+  "tema": "escuro",
+  "pre_titulo": "Por que o capitalismo não tem saída",
+  "titulo": "As duas grandes contradições",
+  "subtitulo": "",
+  "texto": "",
+  "imagem_url": "",
+  "imagem_escurecimento": 0.0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens_esquerda": [
+    {
+      "titulo": "Contradição 1: Produção × Distribuição",
+      "texto": "Há tecnologia e riqueza suficientes para alimentar, morar e cuidar de toda a humanidade. Mas a lógica do capitalismo não é atender necessidades — é gerar lucro. Resultado: alimentos destruídos enquanto 733 milhões passam fome; devastação ambiental que nenhum governo consegue parar."
+    },
+    {
+      "titulo": "Contradição 2: Produção mundial × Fronteiras nacionais",
+      "texto": "A produção é globalizada — cadeias produtivas que cruzam o mundo inteiro. Mas o capitalismo reforça fronteiras, guerras e nacionalismos para dividir os trabalhadores e impedir que se unam. Gaza, Ucrânia, tensão EUA-China: o capitalismo em crise não gera paz — gera guerra."
+    }
+  ],
+  "proposta": {
+    "titulo": "Conclusão",
+    "texto": "Essas contradições não são falhas que um bom governo pode corrigir. São o resultado direto de um sistema que coloca o lucro acima da vida — e que resolve suas crises às custas dos trabalhadores e dos povos oprimidos."
+  },
+  "diferencial": "",
+  "links": [
+    { "icone": "video",  "texto": "Assista", "url": "https://..." },
+    { "icone": "artigo", "texto": "Leia mais", "url": "https://www.pstu.org.br/diante-da-catastrofe-capitalista-saida-e-a-planificacao-economica-socialista/" }
+  ]
+}

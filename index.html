@@ -692,6 +692,140 @@ body.retrato .col-bg{
   -webkit-mask-image:none !important;
   mask-image:none !important;
 }
+/* ═══ SLIDE ÍNDICE ══════════════════════════════════════ */
+.indice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 0;flex:1}
+.indice-card{
+  border-radius:10px;padding:16px 18px;cursor:pointer;
+  display:flex;flex-direction:column;gap:6px;
+  transition:transform .15s,opacity .15s;
+  border:none;border-top:3px solid rgba(255,255,255,.15);
+}
+.indice-card:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.indice-card:active{transform:scale(.97);opacity:.85}
+/* Bloco 0 ocupa linha inteira */
+.indice-card-intro{grid-column:1/-1}
+/* cores — fundo + borda-topo saturada */
+.indice-card.cor-dourado     {background:rgba(201,168,76,.45); border-top-color:rgba(201,168,76,.9)}
+.indice-card.cor-vermelho    {background:rgba(204,17,17,.45);  border-top-color:rgba(220,50,50,.9)}
+.indice-card.cor-verde       {background:rgba(19,113,100,.45); border-top-color:rgba(30,160,140,.9)}
+.indice-card.cor-roxo        {background:rgba(123,79,181,.45); border-top-color:rgba(155,105,210,.9)}
+.indice-card.cor-rosa        {background:rgba(184,48,110,.45); border-top-color:rgba(220,70,140,.9)}
+.indice-card.cor-laranja     {background:rgba(180,110,0,.45);  border-top-color:rgba(220,150,0,.9)}
+.indice-card.cor-verde-escuro{background:rgba(52,111,52,.45);  border-top-color:rgba(75,155,75,.9)}
+/* tipografia */
+.indice-num  {font-size:10px;font-weight:800;letter-spacing:.18em;opacity:.55;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+.indice-titulo{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;text-transform:uppercase;line-height:1.05}
+.indice-desc {font-size:14px;opacity:.75;line-height:1.35}
+.indice-card-intro .indice-titulo{font-size:26px}
+#btn-indice{
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;opacity:.7;padding:4px 10px;
+  border-radius:4px;border:1px solid rgba(255,255,255,.25);
+  background:transparent;color:inherit;cursor:pointer;
+  font-family:'Barlow Condensed',sans-serif;transition:opacity .15s;
+}
+#btn-indice:active{opacity:1}
+/* ═══ BOTÃO VOLTAR AO ÍNDICE (por slide) ════════════════ */
+.btn-volta{
+  position:absolute;
+  top:8px;right:8px;
+  z-index:20;
+  width:30px;height:30px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(0,0,0,.28);
+  color:rgba(255,255,255,.65);
+  font-size:13px;line-height:1;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s,border-color .15s;
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;
+  letter-spacing:0;
+  padding:0;
+}
+.btn-volta:hover{
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  border-color:rgba(255,255,255,.6);
+}
+.tema-claro .btn-volta{
+  border-color:rgba(0,0,0,.18);
+  background:rgba(255,255,255,.45);
+  color:rgba(0,0,0,.55);
+}
+.tema-claro .btn-volta:hover{
+  background:rgba(255,255,255,.8);
+  color:#000;
+}
+/* ═══ TEMA MANCHETE (Bloco 0 — Introdução) ═════════════ */
+.tema-manchete{
+  background:#1C1A16;
+  color:#EDE8DF;
+}
+.tema-manchete .slide-pre-titulo,
+.tema-manchete .slide-label,
+.tema-manchete .s-label{
+  color:#C9A84C;
+}
+.tema-manchete .slide-titulo,
+.tema-manchete .s-title,
+.tema-manchete .slide-h{
+  color:#EDE8DF;
+}
+.tema-manchete .deco-line,
+.tema-manchete .slide-rule,
+.tema-manchete .s-rule{
+  background:linear-gradient(180deg,#C9A84C,#8B6914);
+}
+.tema-manchete .proposta-box,
+.tema-manchete .proposta{
+  background:rgba(201,168,76,.12);
+  border-left-color:#C9A84C;
+}
+.tema-manchete .proposta-titulo{
+  color:#C9A84C;
+}
+.tema-manchete .proposta-texto,
+.tema-manchete .proposta p{
+  color:#D4C9A8;
+}
+.tema-manchete .diff,
+.tema-manchete .diferencial{
+  border-left-color:#C9A84C;
+  color:#C9A84C;
+  background:rgba(201,168,76,.08);
+}
+.tema-manchete .card-v,
+.tema-manchete .split-item,
+.tema-manchete .col-item{
+  border-left-color:#C9A84C;
+  background:rgba(255,255,255,.04);
+}
+.tema-manchete .numero-gigante{
+  color:rgba(201,168,76,.06);
+}
+.tema-manchete .linha-acento{
+  background:linear-gradient(90deg,#C9A84C,transparent);
+}
+.tema-manchete .cmp-head.red-head{
+  background:rgba(201,168,76,.2);
+  color:#C9A84C;
+}
+.tema-manchete .cmp-item-v{
+  border-left-color:#C9A84C;
+}
+.tema-manchete .btn-volta{
+  border-color:rgba(201,168,76,.4);
+  color:rgba(201,168,76,.8);
+}
+.tema-manchete .btn-volta:hover{
+  background:rgba(201,168,76,.2);
+  color:#C9A84C;
+  border-color:#C9A84C;
+}
 </style>
 </head>
 <body class="retrato">
@@ -723,6 +857,7 @@ body.retrato .col-bg{
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
           Anterior
         </button>
+        <button id="btn-indice" onclick="ir(1)" title="Índice">☰ Índice</button>
         <span id="counter-h"></span>
         <button id="btn-next-h">
           Próximo
@@ -748,6 +883,28 @@ const ESCURECIMENTO_PADRAO = 0.55;
 /* ═══ DADOS EMBUTIDOS ════════════════════════════════════ */
 let SLIDES = [];
 
+/* ═══ TOKENS DINÂMICOS ════════════════════════════════════
+   {{ANOS:AAAA}} no texto de qualquer campo do JSON é substituído
+   pela quantidade de anos completos entre o ano AAAA e o ano atual
+   (contagem por ano civil, sem exigir dia/mês exatos — mesmo critério
+   já usado nos textos manuais como "32 Anos na Luta" = 2026 - 1994).
+   Uso: datas de referência que viram texto "X anos de..." e que devem
+   se atualizar sozinhas (fundação, aniversário) — não para períodos
+   fixos do passado (ex.: "nos últimos 15 anos" de um levantamento). */
+function substituirTokens(valor){
+  if(typeof valor==='string'){
+    return valor.replace(/\{\{ANOS:(\d{4})\}\}/g,
+      (_,ano)=>String(new Date().getFullYear()-parseInt(ano,10)));
+  }
+  if(Array.isArray(valor))return valor.map(substituirTokens);
+  if(valor&&typeof valor==='object'){
+    const out={};
+    for(const k in valor)out[k]=substituirTokens(valor[k]);
+    return out;
+  }
+  return valor;
+}
+
 async function carregarSlides(){
   // cache-busting: garante versão fresca dos JSONs após cada commit
   // (o CDN do GitHub Pages e o navegador seguram cache por ~10 min)
@@ -769,6 +926,7 @@ async function carregarSlides(){
     SLIDES = await Promise.all(
       indice.map(arq =>
         buscar('dados/'+arq)
+          .then(substituirTokens)
           .catch(err=>({tipo:'texto',titulo:'Erro ao carregar',texto:'Falha ao buscar '+arq+' ('+err.message+'). Recarregue a página (Ctrl+F5).',tema:'vermelho'}))
       )
     );
@@ -1004,6 +1162,23 @@ const R={
   }
 };
 
+/* ── RENDERER: ÍNDICE NAVEGÁVEL ─────────────────────── */
+R.indice=function(d){
+  const cards=(d.blocos||[]).map(b=>{
+    const intro=b.numero===0?' indice-card-intro':'';
+    const label=b.numero===0?'Introdução':'Bloco '+b.numero;
+    return '<div class="indice-card'+intro+' cor-'+b.cor+'" onclick="ir('+b.slide+')" role="button" tabindex="0">'
+      +'<div class="indice-num">'+label+'</div>'
+      +'<div class="indice-titulo">'+E(b.titulo)+'</div>'
+      +'<div class="indice-desc">'+E(b.descricao)+'</div>'
+      +'</div>';
+  }).join('');
+  return '<div class="sc" style="display:flex;flex-direction:column;padding:14px 16px 8px">'
+    +'<div class="slide-titulo" style="font-size:18px;margin-bottom:8px;opacity:.6;text-transform:uppercase;letter-spacing:.1em">'+E(d.titulo||'Índice')+'</div>'
+    +'<div class="indice-grid">'+cards+'</div>'
+    +'</div>';
+};
+
 /* ═══ MOTOR ══════════════════════════════════════════════ */
 let atual=0;
 let total=0;
@@ -1155,6 +1330,19 @@ window.addEventListener('resize',()=>{clearTimeout(orientTimer);orientTimer=setT
     wrap.appendChild(div);
   });
 
+  // Botão "voltar ao índice" em cada slide, exceto capa (0) e índice (1)
+  Array.from(wrap.querySelectorAll('.slide')).forEach((el,i)=>{
+    if(i<=1)return; // pula capa e o próprio índice
+    const btn=document.createElement('button');
+    btn.className='btn-volta';
+    btn.title='Voltar ao índice';
+    btn.innerHTML='☰';
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      ir(1);
+    });
+    el.appendChild(btn);
+  });
   slideEls=Array.from(wrap.querySelectorAll('.slide'));
   total=slideEls.length;
   if(slideEls.length>0)slideEls[0].classList.add('ativo');

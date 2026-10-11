@@ -1,0 +1,73 @@
+﻿{
+    "tipo": "comparativo",
+    "bloco": 0,
+    "modulo": "Introdução",
+    "tema": "claro",
+    "pre_titulo": "Lenin · O Estado e a Revolução, 1917",
+    "titulo": "O Estado não é neutro",
+    "subtitulo": "",
+    "texto": "O Estado não existiu sempre: surgiu quando a sociedade se dividiu em classes, para manter uma ordem que mantenha privilégios e as propriedades da classe dominante. A ideologia da possível neutralidade do Estado é repetida ainda hoje pela maioria da esquerda. ",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "coluna_esquerda": {
+        "titulo": "Braço repressivo",
+        "cor": "vermelho",
+        "itens": [
+            {
+                "texto": "Polícia, exército, prisões, juízes.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Sua atuação é mais aguda em greves, ocupações e manifestações.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Violência policial e encarceramento em massa são terrorismo cotidiano contra comunidades pobres — especialmente negros.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "coluna_direita": {
+        "titulo": "Braço da legitimação",
+        "cor": "escuro",
+        "itens": [
+            {
+                "texto": "Eleições, parlamento, escola, imprensa, igrejas.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Convencimento de que leis e Estado combatem privilégios de classe.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Mudança seria pelo voto — mas quem elege é a grana, e os eleitos têm carta branca, sem controle do povo.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "diferencial": "<strong>Conclusão:<\/strong> a política da esquerda do sistema de conquistar espaços dentro do Estado burguês é uma armadilha — é preciso lutar pelo poder da classe trabalhadora. Eleições de dois em dois anos prometem futuro que nunca chega. A decepção é caldode cultura da extrema direita.",
+    "links": [
+        {
+            "icone": "artigo",
+            "texto": "O Estado e a Revolução — Lenin",
+            "url": "https:\/\/www.marxists.org\/portugues\/lenin\/1917\/08\/estadoerevolucao\/"
+        },
+        {
+            "icone": "artigo",
+            "texto": "A batalha de Lenin contra o oportunismo",
+            "url": "https:\/\/litci.org\/pt\/2024\/05\/11\/estado-e-revolucao-e-a-batalha-de-lenin-contra-o-oportunismo-pela-tomada-do-poder\/"
+        }
+    ],
+    "imagem_rodape": null,
+    "imagem_quadro": {
+        "url": "dados\/00-petrogrado-1917.jpg",
+        "legenda": "Petrogrado, 18 de junho de 1917: “Todo o poder ao povo!” e “Abaixo os ministros capitalistas!”",
+        "altura": 210,
+        "posicao": "center 30%"
+    },
+    "imagem_pequena": null
+}

@@ -1,0 +1,69 @@
+{
+    "bloco": 0,
+    "modulo": "Introdução · O Partido",
+    "tema": "manchete",
+    "subtitulo": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "tipo": "comparativo",
+    "pre_titulo": "O partido que se constrói dentro da classe",
+    "titulo": "Inserção operária como estratégia de poder",
+    "texto": "Não basta ter programa — é preciso estar onde a classe está. O PSTU herdou da Convergência Socialista a inserção nas lutas operárias, e seu programa revolucionário é para ganhar o proletariado para protagonizar uma revolução.",
+    "tamanho_titulo_colunas": 16,
+    "coluna_esquerda": {
+        "titulo": "PT e esquerda em geral",
+        "cor": "cinza",
+        "itens": [
+            {
+                "texto": "O PT é o partido mais influente entre os trabalhadores — mas não trata a classe como sujeito estratégico: usa como base eleitoral.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Governa com os capitalistas e subordina os sindicatos à CUT burocrática.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "PSOL, PCdoB, UP: mais presentes nas redes do que nas fábricas.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "coluna_direita": {
+        "titulo": "PSTU e CSP-Conlutas",
+        "cor": "vermelho",
+        "itens": [
+            {
+                "texto": "Fundou e é maioria na direção da CSP-Conlutas — central sindical classista, independente de governos e patrões, criada em 2004 após romper com a CUT de Lula.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Metroviários SP, Metalúrgicos SJC, Petroleiros — mais de 150 sindicatos.",
+                "estilo": "normal"
+            },
+            {
+                "texto": "Maioria operária na composição e na direção do partido.",
+                "estilo": "destaque"
+            }
+        ]
+    },
+    "diferencial": "Inserção operária não é tática eleitoral — é estratégia de poder.",
+    "links": [
+        {
+            "icone": "artigo",
+            "texto": "Congresso da CSP-Conlutas 2026",
+            "url": "https://litci.org/pt/2026/04/17/congresso-da-csp-conlutas-e-seminario-internacional-reforcam-articulacao-da-classe-trabalhadora-contra-ofensiva-imperialista/?utm_source=copylink&utm_medium=browser"
+        }
+    ],
+    "imagem_rodape": null,
+    "imagem_quadro": {
+        "url": "dados/15-b2-csp-conlutas.png",
+        "legenda": "CSP-Conlutas: central sindical e popular, independente de governos e patrões.",
+        "altura": 210,
+        "posicao": "center 40%"
+    },
+    "imagem_pequena": null
+}

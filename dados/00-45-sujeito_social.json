@@ -1,0 +1,38 @@
+﻿{
+    "tipo": "texto",
+    "bloco": 0,
+    "modulo": "Introdução",
+    "tema": "claro",
+    "pre_titulo": "Quem pode mudar de verdade",
+    "titulo": "Só a classe trabalhadora pode levar uma revolução até o fim",
+    "subtitulo": "",
+    "texto": "A revolução será obra dos próprios trabalhadores — a única força que pode paralisar a produção e a classe que pode encarnar a coletivização dos grandes meios de produção.",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "itens_col1": [
+    ],
+    "itens": [
+        "<strong>A burguesia nacional<\/strong> teme a classe trabalhadora e prefere ser sócia menor do imperialismo — nunca vai liderar uma ruptura.",
+        "<strong>A classe trabalhadora<\/strong> — formal, informal, de plataformas, do campo — é o sujeito social estratégico: tem o potencial de paralisar a produção para vencer os capitalistas. Sua existência de trabalho coletivo é a base de uma sociedade socialista.",
+        "<strong>Aliados:<\/strong> povos indígenas, camponeses, quilombolas, estudantes, pequenos produtores. <strong>Nenhum setor burguês.<\/strong>",
+        "A busca de algum setor burguês “progressista” é um erro fatal de reformista e vertentes stalinistas."
+    ],
+    "proposta": {
+        "titulo": "Nossa estratégia",
+        "texto": "Disputar a consciência de que deve ser a própria classe trabalhadora que deve se libertar, lutando por um governo de classe próprio, com as decisões tomadas por conselhos populares."
+    },
+    "diferencial": "",
+    "links": [
+    ],
+    "imagem_rodape": {
+        "url": "dados\/fundo-padrao.png",
+        "posicao": "center 30%",
+        "coluna": 1
+    },
+    "imagem_quadro": null,
+    "imagem_pequena": null
+}

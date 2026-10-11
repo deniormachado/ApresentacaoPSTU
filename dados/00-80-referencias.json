@@ -1,0 +1,50 @@
+﻿{
+    "tipo": "cards",
+    "bloco": 0,
+    "modulo": "Introdução · O Partido",
+    "tema": "claro",
+    "pre_titulo": "Nossa tradição teórica",
+    "titulo": "Uma corrente que sobreviveu à traição e ao reformismo",
+    "subtitulo": "Não é uma lista de livros — é uma tradição de luta que atravessou guerras, golpes e traições e chegou até nós.",
+    "texto": "",
+    "imagem_url": "",
+    "imagem_escurecimento": 0.0,
+    "veu_apenas_texto": false,
+    "imagem_posicao": "centro",
+    "texto_borda": false,
+    "quadros_opacos": false,
+    "cards": [
+        {
+            "nome": "Karl Marx",
+            "cargo": "O Capital · Manifesto Comunista",
+            "texto": "A base científica do socialismo: a exploração como mais-valia e a classe trabalhadora como sujeito da transformação.",
+            "foto_url": "dados\/00-ref-marx.jpg"
+        },
+        {
+            "nome": "Friedrich Engels",
+            "cargo": "A Origem da Família, da Propriedade Privada e do Estado",
+            "texto": "O Estado não existiu sempre: surgiu quando a sociedade se dividiu em classes.",
+            "foto_url": "dados\/00-ref-engels.jpg"
+        },
+        {
+            "nome": "Lenin",
+            "cargo": "O Estado e a Revolução · Imperialismo",
+            "texto": "A teoria do partido e do poder: o Estado serve a uma classe — é preciso construir outro poder.",
+            "foto_url": "dados\/00-ref-lenin.jpg"
+        },
+        {
+            "nome": "Leon Trotsky",
+            "cargo": "A Revolução Permanente · A Revolução Traída",
+            "texto": "A continuidade do marxismo contra o stalinismo. Fundou a IV Internacional em 1938.",
+            "foto_url": "dados\/00-ref-trotsky.jpg"
+        },
+        {
+            "nome": "Nahuel Moreno",
+            "cargo": "Fundador da LIT-QI, em 1982",
+            "texto": "Desenvolveu o trotskismo na América Latina a partir da classe operária. O PSTU é a seção brasileira.",
+            "foto_url": "dados\/00-ref-moreno.jpg"
+        }
+    ],
+    "imagem_quadro": null,
+    "imagem_pequena": null
+}

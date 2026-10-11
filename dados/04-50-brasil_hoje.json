@@ -1,0 +1,28 @@
+{
+  "tipo": "texto",
+  "bloco": 4,
+  "modulo": "Bloco 4 · O Estado e a Revolução",
+  "tema": "escuro",
+  "pre_titulo": "O que queremos construir",
+  "titulo": "Um governo dos trabalhadores no Brasil",
+  "subtitulo": "",
+  "texto": "Não é uma proposta vaga para um futuro distante. É a conclusão lógica de tudo que vimos: um governo que use a riqueza produzida pelo trabalho para resolver os problemas da maioria.",
+  "imagem_url": "",
+  "imagem_escurecimento": 0,
+  "imagem_posicao": "centro",
+  "texto_borda": false,
+  "itens": [
+    "Estatizar os bancos e as grandes empresas — colocar a riqueza a serviço da maioria.",
+    "Revogar a reforma trabalhista e da previdência — restabelecer os direitos arrancados.",
+    "Acabar com a dívida pública como mecanismo de espoliação dos trabalhadores.",
+    "Garantir moradia, saúde e educação como direitos reais — não mercadorias."
+  ],
+  "proposta": {
+    "titulo": "Como esse governo nasce",
+    "texto": "Não nasce de uma eleição normal — nasce de um processo de luta que constrói, ao mesmo tempo, a mobilização das massas e a força organizada para defender as conquistas contra a reação burguesa. É para construir esse processo que o PSTU existe."
+  },
+  "diferencial": "",
+  "links": [
+    { "icone": "artigo", "texto": "Programa do PSTU", "url": "https://pstu.org.br" }
+  ]
+}
